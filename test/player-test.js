@@ -2,6 +2,8 @@ import chai from 'chai';
 import Player from '../src/Player.js';
 import spies from 'chai-spies';
 import Wheel from '../src/Wheel.js';
+import data from '../src/data/sample-data'
+
 chai.use(spies);
 
 const expect = chai.expect;
@@ -27,6 +29,10 @@ describe('Player', function() {
 
     it('should give the player a name', function() {
       expect(player.name).to.be.equal('Barbara');
+    });
+
+    it('should have an id', function() {
+      expect(player.id).to.be.equal(1);
     });
 
     it('should have a default score of zero', function () {
