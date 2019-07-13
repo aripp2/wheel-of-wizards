@@ -4,10 +4,10 @@ import Player from './Player.js';
 import Puzzle from './Puzzle.js';
 import Round from './Round.js';
 
-class Game {
+class Round {
     constructor(){
 
     }
 }
-  
-export default Game;
+
+export default Round;
