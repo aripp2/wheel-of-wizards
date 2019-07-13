@@ -23,15 +23,11 @@ describe('Game', function() {
     });
 
     it('should not have any players before a game begins', function() {
-        expect(game.players.length).to.be.equal(0);
+        expect(game.playersArray.length).to.be.equal(0);
     });
 
     it('should have three players when the game begins', function() {
-        expect(game.players.length).to.equal(3);
-    });
-
-    it('should have three players when the game begins', function() {
-        expect(game.players.length).to.equal(3);
+        expect(game.playersArray.length).to.equal(3);
     });
 
     it('should begin at round one', function () {
@@ -59,7 +55,7 @@ describe('Game', function() {
     });
 
     it('should declare a winner after four rounds', function () {
-        expect(game.declareWinner()).to.equal(1)
+        expect(game.declareWinner()).to.equal(game.player[1])
         //i was thinking popping those that did not win out of the array 
         //and checking the length of the 'winner array' to test this
     });
