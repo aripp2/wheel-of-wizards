@@ -10,7 +10,7 @@ describe('Round', function() {
   let round;
   
   beforeEach(function () {
-    round = new Round(data);
+    round = new Round();
   });
 
   it("should be a function", () => {
@@ -21,5 +21,4 @@ describe('Round', function() {
     expect(round).to.be.an.instanceOf(Round);
   });
 
-  
 });

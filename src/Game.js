@@ -9,7 +9,7 @@ class Game {
   constructor() {
     this.data = data;
     this.players = [];
-    this.round = new Round();
+    this.round = 0;
    
   }
 

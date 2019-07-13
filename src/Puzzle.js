@@ -6,9 +6,10 @@ import Round from './Round.js';
 import data from './data/sample-data';
 
 class Puzzle {
-    constructor() {
-      this.category = 
-    }
+  constructor() {
+   
+
+  }
 }
 
 export default Puzzle;
