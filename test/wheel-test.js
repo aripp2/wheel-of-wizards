@@ -19,4 +19,16 @@ describe('Wheel', function() {
     it('should be an instance of wheel', function() {
       expect(wheel).to.be.an.instanceOf(Wheel);
     });
+
+    it('should be a randomized wheel at the beginning of each round', function(){
+      expect(wheel.array).to.be.equal(randomArray);
+    });
+
+    it('should return a playable value', function(){
+      expect(wheel.returnValue()).to.be.equal('money/bankrupt/loseATurn')
+    });
+
+    it('should have more than six elements', function(){
+      expect(wheel.elements.length).to.be.equal(num>6)
+    });
 });
