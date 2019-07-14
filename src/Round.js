@@ -6,22 +6,34 @@ import Round from './Round';
 import data from './data/sample-data';
 
 class Round {
-  constructor(id) {
-    this.id = id;
-    this.wheel = new Wheel();
-    this.puzzle = new Puzzle();
-    this.currentSpin = currentSpin;
+  constructor(game, currentRound) {
+    this.game = game;
+    this.currentRound = currentRound;
+    this.puzzle = this.assignPuzzle();
+    this.currentSpin;
     // this.oneWord = Object.values(data.puzzles.one_word_answers.puzzle_bank);
   }
 
-  spinWheel() {
-    let value = Math.round(Math.random() * 21);
-    this.currentSpin = data.wheel[value];
+  createNewTurn() {
+    let turn = new Turn(this, player);
   }
 
+  endRound() {
+    //game.round++
+    //game.makeNewRound()
+  }
 
-  getRandomPuzzle(puzzles) {
+  assignPuzzle() {
+    //return a single puzzle object
+    // this.puzzle = new Puzzle(puzzleObj);
     let randomNumber = Math.floor(Math.random() * puzzles.length);
+  }
+
+  makePuzzleBank() {
+  // return all puzzles array
+  }
+
+  displayPuzzle() {
 
   }
 }
