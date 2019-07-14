@@ -30,6 +30,7 @@ describe('Wheel', function() {
       expect(wheel.returnValue()).to.be.equal('money/bankrupt/loseATurn')
     });
 
+
     it('should have more than six elements', function(){
       expect(wheel.elements.length).to.be.equal(num>6)
     });

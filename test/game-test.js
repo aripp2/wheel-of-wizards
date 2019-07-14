@@ -12,7 +12,7 @@ describe('Game', function() {
   let game;
 
   beforeEach(function () {
-    game = new Game();
+    game = new Game('Greg', 'Amanda', 'Amy');
   });
 
   it("should be a function", () => {
@@ -28,12 +28,17 @@ describe('Game', function() {
   });
 
   it('should have three players when the game begins', function() {
-    game.startGame();
+    game.createPlayers();
+    console.log(game.round);
     expect(game.players.length).to.equal(3);
   });
 
   it('should begin at round one', function () {
-    expect(game.round).to.equal(1)
+    // game.setRound();
+    console.log(game.setRound());
+    console.log(game.round.id);
+
+    expect(game.round.id).to.equal(1);
   });
     
   it('should start each player at zero in the beginning of each round', function() {
@@ -63,6 +68,16 @@ describe('Game', function() {
   //i was thinking popping those that did not win out of the array 
     //and checking the length of the 'winner array' to test this
   });
+
+  // it('should return a playable value', function(){
+  //   let output = game.randomizeWheelOutput();
+  //   console.log(output)
+    
+  // });
+
+  it.only('should return a playable value', function(){
+      expect(game.spinVal()).to.be.equal('money/bankrupt/loseATurn')
+    });
 
   it('should include a bonus round at the end of the fourth round', function() {
     expect().to.equal()
