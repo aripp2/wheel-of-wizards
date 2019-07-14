@@ -6,20 +6,29 @@ import Round from './Round.js';
 import data from './data/sample-data';
 
 class Game {
-  constructor() {
-    this.data = data;
+  constructor(p1, p2, p3) {
+    // this.data = data;
     this.players = [];
-    this.round = 0;
+    this.roundCounter = 0;
+    this.player1 = new Player(1, p1);
+    this.player2 = new Player(2, p2);
+    this.player3 = new Player(3, p3);
+    this.round = new Round(this.roundCounter);
+    
    
   }
 
-  startGame() {
-    let player1 = new Player(1, 'Amy');
-    let player2 = new Player(2, 'Amanda');
-    let player3 = new Player(3, 'Greg');
-    this.players.push(player1, player2, player3);
+  createPlayers() {
+    this.players.push(this.player1, this.player2, this.player3);
     return this.players;
   }
+
+  setRound() {
+    return this.roundCounter++;
+  }
+
+
+
 
 
 
