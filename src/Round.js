@@ -6,13 +6,13 @@ import Round from './Round';
 import data from './data/sample-data';
 
 class Round {
-  constructor(game, currentRound) {
+  constructor(game) {
     this.game = game;
-    this.currentRound = currentRound;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
     this.currentSpin;
     }
+
 
   createNewTurn() {
     let turn = new Turn(this, player);

@@ -1,12 +1,12 @@
 import chai from 'chai';
 import Round from '../src/Round';
-// import spies from 'chai-spies';
+import spies from 'chai-spies';
 import data from '../src/data/sample-data'
 import Game from '../src/Game';
 
 const expect = chai.expect;
 
-// chai.use(spies);
+chai.use(spies);
 
 describe('Round', function() {
   let game;

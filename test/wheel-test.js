@@ -1,6 +1,6 @@
 import chai from 'chai';
 import Wheel from '../src/Wheel';
-// import spies from 'chai-spies';
+import spies from 'chai-spies';
 import data from '../src/data/sample-data';
 
 const expect = chai.expect;
