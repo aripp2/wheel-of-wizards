@@ -1,14 +1,14 @@
 import chai from 'chai';
 import Game from '../src/Game.js';
-// import domUpdates from '../src/domUpdates.js';
-import spies from 'chai-spies';
+// import spies from 'chai-spies';
 import data from '../src/data/sample-data'
-
-chai.use(spies);
+// import domUpdates from '../src/domUpdates.js';
 
 const expect = chai.expect;
 
-describe('Game', function() {
+chai.use(spies);
+
+describe('Game', () => {
   let game;
 
   beforeEach(function () {
@@ -29,21 +29,15 @@ describe('Game', function() {
 
   it('should have three players when the game begins', function() {
     game.createPlayers();
-    console.log(game.round);
     expect(game.players.length).to.equal(3);
   });
 
   it('should begin at round one', function () {
-    // game.setRound();
-    console.log(game.setRound());
-    console.log(game.round.id);
-
-    expect(game.round.id).to.equal(1);
+    expect(game.roundCounter).to.equal(1);
   });
     
   it('should start each player at zero in the beginning of each round', function() {
-    game.startGame();
-    console.log(game.players[0])
+    game.createPlayers();
     expect(game.players[0].score).to.equal(0)
   });
 
@@ -75,8 +69,8 @@ describe('Game', function() {
     
   // });
 
-  it.only('should return a playable value', function(){
-      expect(game.spinVal()).to.be.equal('money/bankrupt/loseATurn')
+  it('should allow a player to quit at any time', function(){
+      // will check that method is available
     });
 
   it('should include a bonus round at the end of the fourth round', function() {

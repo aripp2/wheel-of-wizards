@@ -12,7 +12,6 @@ class Game {
     this.player1 = new Player(1, p1);
     this.player2 = new Player(2, p2);
     this.player3 = new Player(3, p3);
-    // this.round = new Round(this, this.roundCounter);
     this.round = this.makeNewRound();
     this.wheel = new Wheel(); 
     this.champion;
@@ -23,16 +22,12 @@ class Game {
     return this.players;
   }
 
-  // setRound() {
-  //   return this.roundCounter++;
-  // }
-
   returnChampion() {
     //return winner of game
   }
 
   makeNewRound() {
-    //this.roundCounter++;
+    this.roundCounter++;
     //this.round = new Round(this, this.roundCounter);
   }
 

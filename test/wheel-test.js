@@ -1,37 +1,34 @@
 import chai from 'chai';
-import Wheel from '../src/Wheel.js';
-import spies from 'chai-spies';
-import data from '../src/data/sample-data'
-
-chai.use(spies);
+import Wheel from '../src/Wheel';
+// import spies from 'chai-spies';
+import data from '../src/data/sample-data';
 
 const expect = chai.expect;
 
-describe('Wheel', function() {
-    let wheel;
-
-    beforeEach(function () {
-      wheel = new Wheel();
-    });
-
-    it("should be a function", () => {
-    expect(Wheel).to.be.a("function");
-    });
-
-    it('should be an instance of wheel', function() {
-      expect(wheel).to.be.an.instanceOf(Wheel);
-    });
-
-    it('should be a randomized wheel at the beginning of each round', function(){
-      expect(wheel.array).to.be.equal(randomArray);
-    });
-
-    it('should return a playable value', function(){
-      expect(wheel.returnValue()).to.be.equal('money/bankrupt/loseATurn')
-    });
+chai.use(spies);
 
 
-    it('should have more than six elements', function(){
-      expect(wheel.elements.length).to.be.equal(num>6)
-    });
+describe('Wheel', () => {
+  let wheel
+  beforeEach(() => {
+    wheel = new Wheel();
+  });
+
+  it('should be a function', () => {
+    expect(Wheel).to.be.a('function');
+  });
+
+  it('should be an instance of wheel', () => {
+    expect(wheel).to.be.an.instanceOf(Wheel);
+  });
+
+  it('should have more than six elements', () => {
+    expect(wheel.wheel.length).to.be.gt(6);
+  });
+
+  it('should be a randomized wheel at the beginning of each round', () => {
+    let output = wheel.returnSpinValue();
+    console.log(output)
+    // expect(spin).to.have.been.called(1);
+  });
 });

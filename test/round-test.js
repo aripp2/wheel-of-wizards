@@ -1,10 +1,11 @@
 import chai from 'chai';
 import Round from '../src/Round';
-import spies from 'chai-spies';
+// import spies from 'chai-spies';
 import data from '../src/data/sample-data'
-chai.use(spies);
 
 const expect = chai.expect;
+
+chai.use(spies);
 
 describe('Round', function() {
   let round;
@@ -20,5 +21,7 @@ describe('Round', function() {
   it('should be an instance of round', function() {
     expect(round).to.be.an.instanceOf(Round);
   });
+
+
 
 });
