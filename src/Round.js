@@ -3,6 +3,7 @@ import Game from './Game';
 import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
+import Turn from './Turn';
 import data from './data/sample-data';
 
 class Round {
@@ -10,27 +11,19 @@ class Round {
     this.game = game;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
+    this.turn = this.makeNewTurn();
     this.currentSpin;
     }
 
 
-  createNewTurn() {
-    let turn = new Turn(this, player);
+  makeNewTurn() {
+    return new Turn(this, 'CHANGETHISNAME');
   }
-
-  endRound() {
-    // game.roundCounter++
-    game.makeNewRound()
-  }
-  //endRound is probably going to happen
-  //when someone solves a puzzle in TURN
 
   assignPuzzle() {
-    // return a single puzzle object
+    this.makePuzzleBank();
     let randomNumber = Math.floor(Math.random() * this.puzzleBank.length);
-    console.log(randomNumber)
-    // this.puzzle = new Puzzle(puzzleObj);
-    // let puzzle = new Puzzle(randomNumber)
+    return new Puzzle(this.puzzleBank[randomNumber])
   }
 
   makePuzzleBank() {
@@ -40,11 +33,10 @@ class Round {
     let fourWordPuzzles = data.puzzles.four_word_answers.puzzle_bank;
     let allPuzzles = oneWordPuzzles.concat(...twoWordPuzzles, ...threeWordPuzzles, ...fourWordPuzzles);
     return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
-  // return all puzzles array
   }
 
   displayPuzzle() {
-
+    //dom
   }
 }
 
