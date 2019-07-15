@@ -28,7 +28,7 @@ class Game {
 
   makeNewRound() {
     this.roundCounter++;
-    //this.round = new Round(this, this.roundCounter);
+    // this.round = new Round(this, this.roundCounter);
   }
 
 }

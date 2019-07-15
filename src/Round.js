@@ -9,27 +9,37 @@ class Round {
   constructor(game, currentRound) {
     this.game = game;
     this.currentRound = currentRound;
+    this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
     this.currentSpin;
-    // this.oneWord = Object.values(data.puzzles.one_word_answers.puzzle_bank);
-  }
+    }
 
   createNewTurn() {
     let turn = new Turn(this, player);
   }
 
   endRound() {
-    //game.round++
-    //game.makeNewRound()
+    // game.roundCounter++
+    game.makeNewRound()
   }
+  //endRound is probably going to happen
+  //when someone solves a puzzle in TURN
 
   assignPuzzle() {
-    //return a single puzzle object
+    // return a single puzzle object
+    let randomNumber = Math.floor(Math.random() * this.puzzleBank.length);
+    console.log(randomNumber)
     // this.puzzle = new Puzzle(puzzleObj);
-    let randomNumber = Math.floor(Math.random() * puzzles.length);
+    // let puzzle = new Puzzle(randomNumber)
   }
 
   makePuzzleBank() {
+    let oneWordPuzzles = data.puzzles.one_word_answers.puzzle_bank;
+    let twoWordPuzzles = data.puzzles.two_word_answers.puzzle_bank;
+    let threeWordPuzzles = data.puzzles.three_word_answers.puzzle_bank;
+    let fourWordPuzzles = data.puzzles.four_word_answers.puzzle_bank;
+    let allPuzzles = oneWordPuzzles.concat(...twoWordPuzzles, ...threeWordPuzzles, ...fourWordPuzzles);
+    return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
   // return all puzzles array
   }
 
@@ -37,5 +47,6 @@ class Round {
 
   }
 }
+
 
 export default Round;

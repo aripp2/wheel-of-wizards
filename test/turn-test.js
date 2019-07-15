@@ -1,11 +1,11 @@
-// import Wheel from '../src/Wheel';
-// import Game from '../src/Game';
-// import Player from '../src/Player';
-// import Puzzle from '../src/Puzzle';
-// import Round from '../src/Round';
+import Wheel from '../src/Wheel';
+import Game from '../src/Game';
+import Player from '../src/Player';
+import Puzzle from '../src/Puzzle';
+import Round from '../src/Round';
 // import spies from 'chai-spies';
 
-const expect = chai.expect;
+// const expect = chai.expect;
 
 // chai.use(spies);
 
