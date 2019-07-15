@@ -1,8 +1,10 @@
 import chai from 'chai';
 import Player from '../src/Player.js';
-import spies from 'chai-spies';
+// import spies from 'chai-spies';
 import Wheel from '../src/Wheel.js';
 import data from '../src/data/sample-data'
+
+const expect = chai.expect;
 
 chai.use(spies);
 

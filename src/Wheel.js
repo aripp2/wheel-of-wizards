@@ -11,14 +11,9 @@ class Wheel {
   }
 
   returnSpinValue() {
-    let value = Math.round(Math.random() * 21);
+    let value = Math.round(Math.random() * this.wheel.length);
 
     return this.wheel[value];
-  }
-
-  randomizeWheel() {
-    //make a random wheel
-    //shuffle the wheel indexes
   }
 }
 

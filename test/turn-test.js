@@ -1,11 +1,13 @@
-import Wheel from './Wheel.js';
-import Game from './Game.js';
-import Player from './Player.js';
-import Puzzle from './Puzzle.js';
-import Round from './Round.js';
-import spies from 'chai-spies';
+// import Wheel from '../src/Wheel';
+// import Game from '../src/Game';
+// import Player from '../src/Player';
+// import Puzzle from '../src/Puzzle';
+// import Round from '../src/Round';
+// import spies from 'chai-spies';
 
-chai.use(spies);
+const expect = chai.expect;
+
+// chai.use(spies);
 
 describe('Turn', () => {
   let turn;

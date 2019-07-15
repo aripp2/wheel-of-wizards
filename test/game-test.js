@@ -1,12 +1,14 @@
 import chai from 'chai';
 import Game from '../src/Game.js';
-import spies from 'chai-spies';
+// import spies from 'chai-spies';
 import data from '../src/data/sample-data'
 // import domUpdates from '../src/domUpdates.js';
 
+const expect = chai.expect;
+
 chai.use(spies);
 
-describe('Game', function() {
+describe('Game', () => {
   let game;
 
   beforeEach(function () {
@@ -27,7 +29,6 @@ describe('Game', function() {
 
   it('should have three players when the game begins', function() {
     game.createPlayers();
-    console.log(game.round);
     expect(game.players.length).to.equal(3);
   });
 
@@ -37,7 +38,6 @@ describe('Game', function() {
     
   it('should start each player at zero in the beginning of each round', function() {
     game.createPlayers();
-    console.log(game.players[0])
     expect(game.players[0].score).to.equal(0)
   });
 
@@ -68,11 +68,6 @@ describe('Game', function() {
   //   console.log(output)
     
   // });
-
-  it.only('should return a playable value', function(){
-    // check that the method is being called using spies
-      expect(game.spinVal()).to.be.equal('money/bankrupt/loseATurn')
-    });
 
   it('should allow a player to quit at any time', function(){
       // will check that method is available
