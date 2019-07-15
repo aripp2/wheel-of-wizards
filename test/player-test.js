@@ -6,7 +6,7 @@ import data from '../src/data/sample-data'
 
 const expect = chai.expect;
 
-chai.use(spies);
+// chai.use(spies);
 
 describe('Player', function() {
     let player;
