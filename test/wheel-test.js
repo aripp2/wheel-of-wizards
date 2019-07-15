@@ -5,7 +5,6 @@ import data from '../src/data/sample-data'
 
 chai.use(spies);
 
-const expect = chai.expect;
 
 describe('Wheel', function() {
     let wheel;
@@ -24,10 +23,12 @@ describe('Wheel', function() {
 
     it('should be a randomized wheel at the beginning of each round', function(){
       expect(wheel.array).to.be.equal(randomArray);
+      // expect(spin).to.have.been.called(1);
     });
 
     it('should return a playable value', function(){
       expect(wheel.returnValue()).to.be.equal('money/bankrupt/loseATurn')
+      // expect(return value).to.be.a(number || string)
     });
 
 
