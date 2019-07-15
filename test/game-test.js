@@ -1,6 +1,6 @@
 import chai from 'chai';
 import Game from '../src/Game.js';
-// import spies from 'chai-spies';
+import spies from 'chai-spies';
 import data from '../src/data/sample-data'
 // import domUpdates from '../src/domUpdates.js';
 
@@ -11,7 +11,7 @@ const expect = chai.expect;
 describe('Game', () => {
   let game;
 
-  beforeEach(function () {
+  beforeEach(() => {
     game = new Game('Greg', 'Amanda', 'Amy');
   });
 
@@ -19,61 +19,53 @@ describe('Game', () => {
     expect(Game).to.be.a("function");
   });
 
-  it('should be an instance of game', function() {
+  it('should be an instance of game', () => {
     expect(game).to.be.an.instanceOf(Game);
   });
 
-  it('should not have any players before a game begins', function() {
+  it('should not have any players before a game begins', () => {
     expect(game.players.length).to.be.equal(0);
   });
 
-  it('should have three players when the game begins', function() {
+  it('should have three players when the game begins', () => {
     game.createPlayers();
     expect(game.players.length).to.equal(3);
   });
 
-  it('should begin at round one', function () {
-    expect(game.roundCounter).to.equal(1);
+  it.only('should begin at round one', () => {
+    game.createPlayers();
+    game.makeNewRound();
+    expect(game.roundCounter).to.equal(2);
   });
     
-  it('should start each player at zero in the beginning of each round', function() {
+  it('should start each player at zero in the beginning of each round', () => {
     game.createPlayers();
     expect(game.players[0].score).to.equal(0)
   });
 
-  it('should allow the winner of a round to bank their money', function() {
+  it('should allow the winner of a round to bank their money', () => {
     game.checkForCorrectAnswer('correct answer is true')
     expect(game.player['player that gave answer'].account).to.equal(2500)
     //or somethingish like that
     //expect losers to still be at $0
   });
 
-  it('should have a large array of puzzles', function() {
-    expect(game.puzzles.length).to.equal(4)
+  it('should declare a winner after four rounds', () => {
+    game.makeNewRound();
+    game.makeNewRound();
+    game.makeNewRound();
+    game.makeNewRound();
+    // game.returnChampion();
+    // expect(game.champion).to.equal();
+    // dom
   });
 
-  it('should randomize the puzzles', function() {
-    expect(game.randomizePuzzles()).to.equal(someRandomArray)
-    //maybe a ".to.not.equal(originalArray)"
-  });
-
-  it('should declare a winner after four rounds', function () {
-    expect(game.declareWinner()).to.equal(game.player[1])
-  //i was thinking popping those that did not win out of the array 
-    //and checking the length of the 'winner array' to test this
-  });
-
-  // it('should return a playable value', function(){
-  //   let output = game.randomizeWheelOutput();
-  //   console.log(output)
-    
-  // });
-
-  it('should allow a player to quit at any time', function(){
-      // will check that method is available
+  it('should allow a player to quit at any time', () => {
+    game.quitGame();
+      // dom
     });
 
-  it('should include a bonus round at the end of the fourth round', function() {
+  it('should include a bonus round at the end of the fourth round', () => {
     expect().to.equal()
     //unsure how to test this, and this may be better in round-test
   });

@@ -6,11 +6,12 @@ import Round from './Round';
 import data from './data/sample-data';
 
 class Round {
-  constructor(game, currentRound) {
+  constructor(game) {
     this.game = game;
-    this.currentRound = currentRound;
-    this.puzzle = this.assignPuzzle();
-    this.currentSpin;
+    console.log(this.game)
+   
+    // this.puzzle = this.assignPuzzle();
+    this.currentSpin = true;
     // this.oneWord = Object.values(data.puzzles.one_word_answers.puzzle_bank);
   }
 
