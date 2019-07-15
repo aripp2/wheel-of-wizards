@@ -6,7 +6,7 @@ import Game from '../src/Game';
 
 const expect = chai.expect;
 
-chai.use(spies);
+// chai.use(spies);
 
 describe('Round', function() {
   let game;
