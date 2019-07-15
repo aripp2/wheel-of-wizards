@@ -32,7 +32,7 @@ describe('Game', () => {
     expect(game.players.length).to.equal(3);
   });
 
-  it.only('should begin at round one', () => {
+  it('should begin at round one', () => {
     game.createPlayers();
     game.makeNewRound();
     expect(game.roundCounter).to.equal(2);

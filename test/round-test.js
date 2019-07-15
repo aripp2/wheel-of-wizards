@@ -4,6 +4,7 @@ import spies from 'chai-spies';
 import data from '../src/data/sample-data'
 import Game from '../src/Game';
 
+
 const expect = chai.expect;
 
 // chai.use(spies);
@@ -36,13 +37,16 @@ describe('Round', function() {
     expect(round.puzzleBank.length).to.equal(96)
   });
 
-  it('should make a puzzle bank of all puzzles', function(){
-    round.makePuzzleBank();
-    round.assignPuzzle();
-    expect(round.puzzleBank.length).to.equal(96)
+  it('make a new Puzzle', function(){
+    // round.makePuzzleBank();
+    // round.assignPuzzle();
+    chai.spy.on(Round, ['assignPuzzle']);
+    console.log(round.puzzle)
+    expect().to.equal(96)
   });
 
-  it('should make a new Turn', function (){
-    
+  it.only('should make a new Turn', function (){
+    chai.spy.on(Round, [makeNewTurn])
+    console.log(round.createNewTurn())
   })
 });
