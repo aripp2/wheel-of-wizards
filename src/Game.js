@@ -22,15 +22,26 @@ class Game {
     return this.players;
   }
 
+  makeNewRound() {
+    if (this.roundCounter < 4) {
+    this.roundCounter++;
+    return new Round(this);
+    } else {
+      this.returnChampion();
+      // bonus round
+    }
+  }
+
   returnChampion() {
     //return winner of game
+    let order = this.players.sort((a,b) =>
+      b.bank - a.bank);
+    this.champion = order[0];
   }
 
-  makeNewRound() {
-    this.roundCounter++;
-    //this.round = new Round(this, this.roundCounter);
+  quitGame() {
+    // dom
   }
-
 }
   
 export default Game;
