@@ -13,6 +13,7 @@ class Round {
     this.puzzle = this.assignPuzzle();
     this.turn = this.makeNewTurn();
     this.currentSpin;
+    console.log(this.puzzle)
     }
 
 
