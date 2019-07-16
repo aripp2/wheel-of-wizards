@@ -4,6 +4,7 @@ import Game from '../src/Game';
 import Player from '../src/Player';
 import Puzzle from '../src/Puzzle';
 import Round from '../src/Round';
+import Turn from '../src/Turn';
 
 import chai from 'chai';
 
@@ -35,9 +36,9 @@ describe('Turn', () => {
   });
 
   it('should take 100 out of players score if vowel is chosen', () => {
-    turn.buyVowel();
+    turn.buyVowel('A');
     expect(player.score).to.equal(player.score - 100);
-
+    expect(turn.buyVowel('A')).to.equal('A');
     // it('should allow player to buy a vowel for hundred dollars', () => {
     //   expect(player.account).to.be.equal(500);
     //   player.guess(vowel);
@@ -45,12 +46,19 @@ describe('Turn', () => {
     // });
   });
 
+  it.only('should return a boolean if guess is same as correct answer', () => {
+    expect(turn.solvePuzzle()).to.equal('correct word');
+  });
+
+  it('should add money to score if correct letter was guessed', () => {
+    expect(turn.updateScore('A')).to.equal('letter')
+  })
+
   it('should be able to clear players score if wheel returns bankrupt', () => {
     wheel.returnElement('BANKRUPT');
     turn.goBankrupt();
     expect(player.score).to.equal(0);
   });
-
 
   it('should end a turn if wheel returns lose-a-turn', () => {
     wheel.returnElement('LOSE-A-TURN');
