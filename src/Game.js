@@ -20,7 +20,6 @@ class Game {
     this.round = this.makeNewRound();
     this.wheel = new Wheel(); 
     this.champion;
-    console.log(this.player1)
   }
 
   createPlayers() {
