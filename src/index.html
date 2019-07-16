@@ -6,13 +6,13 @@
   <body>
     <h2>Welcome to Wheel of Wizards</h2>
     <form class="splash" action="">
-      <label for="player1"></label>
+      <label for="player1">Player 1</label>
       <input id="player1Input" class="nameInputs" name="player1" type="text" placeholder="Enter Player One Name">
-      <label for="player2"></label>
+      <label for="player2">Player 2</label>
       <input id="player2Input" class="nameInputs" name="player2" type="text" placeholder="Enter Player Two Name">
-      <label for="player3"></label>
+      <label for="player3">Player 3</label>
       <input id="player3Input" class="nameInputs" name="player3" type="text" placeholder="Enter Player Three Name">
-      <button>Start Game</button>
+      <button class="startGame">Start Game</button>
     </form>
     <main>
       <h1>Wheel of Wizards</h1>
@@ -58,24 +58,24 @@
 
       <section class="playerBoxes">
         <article class="box player1Box">
-          <h3 class="boxName player1Name"></h3>
+          <h3 class="boxName player1Name">Harry</h3>
           <h4 class="score">Round Score: <span class="player1Score"></span></h4>
           <h4 class="bank">Bank: <span class="player1Bank"></span></h4>
         </article>
         <article class="box player2Box">
-          <h3 class="boxName player2Name"></h3>
+          <h3 class="boxName player2Name">Gandalf</h3>
           <h4 class="score">Round Score: <span class="player2Score"></span></h4>
           <h4 class="bank">Bank: <span class="player2Bank"></span></h4>
         </article>
         <article class="box player3Box">
-          <h3 class="boxName player3Name"></h3>
+          <h3 class="boxName player3Name">Gryffindor</h3>
           <h4 class="score">Round Score: <span class="player3Score"></span></h4>
           <h4 class="bank">Bank: <span class="player3Bank"></span></h4>
         </article>
       </section>
     </main>
    
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
