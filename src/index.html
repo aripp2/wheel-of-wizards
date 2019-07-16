@@ -4,7 +4,7 @@
     <title>Wheel of Wizards</title>
   </head>
   <body>
-    <h1>Welcome to Wheel of Wizards</h1>
+    <h2>Welcome to Wheel of Wizards</h2>
     <form class="splash" action="">
       <label for="player1"></label>
       <input id="player1Input" class="nameInputs" name="player1" type="text" placeholder="Enter Player One Name">
@@ -15,7 +15,29 @@
       <button>Start Game</button>
     </form>
     <main>
+      <h1>Wheel of Wizards</h1>
+      <h2 class="turnPrompt"><span class="currentPlayerName"></span> it is your turn!</h2>
       
+
+
+
+      <section>
+        <article class="box player1Box">
+          <h3 class="boxName player1Name"></h3>
+          <h4 class="score">Round Score: <span class="player1Score"></span></h4>
+          <h4 class="bank">Bank: <span class="player1Bank"></span></h4>
+        </article>
+        <article class="box player2Box">
+          <h3 class="boxName player2Name"></h3>
+          <h4 class="score">Round Score: <span class="player2Score"></span></h4>
+          <h4 class="bank">Bank: <span class="player2Bank"></span></h4>
+        </article>
+        <article class="box player3Box">
+          <h3 class="boxName player3Name"></h3>
+          <h4 class="score">Round Score: <span class="player3Score"></span></h4>
+          <h4 class="bank">Bank: <span class="player3Bank"></span></h4>
+        </article>
+      </section>
     </main>
    
 
