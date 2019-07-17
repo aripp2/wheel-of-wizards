@@ -28,16 +28,16 @@ describe('Round', function() {
 
   it('should make a new round if a round has ended', function() {
     round.endRound();
-    // chai.spy.on(game, ['makeNewRound']);
+    // chai.spy.on(game, ['makeNewRound']); //spying on whatever is called within that function
     expect(game.makeNewRound).to.be.called(1);
   });
 
-  it('should make a puzzle bank of all puzzles', function(){
+  it('should make a puzzle bank of all puzzles', function() {
     round.makePuzzleBank();
     expect(round.puzzleBank.length).to.equal(96)
   });
 
-  it('make a new Puzzle', function(){
+  it('make a new Puzzle', function() {
     // round.makePuzzleBank();
     // round.assignPuzzle();
     chai.spy.on(Round, ['assignPuzzle']);

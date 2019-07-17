@@ -1,4 +1,3 @@
-
 import Wheel from '../src/Wheel';
 import Game from '../src/Game';
 import Player from '../src/Player';
