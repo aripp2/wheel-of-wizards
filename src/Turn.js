@@ -6,10 +6,10 @@ import Round from './Round';
 import data from './data/sample-data';
 
 class Turn {
-  constructor(players, wheel) {
+  constructor(players) {
     // this.round = round;
-    this.wheel = wheel;
-    console.log('turn', wheel)
+    this.wheel = data.wheel;
+    console.log('turn', data.wheel)
     this.players = players;
     this.currentSpin;
     this.score = 0;
@@ -19,7 +19,7 @@ class Turn {
 
   spinWheel() {
     this.currentSpin = Math.round(Math.random() * this.wheel.length);
-    return this.wheel[currentSpin];
+    return this.wheel[this.currentSpin];
   }
 
   buyVowel(chosenVowel) {

@@ -22,8 +22,7 @@ $('.startGame').click((event) => {
   let player1 = $('#player1Input').val();
   let player2 = $('#player2Input').val();
   let player3 = $('#player3Input').val();
-  let wheel = new Wheel();
-  game = new Game(wheel.wheel);
+  game = new Game();
   // console.log(game);
   game.createPlayers(player1, player2, player3);
   updatePlayer1();

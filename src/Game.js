@@ -8,12 +8,10 @@ import data from './data/sample-data';
 
 
 class Game {
-  constructor(wheel) {
+  constructor() {
     this.roundCounter = 0;
     this.players = [];
     this.round;
-    this.wheel = wheel;
-    console.log('wheel instance', this.wheel); 
     this.champion;
     console.log('this', this)
     // console.log(this);
@@ -32,7 +30,7 @@ class Game {
   makeNewRound() {
     if (this.roundCounter < 4) {
       this.roundCounter++;
-      this.round = new Round(this.players, this.wheel);
+      this.round = new Round(this.players);
     } else {
       this.returnChampion();
       // bonus round
