@@ -7,13 +7,11 @@ import Turn from './Turn';
 import data from './data/sample-data';
 
 class Round {
-  constructor(players, wheel) {
+  constructor(players) {
     this.players = players;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
-    this.wheel = wheel;
     this.turn = this.makeNewTurn();
-    console.log('ROUND', wheel)
     this.currentSpin;
     //this.currentPlayer;
     // console.log(this.puzzle)
@@ -23,7 +21,7 @@ class Round {
 
 
   makeNewTurn() {
-    return new Turn(this.players, this.wheel);
+    return new Turn(this.players);
   }
 
   assignPuzzle() {
