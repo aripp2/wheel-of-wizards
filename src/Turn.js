@@ -6,19 +6,20 @@ import Round from './Round';
 import data from './data/sample-data';
 
 class Turn {
-  constructor(round, player) {
-    this.round = round;
-    this.player = player;
+  constructor(players, wheel) {
+    // this.round = round;
+    this.wheel = wheel;
+    console.log('turn', wheel)
+    this.players = players;
     this.currentSpin;
     this.score = 0;
     this.spunWheel = false;
+    console.log(this)
   }
 
   spinWheel() {
-    //call wheel spinWheel 
-    //Assign to current spin
-    let value = Math.round(Math.random() * 21);
-    this.currentSpin = data.wheel[value];
+    this.currentSpin = Math.round(Math.random() * this.wheel.length);
+    return this.wheel[currentSpin];
   }
 
   buyVowel(chosenVowel) {
@@ -67,7 +68,7 @@ class Turn {
       Player.score = 0;
     }
   }
-
+ 
   looseTurn() {
     // if player chooses wrong letter or vowel
     // move to next player 

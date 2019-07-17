@@ -4,10 +4,81 @@
     <title>Wheel of Wizards</title>
   </head>
   <body>
-    <h1>Welcome to Wheel of Wizards</h1>
+    <h2>Welcome to Wheel of Wizards</h2>
+    <form class="splash" action="">
+      <label for="player1">Player 1</label>
+      <input id="player1Input" class="nameInputs" name="player1" type="text" placeholder="Enter Player One Name">
+      <label for="player2">Player 2</label>
+      <input id="player2Input" class="nameInputs" name="player2" type="text" placeholder="Enter Player Two Name">
+      <label for="player3">Player 3</label>
+      <input id="player3Input" class="nameInputs" name="player3" type="text" placeholder="Enter Player Three Name">
+      <button class="startGame">Start Game</button>
+    </form>
+    <main>
+      <h1>Wheel of Wizards</h1>
+      <h2 class="turnPrompt"><span class="currentPlayerName"></span> it is your turn!</h2>
+      <h3>Category: <span class="category"></span></h3>
+      
+      <div class="puzzleInputArea"></div>
+      <h3>Hint: <span class="hint"></span></h3>
 
-    <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px">
+      <section class="consonants">
+        <button class="consB">B</button>
+        <button class="consC">C</button>
+        <button class="consD">D</button>
+        <button class="consF">F</button>
+        <button class="consG">G</button>
+        <button class="consH">H</button>
+        <button class="consJ">J</button>
+        <button class="consK">K</button>
+        <button class="consL">L</button>
+        <button class="consM">M</button>
+        <button class="consN">N</button>
+        <button class="consP">P</button>
+        <button class="consQ">Q</button>
+        <button class="consR">R</button>
+        <button class="consS">S</button>
+        <button class="consT">T</button>
+        <button class="consV">V</button>
+        <button class="consW">W</button>
+        <button class="consX">X</button>
+        <button class="consY">Y</button>
+        <button class="consZ">Z</button>
+      </section>
+      <section class="vowels">
+        <button class="vowelA">A</button>
+        <button class="vowelE">E</button>
+        <button class="vowelI">I</button>
+        <button class="vowelO">O</button>
+        <button class="vowelU">U</button>
+      </section>
 
+      <section class="crystalBall">
+          
+        <p class="spinValue"></p>
+        <button class="spinBtn">Spin Your Future, Muggle</button>
+      </section>
+
+      <section class="playerBoxes">
+        <article class="box player1Box">
+          <h3 class="boxName player1Name">Harry</h3>
+          <h4 class="score">Round Score: $<span class="player1Score"></span></h4>
+          <h4 class="bank">Bank: $<span class="player1Bank"></span></h4>
+        </article>
+        <article class="box player2Box">
+          <h3 class="boxName player2Name">Gandalf</h3>
+          <h4 class="score">Round Score: $<span class="player2Score"></span></h4>
+          <h4 class="bank">Bank: $<span class="player2Bank"></span></h4>
+        </article>
+        <article class="box player3Box">
+          <h3 class="boxName player3Name">Gryffindor</h3>
+          <h4 class="score">Round Score: $<span class="player3Score"></span></h4>
+          <h4 class="bank">Bank: $<span class="player3Bank"></span></h4>
+        </article>
+      </section>
+    </main>
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

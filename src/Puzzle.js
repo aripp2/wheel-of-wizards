@@ -10,7 +10,7 @@ class Puzzle {
     this.category = puzzleObj['category'];
     this.totalWords = puzzleObj['number_of_words'];
     this.totalLetters = puzzleObj['total_number_of_letters'];
-    this.description = puzzleObj['description'];
+    this.hint = puzzleObj['description'];
     this.correctAnswer = [...puzzleObj.correct_answer.toUpperCase()];
     this.correctGuesses = [];
     this.incorrectGuesses = [];

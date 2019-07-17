@@ -1,3 +1,4 @@
+
 import Wheel from './Wheel.js';
 import Game from './Game.js';
 import Player from './Player.js';
@@ -5,27 +6,33 @@ import Puzzle from './Puzzle.js';
 import Round from './Round.js';
 import data from './data/sample-data';
 
+
 class Game {
-  constructor(p1, p2, p3) {
-    this.players = [];
+  constructor(wheel) {
     this.roundCounter = 0;
-    this.player1 = new Player(1, p1);
-    this.player2 = new Player(2, p2);
-    this.player3 = new Player(3, p3);
-    this.round = this.makeNewRound();
-    this.wheel = new Wheel(); 
+    this.players = [];
+    this.round;
+    this.wheel = wheel;
+    console.log('wheel instance', this.wheel); 
     this.champion;
+    console.log('this', this)
+    // console.log(this);
+    // console.log(this.wheel.returnSpinValue())
   }
 
-  createPlayers() {
-    this.players.push(this.player1, this.player2, this.player3);
+  createPlayers(p1, p2, p3) {
+    let player1 = new Player(1, p1);
+    let player2 = new Player(2, p2);
+    let player3 = new Player(3, p3);
+    this.players.push(player1, player2, player3);
     return this.players;
   }
 
+
   makeNewRound() {
     if (this.roundCounter < 4) {
-    this.roundCounter++;
-    return new Round(this);
+      this.roundCounter++;
+      this.round = new Round(this.players, this.wheel);
     } else {
       this.returnChampion();
       // bonus round
@@ -34,7 +41,7 @@ class Game {
 
   returnChampion() {
     //return winner of game
-    let order = this.players.sort((a,b) =>
+    let order = this.players.sort((a, b) =>
       b.bank - a.bank);
     this.champion = order[0];
   }

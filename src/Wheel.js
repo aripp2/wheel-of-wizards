@@ -12,7 +12,6 @@ class Wheel {
 
   returnSpinValue() {
     let value = Math.round(Math.random() * this.wheel.length);
-
     return this.wheel[value];
   }
 }

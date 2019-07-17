@@ -7,17 +7,23 @@ import Turn from './Turn';
 import data from './data/sample-data';
 
 class Round {
-  constructor(game) {
-    this.game = game;
+  constructor(players, wheel) {
+    this.players = players;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
+    this.wheel = wheel;
     this.turn = this.makeNewTurn();
+    console.log('ROUND', wheel)
     this.currentSpin;
-    }
+    //this.currentPlayer;
+    // console.log(this.puzzle)
+    // console.log(this.);
+
+  }
 
 
   makeNewTurn() {
-    return new Turn(this, 'CHANGETHISNAME');
+    return new Turn(this.players, this.wheel);
   }
 
   assignPuzzle() {
@@ -35,9 +41,6 @@ class Round {
     return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
   }
 
-  displayPuzzle() {
-    //dom
-  }
 }
 
 
