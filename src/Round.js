@@ -36,15 +36,6 @@ class Round {
     return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
   }
 
-  // displayPuzzle() {
-  //   let list = `<div class="currentPuzzle">`
-  //   let currentPuzzle = this.puzzle.correctAnswer.forEach(letter => {
-  //     list += `<p class="puzzleCharacter">${letter}</p>`;  
-  //   })
-  //   list += "</div>";
-  //   return list;
-  // }
-
 }
 
 

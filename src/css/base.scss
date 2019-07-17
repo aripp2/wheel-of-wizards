@@ -4,3 +4,20 @@ $primary-background: pink;
 body {
   background-color: $primary-background;
 }
+
+.currentPuzzle {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  justify-content: space-evenly;
+}
+
+.puzzleContainer {
+  border: 1px solid black;
+  height: 20px;
+  width: 20px;
+  padding: 1%;
+  text-align: center;
+  display: flex;
+}
+

@@ -9,9 +9,6 @@ import './css/base.scss';
 
 import Game from './Game.js';
 
-
-
-  console.log('ready')
   let game;
 
 $('.startGame').click((event) => {
@@ -24,8 +21,11 @@ $('.startGame').click((event) => {
   updatePlayer1();
   updatePlayer2();
   updatePlayer3();
-  console.log('this', game)
   $('.puzzleInputArea').html(`${appendPuzzle()}`);
+  $('.puzzleCharacter').hide();
+  $('.symbol').show();
+  $('.category').text(game.round.puzzle.category);
+  $('.hint').text(game.round.puzzle.description);
 
 })
 
@@ -51,9 +51,20 @@ function updatePlayer3() {
 function appendPuzzle() {
   let list = `<div class="currentPuzzle">`
   let currentPuzzle = game.round.puzzle.correctAnswer.forEach(letter => {
-      list += `<p class="puzzleCharacter">${letter}</p>`;  
+      if(letter === '&' || letter === '-' || letter === '\''){
+      list += `<p class="puzzleContainer"><span class="puzzleCharacter symbol">${letter}</span></p>`; 
+      } else {
+      list += `<p class="puzzleContainer"><span class="puzzleCharacter ${letter}">${letter}</span></p>`; 
+      } 
   })
     list += "</div>";
-    console.log('list', list)
     return list;
 }
+
+// function appendCategory() {
+//   $('.category').text(game.round.puzzle.category);
+// }
+
+// function appendHint() {
+//   $('.hint').text(game.round.puzzle.description);
+// }
