@@ -1,5 +1,3 @@
-
-import Wheel from './Wheel.js';
 import Game from './Game.js';
 import Player from './Player.js';
 import Puzzle from './Puzzle.js';

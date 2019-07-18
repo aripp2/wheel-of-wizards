@@ -1,4 +1,3 @@
-import Wheel from './Wheel';
 import Game from './Game';
 import Player from './Player';
 import Puzzle from './Puzzle';

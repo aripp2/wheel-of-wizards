@@ -13,7 +13,7 @@ import './css/base.scss';
 // import './images/turing-logo.png'
 
 import Game from './Game.js';
-import Wheel from './Wheel.js';
+import domUpdates from './domUpdates';
 
 let game;
 
@@ -28,12 +28,8 @@ $('.startGame').click((event) => {
   updatePlayer1();
   updatePlayer2();
   updatePlayer3();
-  game.makeNewRound()
-  $('.puzzleInputArea').html(`${appendPuzzle()}`);
-  $('.puzzleCharacter').hide();
-  $('.symbol').show();
-  $('.category').text(game.round.puzzle.category);
-  $('.hint').text(game.round.puzzle.hint);
+  game.makeNewRound();
+  appendPuzzle();
 })
 
 $('.spinBtn').click((event) => {
@@ -62,7 +58,7 @@ function updatePlayer3() {
 }
 
 
-function appendPuzzle() {
+function createPuzzle() {
   let list = `<div class="currentPuzzle">`
   let currentPuzzle = game.round.puzzle.correctAnswer.forEach(letter => {
     if (letter === '&' || letter === '-' || letter === '\'') {
@@ -75,6 +71,14 @@ function appendPuzzle() {
   })
   list += "</div>";
   return list;
+}
+
+function appendPuzzle() {
+  $('.puzzleInputArea').html(`${createPuzzle()}`);
+  $('.puzzleCharacter').hide();
+  $('.symbol').show();
+  $('.category').text(game.round.puzzle.category);
+  $('.hint').text(game.round.puzzle.hint);
 }
 
 // function appendCategory() {
