@@ -38,7 +38,9 @@ $('.startGame').click((event) => {
 
 $('.spinBtn').click((event) => {
   event.preventDefault();
-  $('.spinValue').text(game.round.turn.spinWheel());
+  game.round.spinWheel();
+  game.round.spinOptions();
+  $('.spinValue').text(game.round.spinWheel());
 })
     
 
