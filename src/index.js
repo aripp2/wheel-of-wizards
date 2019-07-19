@@ -33,7 +33,21 @@ function startGame(data, player1, player2, player3 ) {
 
 $('.spinBtn').click((event) => {
   event.preventDefault();
+  game.round.spinWheel();
   $('.spinValue').text(game.round.spinWheel());
+  game.round.spinOptions();
+})
+
+$('.solvePuzzleButton').click((event) => {
+  event.preventDefault();
+  let playerGuess = $('.solvePuzzleInput').val()
+  let result = game.round.solvePuzzle(playerGuess);
+  console.log(result)
+  if (result){
+    console.log('boom')
+    game.makeNewRound()
+    console.log(game.round)
+  }
 })
 
 

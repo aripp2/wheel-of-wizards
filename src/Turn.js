@@ -6,16 +6,14 @@ import domUpdates from './domUpdates'
 // import data from './data/sample-data';
 
 class Turn {
-  constructor(players) {
-    // this.round = round;
+  constructor(players, puzzle) {
     this.wheel = data.wheel;
-    console.log('turn', data.wheel)
+    // this.round = round;
+    this.puzzle = puzzle; 
     this.players = players;
-    this.currentPlayer;
-    this.currentSpin;
-    this.guess;
+    this.currentPlayer = this.findCurrentPlayer();
+    this.currentSpin = null;
     this.spunWheel = false;
-    console.log(this)
   }
 
   determinePlayer() {
@@ -24,6 +22,7 @@ class Turn {
 
   spinWheel() {
     this.currentSpin = Math.round(Math.random() * this.wheel.length);
+    this.spinWheelHandler()
     return this.wheel[this.currentSpin];
   }
 
@@ -38,6 +37,32 @@ class Turn {
       guess = domUpdates.chooseConsonant();
     }
   }
+
+  //   if(this.currentSpin === 'BANKRUPT'){
+  //     this.goBankrupt();
+        console.log(Game.Round)
+        round.makeNewTurn()
+  //   } if(this.currentSpin === 'LOSE-A-TURN'){
+  //     this.findCurrentPlayer()
+  //   } else {
+  //     //dom.guessExecution()
+  //     this.guessExecution()
+  //   }
+  }
+
+  // guessExecution(){
+  //   ALL DOM
+  //   enableConsButtons
+  //   querySelect letterGuessed
+  //   findIndex of all letters in the correctAnswer
+  //   reveal all letters
+  //   enable spin/buy/solve
+  //   disable letter buttons
+  //   let letterGuessed = letter guessed on the dom
+  //     if(this.puzzle.correctAnswer.includes(letterGuessed){
+  //      this.updateScore(letterGuessed)
+  // })
+  // }
 
   buyVowel(chosenVowel) {
     // from an array of vowels, splice vowel that is chosen
@@ -66,30 +91,22 @@ class Turn {
   }
 
   updateScore(letter) {
-    let puzzleAnswer = Object.values(data.puzzles)[0].puzzle_bank[0].correct_answer;
-    let splitAnswer = puzzleAnswer.split('');
 
-    if (splitAnswer.includes(letter)) {
-      Player.score += this.spinWheel(); 
-    } else {
-      // next player
-    }
-    // if letter guessed is correct, add amount of money
-    // that the wheel outputed into bank
+    this.currentPlayer.score
   }
 
   goBankrupt() {
     // if wheel lands on bankrupt, player account is back to 0
     // move to next player
-    if (this.spinWheel === 'Bankrupt') {
-      Player.score = 0;
-    }
+      this.currentPlayer.score = 0;
+      this.findCurrentPlayer();
+
   }
  
   looseTurn() {
     // if player chooses wrong letter or vowel
     // move to next player 
-
+    this.findCurrentPlayer();
   }
 
   compareGuessAgainstSolution() {
@@ -97,9 +114,14 @@ class Turn {
     // matches what the correct answer is
   }
 
-  getNextPlayer() {
-    // move to next player in the array 
+  findCurrentPlayer() {
+    if(this.currentPlayer === this.players[0]){
+      return this.currentPlayer = this.players[1];
+    } else if (this.currentPlayer === this.players[1]){
+      return this.currentPlayer = this.players[2];
+    } else {
+      return this.currentPlayer = this.players[0]
+    }
   }
-}
 
 export default Turn;
