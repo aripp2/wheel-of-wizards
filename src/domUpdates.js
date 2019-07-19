@@ -10,6 +10,10 @@ appendPlayers(players) {
   })
 },
 
+updateCurrentPlayerName(player) {
+  $('.current-player-name').text(player)
+},
+
 updatePlayerScores(players) {
   players.forEach(player => {
     $(`.player${player.id}Score`).text(player.score);
@@ -41,9 +45,15 @@ createPuzzle(answer) {
   return list;
 },
 
+// checkGuess(guess, answer) {
+//   if (answer.includes(guess)) {
+//     $('.').
+//   }
+// },
 
 
-// function chooseConsonant() {
+
+// chooseConsonant() {
 //   $('.consonants').click((event)=> {
 //   let clickedLetter = $('')
 //   })
