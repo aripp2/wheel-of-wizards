@@ -7,6 +7,7 @@ import './css/base.scss';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
+import './images/crystal.png';
 
 import Game from './Game.js';
 import domUpdates from './domUpdates';
@@ -28,7 +29,10 @@ function startGame(data, player1, player2, player3 ) {
   game = new Game(data);
   game.createPlayers(player1, player2, player3);
   game.makeNewRound();
+  console.log(game.round.currentPlayer)
+  domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   domUpdates.appendPuzzle(game.round.puzzle);
+  $('.welcome-section').hide()
 }
 
 $('.spinBtn').click((event) => {
@@ -45,7 +49,7 @@ $('.solvePuzzleButton').click((event) => {
   console.log(result)
   if (result){
     console.log('boom')
-    game.makeNewRound()
+    game.makeNewRound();
     console.log(game.round)
   }
 })
