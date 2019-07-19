@@ -3,7 +3,7 @@ import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
 import domUpdates from './domUpdates'
-import data from './data/sample-data';
+// import data from './data/sample-data';
 
 class Turn {
   constructor(players) {
@@ -11,15 +11,32 @@ class Turn {
     this.wheel = data.wheel;
     console.log('turn', data.wheel)
     this.players = players;
+    this.currentPlayer;
     this.currentSpin;
-    this.score = 0;
+    this.guess;
     this.spunWheel = false;
     console.log(this)
+  }
+
+  determinePlayer() {
+    // do this in round and only pass through current player
   }
 
   spinWheel() {
     this.currentSpin = Math.round(Math.random() * this.wheel.length);
     return this.wheel[this.currentSpin];
+  }
+
+  spinWheelHandler() {
+    if (this.currentSpin === 'BANKRUPT') {
+      this.currentPlayer.score = 0;
+      // maybe have this method in round, and instanciate the next turn with only the next player??
+      this.getNextPlayer();
+    } else if (this.currentSpin === 'LOSE A TURN') {
+      this.getNextPlayer();
+    } else {
+      guess = domUpdates.chooseConsonant();
+    }
   }
 
   buyVowel(chosenVowel) {
