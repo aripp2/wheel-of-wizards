@@ -1,8 +1,32 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+@import 'reset';
+@import 'variables';
+
 
 body {
   background-color: $primary-background;
+}
+
+.welcome-section {
+  padding: 20px;
+}
+
+.welcome-message {
+  padding: 20px;
+  text-align: center;
+  font-size: 3em;
+}
+
+form.splash {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 50%;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
 }
 
 .currentPuzzle {
@@ -22,7 +46,6 @@ body {
 }
 
 .space {
-  
   border: none;
 }
 
