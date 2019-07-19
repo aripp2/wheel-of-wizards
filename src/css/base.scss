@@ -29,11 +29,34 @@ h1 {
   font-size: 4em;
 }
 
+.turnPrompt {
+  text-align: center;
+  font-size: 2em;
+}
+
+.puzzle-crystal-area {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px;
+}
+
+.puzzle-area {
+  padding: 10px;
+  width: 50%;
+}
+
+.crystalBall {
+  padding: 10px;
+  width: 50%;
+}
+
 .currentPuzzle {
   display: flex;
+  flex-wrap: wrap;
+  height: 6em;
   flex-direction: row;
   border: 1px solid black;
-  justify-content: space-evenly;
+  justify-content: space-evenly
 }
 
 .puzzleContainer {
@@ -44,6 +67,55 @@ h1 {
   text-align: center;
   display: flex;
 }
+
+.consonants {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  button {
+    font-size: 2em;
+    outline: 0;
+    &:hover {
+      background: $button-hover-color;
+      color: $hover-text-color;
+    }
+    &:active { 
+      background-color: $active-background-color;
+    }
+  }
+}
+
+.vowels {
+  @extend .consonants;
+}
+
+.solve-puzzle {
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  margin: auto;
+}
+
+.solvePuzzleButton {
+    font-size: 15px;
+    outline: 0;
+    &:hover {
+      background: $button-hover-color;
+      color: $hover-text-color;
+    }
+    &:active { 
+      background-color: $active-background-color;
+    }
+}
+
+.playerBoxes {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+
 
 .space {
   border: none;
