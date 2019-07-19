@@ -55,6 +55,7 @@ class Round {
         this.findCurrentPlayer();
       } if(this.currentSpin === 'LOSE-A-TURN'){
         this.findCurrentPlayer();
+        domUpdates.updateCurrentPlayerName(currentPlayer.name);
       } else {
         this.guessEvents()
       }
