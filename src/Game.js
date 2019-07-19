@@ -13,9 +13,6 @@ class Game {
     this.players = [];
     this.round;
     this.champion;
-    console.log('this', this)
-    // console.log(this);
-    // console.log(this.wheel.returnSpinValue())
   }
 
   createPlayers(p1, p2, p3) {
@@ -33,12 +30,10 @@ class Game {
       this.round = new Round(this.players);
     } else {
       this.returnChampion();
-      // bonus round
     }
   }
 
   returnChampion() {
-    //return winner of game
     let order = this.players.sort((a, b) =>
       b.bank - a.bank);
     this.champion = order[0];

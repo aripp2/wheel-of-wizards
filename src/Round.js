@@ -12,14 +12,8 @@ class Round {
     this.players = players;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
-    this.turn = this.makeNewTurn();
     this.currentSpin = null;
-    this.currentTurn = this.findCurrentPlayer();
-  }
-
-
-  makeNewTurn() {
-    return new Turn(this.players, this.puzzle);
+    this.currentPlayer = this.findCurrentPlayer();
   }
 
   assignPuzzle() {
@@ -50,40 +44,26 @@ class Round {
   spinWheel() {
     let wheelIndex = Math.round(Math.random() * this.wheel.length);
     this.currentSpin = this.wheel[wheelIndex];
-    return this.wheel[this.currentSpin];
+    return this.currentSpin;
   }
 
   spinOptions() {
       if(this.currentSpin === 'BANKRUPT'){
         this.currentPlayer.score = 0;
         this.findCurrentPlayer();
-          // console.log(Game.Round)
-          // round.makeNewTurn()
       } if(this.currentSpin === 'LOSE-A-TURN'){
         this.findCurrentPlayer();
       } else {
-    //     //dom.guessExecution()
-        // this.guessExecution()
         this.guessEvents()
       }
     }
 
-    guessEvents() {
+  guessEvents() {
       console.log('guess events are not done')
     }
 
-  // goBankrupt() {
-  //     this.currentPlayer.score = 0;
-  //     this.findCurrentPlayer();
-  //     console.log(this.currentPlayer);
-  // }
-
   buyVowel(chosenVowel) {
-    // from an array of vowels, splice vowel that is chosen
-    // take 100 out of the players bank account when vowel 
-    // is chosen
     const vowels = ['A', 'E', 'I', 'O', 'U'];
-
     if (vowels.includes(chosenVowel)) {
       let foundIndex = vowels.findIndex((letter) => letter === chosenVowel);
       vowels.splice(foundIndex, 1);
@@ -92,14 +72,17 @@ class Round {
     } else {
       return 'Sorry Muggle! That vowel has disappeared!'
     }
-
   }
 
-  solvePuzzle(){
-    if ()
+  solvePuzzle(playerGuess){
+    if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()){
+      this.currentPlayer.score = this.currentPlayer.bank;
+      return true;
+    } else {
+      this.findCurrentPlayer();
+      return false;
+    }
   }
 }
-
-
 
 export default Round;

@@ -23,7 +23,6 @@ $('.startGame').click((event) => {
   let player2 = $('#player2Input').val();
   let player3 = $('#player3Input').val();
   game = new Game();
-  // console.log(game);
   game.createPlayers(player1, player2, player3);
   updatePlayer1();
   updatePlayer2();
@@ -39,11 +38,21 @@ $('.startGame').click((event) => {
 $('.spinBtn').click((event) => {
   event.preventDefault();
   game.round.spinWheel();
-  game.round.spinOptions();
   $('.spinValue').text(game.round.spinWheel());
+  game.round.spinOptions();
 })
-    
 
+$('.solvePuzzleButton').click((event) => {
+  event.preventDefault();
+  let playerGuess = $('.solvePuzzleInput').val()
+  let result = game.round.solvePuzzle(playerGuess);
+  console.log(result)
+  if (result){
+    console.log('boom')
+    game.makeNewRound()
+    console.log(game.round)
+  }
+})
 
 function updatePlayer1() {
   $('.player1Name').text(game.players[0].name);
@@ -79,10 +88,3 @@ function appendPuzzle() {
   return list;
 }
 
-// function appendCategory() {
-//   $('.category').text(game.round.puzzle.category);
-// }
-
-// function appendHint() {
-//   $('.hint').text(game.round.puzzle.description);
-// }
