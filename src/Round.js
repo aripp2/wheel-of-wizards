@@ -1,19 +1,20 @@
-import Wheel from './Wheel';
 import Game from './Game';
 import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
 import Turn from './Turn';
-import data from './data/sample-data';
+// import data from './data/sample-data';
+import domUpdates from './domUpdates';
 
 class Round {
-  constructor(players) {
-    this.wheel = data.wheel;
+  constructor(puzzles, wheel, players) {
+    this.puzzles = puzzles;
+    this.wheel = wheel;
     this.players = players;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
-    this.currentSpin = null;
     this.currentPlayer = this.findCurrentPlayer();
+    this.currentSpin = null;
   }
 
   assignPuzzle() {
@@ -23,10 +24,11 @@ class Round {
   }
 
   makePuzzleBank() {
-    let oneWordPuzzles = data.puzzles.one_word_answers.puzzle_bank;
-    let twoWordPuzzles = data.puzzles.two_word_answers.puzzle_bank;
-    let threeWordPuzzles = data.puzzles.three_word_answers.puzzle_bank;
-    let fourWordPuzzles = data.puzzles.four_word_answers.puzzle_bank;
+    console.log(this.puzzles)
+    let oneWordPuzzles = this.puzzles.one_word_answers.puzzle_bank;
+    let twoWordPuzzles = this.puzzles.two_word_answers.puzzle_bank;
+    let threeWordPuzzles = this.puzzles.three_word_answers.puzzle_bank;
+    let fourWordPuzzles = this.puzzles.four_word_answers.puzzle_bank;
     let allPuzzles = oneWordPuzzles.concat(...twoWordPuzzles, ...threeWordPuzzles, ...fourWordPuzzles);
     return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
   }

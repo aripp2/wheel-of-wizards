@@ -1,9 +1,9 @@
-import Wheel from '../src/Wheel';
 import Game from '../src/Game';
 import Player from '../src/Player';
 import Puzzle from '../src/Puzzle';
 import Round from '../src/Round';
 import Turn from '../src/Turn';
+import domUpdates from '../src/domUpdates';
 
 import chai from 'chai';
 

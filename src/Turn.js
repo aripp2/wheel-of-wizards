@@ -1,9 +1,9 @@
-import Wheel from './Wheel';
 import Game from './Game';
 import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
-import data from './data/sample-data';
+import domUpdates from './domUpdates'
+// import data from './data/sample-data';
 
 class Turn {
   constructor(players, puzzle) {
@@ -16,6 +16,10 @@ class Turn {
     this.spunWheel = false;
   }
 
+  determinePlayer() {
+    // do this in round and only pass through current player
+  }
+
   spinWheel() {
     this.currentSpin = Math.round(Math.random() * this.wheel.length);
     this.spinWheelHandler()
@@ -23,6 +27,17 @@ class Turn {
   }
 
   spinWheelHandler() {
+    if (this.currentSpin === 'BANKRUPT') {
+      this.currentPlayer.score = 0;
+      // maybe have this method in round, and instanciate the next turn with only the next player??
+      this.getNextPlayer();
+    } else if (this.currentSpin === 'LOSE A TURN') {
+      this.getNextPlayer();
+    } else {
+      guess = domUpdates.chooseConsonant();
+    }
+  }
+
   //   if(this.currentSpin === 'BANKRUPT'){
   //     this.goBankrupt();
         console.log(Game.Round)
@@ -108,5 +123,5 @@ class Turn {
       return this.currentPlayer = this.players[0]
     }
   }
-}
+
 export default Turn;

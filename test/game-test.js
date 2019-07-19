@@ -1,8 +1,7 @@
 import chai from 'chai';
 import Game from '../src/Game.js';
 import spies from 'chai-spies';
-import data from '../src/data/sample-data'
-// import domUpdates from '../src/domUpdates.js';
+import data from '../src/data/sample-data';
 
 const expect = chai.expect;
 
