@@ -35,9 +35,9 @@ class Round {
   }
   
   findCurrentPlayer() {
-    if(this.currentPlayer === this.players[0]){
+    if (this.currentPlayer === this.players[0]) {
       return this.currentPlayer = this.players[1];
-    } else if (this.currentPlayer === this.players[1]){
+    } else if (this.currentPlayer === this.players[1]) {
       return this.currentPlayer = this.players[2];
     } else {
       return this.currentPlayer = this.players[0]
@@ -51,20 +51,20 @@ class Round {
   }
 
   spinOptions() {
-      if(this.currentSpin === 'BANKRUPT'){
-        this.currentPlayer.score = 0;
-        this.findCurrentPlayer();
-      } if(this.currentSpin === 'LOSE-A-TURN'){
-        this.findCurrentPlayer();
-        domUpdates.updateCurrentPlayerName(currentPlayer.name);
-      } else {
-        this.guessEvents()
-      }
+    if (this.currentSpin === 'BANKRUPT') {
+      this.currentPlayer.score = 0;
+      this.findCurrentPlayer();
+    } if (this.currentSpin === 'LOSE-A-TURN') {
+      this.findCurrentPlayer();
+      domUpdates.updateCurrentPlayerName(currentPlayer.name);
+    } else {
+      this.guessEvents()
     }
+  }
 
   guessEvents() {
-      console.log('guess events are not done')
-    }
+    console.log('guess events are not done')
+  }
 
   buyVowel(chosenVowel) {
     const vowels = ['A', 'E', 'I', 'O', 'U'];
@@ -78,8 +78,8 @@ class Round {
     }
   }
 
-  solvePuzzle(playerGuess){
-    if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()){
+  solvePuzzle(playerGuess) {
+    if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()) {
       this.currentPlayer.score = this.currentPlayer.bank;
       return true;
     } else {

@@ -45,12 +45,6 @@ createPuzzle(answer) {
   return list;
 },
 
-// checkGuess(guess, answer) {
-//   if (answer.includes(guess)) {
-//     $('.').
-//   }
-// },
-
 
 
 // chooseConsonant() {
