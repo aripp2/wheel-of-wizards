@@ -18,11 +18,11 @@ $('.nameInputs').keyup(function() {
   }
 });
 
-$('.startGame').click((event) => {
+$('.start-game').click((event) => {
   event.preventDefault();
-  let player1 = $('#player1Input').val();
-  let player2 = $('#player2Input').val();
-  let player3 = $('#player3Input').val();
+  let player1 = $('#player-1-input').val();
+  let player2 = $('#player-2-input').val();
+  let player3 = $('#player-3-input').val();
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
   .then(response => response.json())
   .then(data => startGame(data.data, player1, player2, player3 ))
@@ -38,18 +38,18 @@ function startGame(data, player1, player2, player3 ) {
   $('.welcome-section').hide()
 }
 
-$('.spinBtn').click((event) => {
+$('.spin-btn').click((event) => {
   event.preventDefault();
   game.round.spinWheel();
-  $('.spinValue').text(game.round.spinWheel());
+  $('.spin-value').text(game.round.spinWheel());
   game.round.spinOptions();
 })
 
 // $('.consonants').closest('button').attr('disabled', true)
 
-$('.solvePuzzleButton').click((event) => {
+$('.solve-puzzle-btn').click((event) => {
   event.preventDefault();
-  let playerGuess = $('.solvePuzzleInput').val()
+  let playerGuess = $('.solve-puzzle-input').val()
   let result = game.round.solvePuzzle(playerGuess);
   console.log(result)
   if (result) {

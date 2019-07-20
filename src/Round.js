@@ -15,6 +15,7 @@ class Round {
     this.puzzle = this.assignPuzzle();
     this.currentPlayer = this.findCurrentPlayer();
     this.currentSpin = null;
+    console.log(this.puzzle.correctAnswer)
   }
 
   assignPuzzle() {
