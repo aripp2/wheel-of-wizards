@@ -1,5 +1,4 @@
 
-
 import $ from 'jquery';
 
 // An example of how you tell webpack to use a CSS (SCSS) file
@@ -10,6 +9,14 @@ import Game from './Game.js';
 import domUpdates from './domUpdates';
 
 let game;
+
+
+$('.startGame').prop('disabled', true);
+$('.nameInputs').keyup(function() {
+  if ($('.nameInputs').val() !== '') {
+    $('.startGame').prop('disabled', false);
+  }
+});
 
 $('.startGame').click((event) => {
   event.preventDefault();
@@ -45,7 +52,7 @@ $('.solvePuzzleButton').click((event) => {
   let playerGuess = $('.solvePuzzleInput').val()
   let result = game.round.solvePuzzle(playerGuess);
   console.log(result)
-  if (result){
+  if (result) {
     console.log('boom')
     game.makeNewRound();
     domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
@@ -53,5 +60,6 @@ $('.solvePuzzleButton').click((event) => {
     domUpdates.appendPuzzle(game.round.puzzle);
   }
 })
+
 
 

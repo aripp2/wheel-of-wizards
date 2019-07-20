@@ -17,6 +17,10 @@ body {
   font-size: 3em;
 }
 
+.error{
+  outline: 1px solid $error-border-color;
+}
+
 form.splash {
   display: flex;
   flex-direction: column;
