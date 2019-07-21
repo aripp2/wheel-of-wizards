@@ -34,9 +34,11 @@ function startGame(data, player1, player2, player3 ) {
   game = new Game(data);
   game.createPlayers(player1, player2, player3);
   game.makeNewRound();
+
   domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   domUpdates.appendPuzzle(game.round.puzzle);
-  $('.welcome-section').hide()
+  $('.welcome-section').hide();
+  domUpdates.enableSpinBtn();
 }
 
 $('.spin-btn').click((event) => {
@@ -46,7 +48,12 @@ $('.spin-btn').click((event) => {
   game.round.spinOptions();
 })
 
-// $('.consonants').closest('button').attr('disabled', true)
+$('.consonants').click((event) => {
+  event.preventDefault();
+  var guess = $(event.target).closest('.letter').text();
+  console.log(guess);
+  game.round.guessEvents(guess);
+})
 
 $('.solve-puzzle-btn').click((event) => {
   event.preventDefault();
