@@ -49,10 +49,11 @@ updateCurrentPlayerScore(player) {
   $(`.player-${player.id}-score`).text(player.score);
 },
 
-appendLetter(guess) {
-  // let puzzle = round.puzzle;
-  // console.log(puzzle)
+updateCurrentPlayerBank(player) {
+  $(`.player-${player.id}-score`).text(player.bank);
+},
 
+appendLetter(guess) {
   $(`.${guess}`).show();
 }, 
 
