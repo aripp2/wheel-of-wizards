@@ -53,12 +53,6 @@ appendLetter(guess) {
   $(`#${guess}`).show();
 }, 
 
-enableStart(player1, player2, player3) {
-  if (player1 != '' && player2 != '' && player3 != '') {
-    $('.start-game').attr("disabled", false);
-  }
-},
-
 disableSpinBtn() {
   $('.spin-btn').attr("disabled", true);
 },
@@ -73,6 +67,22 @@ disableConsonants() {
 
 enableConsonants() {
   $('.letter').attr("disabled", false);
+},
+
+disableVowels() {
+  $('.vowel').attr("disabled", true);
+},
+
+enableVowels() {
+  $('.vowel').attr("disabled", false);
+},
+
+enableBuyVowel() {
+  $('.buy-vowel-btn').attr("disabled", false)
+},
+
+enableBuyVowel() {
+  $('.buy-vowel-btn').attr("disabled", false)
 },
 
 }

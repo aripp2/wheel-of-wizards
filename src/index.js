@@ -24,7 +24,6 @@ $('.start-game').click((event) => {
   let player1 = $('#player-1-input').val();
   let player2 = $('#player-2-input').val();
   let player3 = $('#player-3-input').val();
-  domUpdates.enableStart(player1, player2, player3);
   fetch("https://fe-apps.herokuapp.com/api/v1/gametime/1903/wheel-of-fortune/data")
   .then(response => response.json())
   .then(data => startGame(data.data, player1, player2, player3 ))
@@ -35,6 +34,7 @@ function startGame(data, player1, player2, player3 ) {
   game = new Game(data);
   game.createPlayers(player1, player2, player3);
   game.makeNewRound();
+
   domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   domUpdates.appendPuzzle(game.round.puzzle);
   $('.welcome-section').hide();

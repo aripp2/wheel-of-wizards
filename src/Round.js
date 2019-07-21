@@ -2,7 +2,6 @@ import Game from './Game';
 import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
-import Turn from './Turn';
 // import data from './data/sample-data';
 import domUpdates from './domUpdates';
 
@@ -16,6 +15,7 @@ class Round {
     this.currentPlayer = this.findCurrentPlayer();
     this.currentSpin = null;
     console.log(this.puzzle.correctAnswer)
+    console.log(this.currentPlayer)
   }
 
   assignPuzzle() {
@@ -25,7 +25,6 @@ class Round {
   }
 
   makePuzzleBank() {
-    console.log(this.puzzles)
     let oneWordPuzzles = this.puzzles.one_word_answers.puzzle_bank;
     let twoWordPuzzles = this.puzzles.two_word_answers.puzzle_bank;
     let threeWordPuzzles = this.puzzles.three_word_answers.puzzle_bank;
@@ -35,7 +34,7 @@ class Round {
   }
   
   findCurrentPlayer() {
-    console.log('here', this.currentPlayer)
+    console.log('here', this.players)
     if (this.currentPlayer === this.players[0]) {
       return this.currentPlayer = this.players[1];
     } else if (this.currentPlayer === this.players[1]) {
@@ -44,8 +43,22 @@ class Round {
       return this.currentPlayer = this.players[0]
     }
     console.log(this.currentPlayer);
-    domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
   }
+
+  // findCurrentPlayer() {
+  //   console.log('here', this.currentPlayer)
+  //   this.players.find(player => {
+  //   if (this.currentPlayer === this.players[0]) {
+  //     return this.currentPlayer = this.players[1];
+  //   } else if (this.currentPlayer === this.players[1]) {
+  //     return this.currentPlayer = this.players[2];
+  //   } else {
+  //     return this.currentPlayer = this.players[0]
+  //   }
+  //   console.log(this.currentPlayer);
+  //   })
+  //   domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+  // }
 
   spinWheel() {
     let wheelIndex = Math.round(Math.random() * this.wheel.length);
