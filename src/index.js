@@ -57,13 +57,16 @@ $('.consonants').click((event) => {
 
 $('.solve-puzzle-btn').click((event) => {
   event.preventDefault();
-  let playerGuess = $('.solve-puzzle-input').val()
+  let playerGuess = $('.solve-puzzle-input').val();
   let result = game.round.solvePuzzle(playerGuess);
+  $('.solve-puzzle-input').val('');
   console.log(result)
   if (result) {
     game.makeNewRound();
-    domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
     domUpdates.appendPuzzle(game.round.puzzle);
+  } else {
+    game.round.findCurrentPlayer();
+    domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   }
 })
 
