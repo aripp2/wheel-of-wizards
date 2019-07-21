@@ -35,6 +35,7 @@ class Round {
   }
   
   findCurrentPlayer() {
+    console.log('here', this.currentPlayer)
     if (this.currentPlayer === this.players[0]) {
       return this.currentPlayer = this.players[1];
     } else if (this.currentPlayer === this.players[1]) {
@@ -42,6 +43,8 @@ class Round {
     } else {
       return this.currentPlayer = this.players[0]
     }
+    console.log(this.currentPlayer);
+    domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
   }
 
   spinWheel() {
@@ -53,17 +56,29 @@ class Round {
   spinOptions() {
     if (this.currentSpin === 'BANKRUPT') {
       this.currentPlayer.score = 0;
+      domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       this.findCurrentPlayer();
     } if (this.currentSpin === 'LOSE-A-TURN') {
       this.findCurrentPlayer();
-      domUpdates.updateCurrentPlayerName(currentPlayer.name);
     } else {
-      this.guessEvents()
+      domUpdates.enableConsonants();
     }
   }
 
-  guessEvents() {
-    console.log('guess events are not done')
+  guessEvents(guess) {
+    let numUsed = 0;
+
+    this.puzzle.correctAnswer.forEach(letter => {
+      if (guess === letter) {
+        numUsed++;
+        this.currentPlayer.score += this.currentSpin;
+        console.log('counter', numUsed);
+        console.log('score', this.currentPlayer.score)
+        domUpdates.appendLetter(guess);
+        console.log(this.currentPlayer)
+        domUpdates.updateCurrentPlayerScore(this.currentPlayer);
+      } 
+    })
   }
 
   buyVowel(chosenVowel) {

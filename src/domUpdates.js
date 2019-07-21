@@ -38,18 +38,41 @@ createPuzzle(answer) {
       } else if (letter === ' ') {
         list += `<p class="puzzle-container space"><span class="puzzle-character">${letter}</span></p>`;
       } else {
-        list += `<p class="puzzle-container"><span class="puzzle-character ${letter}">${letter}</span></p>`; 
+        list += `<p class="puzzle-container"><span class="puzzle-character" id="${letter}">${letter}</span></p>`; 
       } 
     })
     list += "</div>";
     return list;
   },
 
+updateCurrentPlayerScore(player) {
+  $(`.player-${player.id}-score`).text(player.score);
+},
 
+appendLetter(guess) {
+  $(`#${guess}`).show();
+}, 
 
-// chooseConsonant() {
-//   $('.consonants').click((event)=> {
-//   let clickedLetter = $('')
-//   })
-// }
+enableStart(player1, player2, player3) {
+  if (player1 != '' && player2 != '' && player3 != '') {
+    $('.start-game').attr("disabled", false);
+  }
+},
+
+disableSpinBtn() {
+  $('.spin-btn').attr("disabled", true);
+},
+
+enableSpinBtn() {
+  $('.spin-btn').attr("disabled", false);
+},
+
+disableConsonants() {
+  $('.letter').attr("disabled", true);
+},
+
+enableConsonants() {
+  $('.letter').attr("disabled", false);
+},
+
 }
