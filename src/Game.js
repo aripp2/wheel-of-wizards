@@ -3,16 +3,19 @@ import Player from './Player.js';
 import Puzzle from './Puzzle.js';
 import Round from './Round.js';
 import data from './data/sample-data';
+import BonusRound from './BonusRound.js'
 import domUpdates from './domUpdates';
 
 class Game {
   constructor(data) {
     this.puzzles = data.puzzles;
     this.wheel = data.wheel;
+    console.log(this.wheel)
     this.roundCounter = 0;
     this.players = [];
     this.round;
     this.champion;
+    this.bonusRound = null
   }
 
   createPlayers(p1, p2, p3) {
@@ -32,13 +35,16 @@ class Game {
       this.round = new Round(this.puzzles, this.wheel, this.players);
     } else {
       this.returnChampion();
+      this.bonusRound = new BonusRound(this.puzzles, this.wheel, this.players, this.players[0])
     }
   }
 
   returnChampion() {
-    let order = this.players.sort((a, b) =>
-      b.bank - a.bank);
-    this.champion = order[0];
+    // let order = this.players.sort((a, b) =>
+    //   b.bank - a.bank);
+    // this.champion = order[0];
+    return this.players[0]
+    console.log('chaaaampion')
   }
 
   quitGame() {
