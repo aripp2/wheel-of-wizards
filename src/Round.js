@@ -2,7 +2,6 @@ import Game from './Game';
 import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
-import Turn from './Turn';
 // import data from './data/sample-data';
 import domUpdates from './domUpdates';
 
@@ -16,6 +15,7 @@ class Round {
     this.currentPlayer = this.findCurrentPlayer();
     this.currentSpin = null;
     console.log(this.puzzle.correctAnswer)
+    console.log(this.currentPlayer)
   }
 
   assignPuzzle() {
@@ -25,7 +25,6 @@ class Round {
   }
 
   makePuzzleBank() {
-    console.log(this.puzzles)
     let oneWordPuzzles = this.puzzles.one_word_answers.puzzle_bank;
     let twoWordPuzzles = this.puzzles.two_word_answers.puzzle_bank;
     let threeWordPuzzles = this.puzzles.three_word_answers.puzzle_bank;
@@ -35,6 +34,7 @@ class Round {
   }
   
   findCurrentPlayer() {
+    console.log('here', this.players)
     if (this.currentPlayer === this.players[0]) {
       return this.currentPlayer = this.players[1];
     } else if (this.currentPlayer === this.players[1]) {
@@ -42,7 +42,23 @@ class Round {
     } else {
       return this.currentPlayer = this.players[0]
     }
+    console.log(this.currentPlayer);
   }
+
+  // findCurrentPlayer() {
+  //   console.log('here', this.currentPlayer)
+  //   this.players.find(player => {
+  //   if (this.currentPlayer === this.players[0]) {
+  //     return this.currentPlayer = this.players[1];
+  //   } else if (this.currentPlayer === this.players[1]) {
+  //     return this.currentPlayer = this.players[2];
+  //   } else {
+  //     return this.currentPlayer = this.players[0]
+  //   }
+  //   console.log(this.currentPlayer);
+  //   })
+  //   domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+  // }
 
   spinWheel() {
     let wheelIndex = Math.round(Math.random() * this.wheel.length);
@@ -53,17 +69,29 @@ class Round {
   spinOptions() {
     if (this.currentSpin === 'BANKRUPT') {
       this.currentPlayer.score = 0;
+      domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       this.findCurrentPlayer();
     } if (this.currentSpin === 'LOSE-A-TURN') {
       this.findCurrentPlayer();
-      domUpdates.updateCurrentPlayerName(currentPlayer.name);
     } else {
-      this.guessEvents()
+      domUpdates.enableConsonants();
     }
   }
 
-  guessEvents() {
-    console.log('guess events are not done')
+  guessEvents(guess) {
+    let numUsed = 0;
+
+    this.puzzle.correctAnswer.forEach(letter => {
+      if (guess === letter) {
+        numUsed++;
+        this.currentPlayer.score += this.currentSpin;
+        console.log('counter', numUsed);
+        console.log('score', this.currentPlayer.score)
+        domUpdates.appendLetter(guess);
+        console.log(this.currentPlayer)
+        domUpdates.updateCurrentPlayerScore(this.currentPlayer);
+      } 
+    })
   }
 
   buyVowel(chosenVowel) {

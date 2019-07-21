@@ -1,30 +1,4 @@
-// import Game from './Game';
-// import Player from './Player';
-// import Puzzle from './Puzzle';
-// import Round from './Round';
-// import domUpdates from './domUpdates'
-// // import data from './data/sample-data';
 
-// class Turn {
-//   constructor(players, puzzle) {
-//     this.wheel = data.wheel;
-//     // this.round = round;
-//     this.puzzle = puzzle; 
-//     this.players = players;
-//     this.currentPlayer = this.findCurrentPlayer();
-//     this.currentSpin = null;
-//     this.spunWheel = false;
-//   }
-
-//   determinePlayer() {
-//     // do this in round and only pass through current player
-//   }
-
-//   spinWheel() {
-//     this.currentSpin = Math.round(Math.random() * this.wheel.length);
-//     this.spinWheelHandler()
-//     return this.wheel[this.currentSpin];
-//   }
 
 //   spinWheelHandler() {
 //     if (this.currentSpin === 'BANKRUPT') {
@@ -90,10 +64,7 @@
 //     }
 //   }
 
-//   updateScore(letter) {
 
-//     this.currentPlayer.score
-//   }
 
 //   goBankrupt() {
 //     // if wheel lands on bankrupt, player account is back to 0
@@ -114,14 +85,3 @@
 //     // matches what the correct answer is
 //   }
 
-//   findCurrentPlayer() {
-//     if(this.currentPlayer === this.players[0]){
-//       return this.currentPlayer = this.players[1];
-//     } else if (this.currentPlayer === this.players[1]){
-//       return this.currentPlayer = this.players[2];
-//     } else {
-//       return this.currentPlayer = this.players[0]
-//     }
-//   }
-
-// export default Turn;

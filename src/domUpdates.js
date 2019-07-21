@@ -38,18 +38,51 @@ createPuzzle(answer) {
       } else if (letter === ' ') {
         list += `<p class="puzzle-container space"><span class="puzzle-character">${letter}</span></p>`;
       } else {
-        list += `<p class="puzzle-container"><span class="puzzle-character ${letter}">${letter}</span></p>`; 
+        list += `<p class="puzzle-container"><span class="puzzle-character" id="${letter}">${letter}</span></p>`; 
       } 
     })
     list += "</div>";
     return list;
   },
 
+updateCurrentPlayerScore(player) {
+  $(`.player-${player.id}-score`).text(player.score);
+},
 
+appendLetter(guess) {
+  $(`#${guess}`).show();
+}, 
 
-// chooseConsonant() {
-//   $('.consonants').click((event)=> {
-//   let clickedLetter = $('')
-//   })
-// }
+disableSpinBtn() {
+  $('.spin-btn').attr("disabled", true);
+},
+
+enableSpinBtn() {
+  $('.spin-btn').attr("disabled", false);
+},
+
+disableConsonants() {
+  $('.letter').attr("disabled", true);
+},
+
+enableConsonants() {
+  $('.letter').attr("disabled", false);
+},
+
+disableVowels() {
+  $('.vowel').attr("disabled", true);
+},
+
+enableVowels() {
+  $('.vowel').attr("disabled", false);
+},
+
+enableBuyVowel() {
+  $('.buy-vowel-btn').attr("disabled", false)
+},
+
+enableBuyVowel() {
+  $('.buy-vowel-btn').attr("disabled", false)
+},
+
 }
