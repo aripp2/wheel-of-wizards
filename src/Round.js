@@ -15,6 +15,7 @@ class Round {
     this.currentPlayer = this.findCurrentPlayer();
     this.currentSpin = null;
     this.lettersUsed = [];
+    // this.roundWinner = null;
     console.log(this.puzzle.correctAnswer.join(''))
   }
 
@@ -33,8 +34,7 @@ class Round {
     return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
   }
   
-  findCurrentPlayer() {
-    console.log('here', this.players)
+  findCurrentPlayer() { 
     if (this.currentPlayer === this.players[0]) {
       return this.currentPlayer = this.players[1];
     } else if (this.currentPlayer === this.players[1]) {
@@ -103,14 +103,20 @@ class Round {
 
   solvePuzzle(playerGuess) {
     if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()) {
-      this.currentPlayer.score = this.currentPlayer.bank;
-      
+      this.currentPlayer.bank += this.currentPlayer.score;
+      domUpdates.updateCurrentPlayerBank(this.currentPlayer);
+      // this.findRoundWinner();
+      console.log('winner', this.roundWinner)
       return true;
     } else {
       this.findCurrentPlayer();
       return false;
     }
   }
+
+  // findRoundWinner() {
+  //   this.roundWinner = this.players.find(player => player === this.currentPlayer)
+  // }
 }
 
 export default Round;
