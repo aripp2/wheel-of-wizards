@@ -48,6 +48,10 @@ form.splash {
     &:active { 
       background-color: $active-background-color;
     }
+    &:disabled {
+      background: #ccc;
+      color: white;
+    }
   }
 
 
@@ -162,6 +166,10 @@ h1 {
     }
     &:active { 
       background-color: $active-background-color;
+    }
+    &:disabled {
+      background: #ccc;
+      color: white;
     }
   }
 }
