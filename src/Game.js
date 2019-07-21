@@ -2,9 +2,8 @@ import Game from './Game.js';
 import Player from './Player.js';
 import Puzzle from './Puzzle.js';
 import Round from './Round.js';
-// import data from './data/sample-data';
+import data from './data/sample-data';
 import domUpdates from './domUpdates';
-
 
 class Game {
   constructor(data) {
@@ -22,7 +21,6 @@ class Game {
     let player3 = new Player(3, p3);
     this.players.push(player1, player2, player3);
     domUpdates.appendPlayers(this.players);
-
   }
 
 

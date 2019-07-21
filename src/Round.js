@@ -3,7 +3,7 @@ import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
 import Turn from './Turn';
-// import data from './data/sample-data';
+import data from './data/sample-data';
 import domUpdates from './domUpdates';
 
 class Round {
@@ -15,7 +15,7 @@ class Round {
     this.puzzle = this.assignPuzzle();
     this.currentPlayer = this.findCurrentPlayer();
     this.currentSpin = null;
-    console.log(this.puzzle.correctAnswer)
+    // console.log(this.puzzle.correctAnswer.join(''))
   }
 
   assignPuzzle() {
@@ -25,7 +25,6 @@ class Round {
   }
 
   makePuzzleBank() {
-    console.log(this.puzzles)
     let oneWordPuzzles = this.puzzles.one_word_answers.puzzle_bank;
     let twoWordPuzzles = this.puzzles.two_word_answers.puzzle_bank;
     let threeWordPuzzles = this.puzzles.three_word_answers.puzzle_bank;

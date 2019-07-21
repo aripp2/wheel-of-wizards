@@ -11,7 +11,7 @@ describe('Player', function() {
     let player;
 
     beforeEach(function () {
-      player = new Player();
+      player = new Player(1, 'Barbara');
     });
 
     it("should be a function", () => {
@@ -31,6 +31,6 @@ describe('Player', function() {
     });
 
     it('should have a default score of zero', function () {
-      expect(player.account).to.equal(0)
+      expect(player.score).to.equal(0)
     });
 });

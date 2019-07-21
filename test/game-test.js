@@ -1,17 +1,26 @@
 import chai from 'chai';
-import Game from '../src/Game.js';
-import spies from 'chai-spies';
-import data from '../src/data/sample-data';
-
 const expect = chai.expect;
+import spies from 'chai-spies';
+import Game from '../src/Game.js';
+import data from '../src/data/sample-data';
+import domUpdates from '../src/domUpdates.js';
+// import Round from './Round.js';
 
-// chai.use(spies);
+chai.use(spies);
+
+chai.spy.on(domUpdates, [
+  'appendPlayers',
+  'updateCurrentPlayerName',
+  'updatePlayerScores',
+  'appendPuzzle',
+  'createPuzzle',
+], () => {})
 
 describe('Game', () => {
   let game;
 
   beforeEach(() => {
-    game = new Game('Greg', 'Amanda', 'Amy');
+    game = new Game(data,'Greg', 'Amanda', 'Amy');
   });
 
   it("should be a function", () => {
@@ -34,9 +43,9 @@ describe('Game', () => {
   it('should begin at round one', () => {
     game.createPlayers();
     game.makeNewRound();
-    expect(game.roundCounter).to.equal(2);
+    expect(game.roundCounter).to.equal(1);
   });
-    
+  
   it('should start each player at zero in the beginning of each round', () => {
     game.createPlayers();
     expect(game.players[0].score).to.equal(0)
