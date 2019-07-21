@@ -69,9 +69,15 @@ disableConsonants() {
   $('.letter').attr("disabled", true);
 },
 
-disabledUsedConsonants(lettersUsed) {
+disableUsedConsonants(lettersUsed) {
   lettersUsed.forEach(letter => {
   $(`#cons${letter}`).attr("disabled", true);
+  });
+},
+
+disableUsedVowels(lettersUsed) {
+  lettersUsed.forEach(letter => {
+  $(`#vowel${letter}`).attr("disabled", true);
   });
 },
 
@@ -88,11 +94,15 @@ enableVowels() {
 },
 
 enableBuyVowel() {
-  $('.buy-vowel-btn').attr("disabled", false)
+  $('.buy-vowel-btn').attr("disabled", false);
 },
 
-enableBuyVowel() {
-  $('.buy-vowel-btn').attr("disabled", false)
+disableBuyVowel() {
+  $('.buy-vowel-btn').attr("disabled", true);
 },
+
+notEnoughMoney() {
+  alert('Sorry Muggle! You are too poor!');
+}
 
 }

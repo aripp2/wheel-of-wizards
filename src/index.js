@@ -55,6 +55,19 @@ $('.consonants').click((event) => {
   game.round.guessEvents(guess);
 })
 
+$('.buy-vowel-btn').click((event) => {
+  event.preventDefault();
+  domUpdates.enableVowels();
+  domUpdates.disableUsedVowels(game.round.lettersUsed);
+})
+
+$('.vowels').click((event) => {
+  event.preventDefault();
+  var guess = $(event.target).closest('.vowel').text();
+  console.log(guess);
+  game.round.buyVowel(guess);
+})
+
 $('.solve-puzzle-btn').click((event) => {
   event.preventDefault();
   let playerGuess = $('.solve-puzzle-input').val();

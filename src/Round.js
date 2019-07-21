@@ -66,7 +66,7 @@ class Round {
       console.log(this.currentPlayer)
     } else {
       domUpdates.enableConsonants();
-      domUpdates.disabledUsedConsonants(this.lettersUsed);
+      domUpdates.disableUsedConsonants(this.lettersUsed);
     }
   }
 
@@ -83,21 +83,33 @@ class Round {
         domUpdates.appendLetter(guess);
         console.log(this.currentPlayer)
         domUpdates.updateCurrentPlayerScore(this.currentPlayer);
+        domUpdates.enableBuyVowel();
       } 
     })
-    domUpdates.disabledUsedConsonants(this.lettersUsed);
+    domUpdates.disableUsedConsonants(this.lettersUsed);
     console.log(this.puzzle.correctAnswer)
   }
 
   buyVowel(chosenVowel) {
-    const vowels = ['A', 'E', 'I', 'O', 'U'];
-    if (vowels.includes(chosenVowel)) {
-      let foundIndex = vowels.findIndex((letter) => letter === chosenVowel);
-      vowels.splice(foundIndex, 1);
-      Player.score -= 100;
-      return vowels;
+    if (this.currentPlayer.score < 100) {
+      domUpdates.notEnoughMoney();
+      domUpdates.disableBuyVowel();
+      domUpdates.disableVowels();
     } else {
-      return 'Sorry Muggle! That vowel has disappeared!'
+      this.currentPlayer.score -= 100;
+      domUpdates.updateCurrentPlayerScore(this.currentPlayer);
+      this.lettersUsed.push(chosenVowel);
+      this.puzzle.correctAnswer.forEach(letter => {
+      if (chosenVowel === letter) {
+        domUpdates.appendLetter(chosenVowel);
+      } 
+    })
+    domUpdates.disableUsedConsonants(this.lettersUsed);
+    domUpdates.disableUsedVowels(this.lettersUsed);
+    domUpdates.disableVowels();
+    console.log(this.puzzle.correctAnswer)
+
+
     }
   }
 
