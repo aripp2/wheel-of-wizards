@@ -54,10 +54,16 @@ class Round {
   spinOptions() {
     if (this.currentSpin === 'BANKRUPT') {
       this.currentPlayer.score = 0;
+      domUpdates.disableConsonants();
       domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       this.findCurrentPlayer();
-    } if (this.currentSpin === 'LOSE-A-TURN') {
+      domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
+      console.log(this.currentPlayer);
+    } else if (this.currentSpin === 'LOSE-A-TURN') {
+      domUpdates.disableConsonants();
       this.findCurrentPlayer();
+      domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
+      console.log(this.currentPlayer)
     } else {
       domUpdates.enableConsonants();
     }
