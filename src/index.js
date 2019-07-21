@@ -11,10 +11,11 @@ import domUpdates from './domUpdates';
 let game;
 
 
-$('.startGame').prop('disabled', true);
-$('.nameInputs').keyup(function() {
-  if ($('.nameInputs').val() !== '') {
-    $('.startGame').prop('disabled', false);
+$('.start-game').prop('disabled', true);
+$('.name-inputs').keyup(function() {
+  // if ($('.name-inputs').val() !== '') {
+  if ($('.player-1-input').val() !== '' && $('.player-2-input').val() !== '' && $('.player-3-input').val() !== '') {
+    $('.start-game').prop('disabled', false);
   }
 });
 
