@@ -15,6 +15,7 @@ class Round {
     this.puzzle = this.assignPuzzle();
     this.currentPlayer = this.findCurrentPlayer();
     this.currentSpin = null;
+    this.lettersUsed = [];
     console.log(this.puzzle.correctAnswer.join(''))
   }
 
@@ -66,11 +67,14 @@ class Round {
       console.log(this.currentPlayer)
     } else {
       domUpdates.enableConsonants();
+      domUpdates.disabledUsedConsonants(this.lettersUsed);
     }
   }
 
   guessEvents(guess) {
     let numUsed = 0;
+    this.lettersUsed.push(guess);
+    console.log(this.lettersUsed)
     this.puzzle.correctAnswer.forEach(letter => {
       if (guess === letter) {
         numUsed++;
@@ -82,6 +86,7 @@ class Round {
         domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       } 
     })
+    domUpdates.disabledUsedConsonants(this.lettersUsed);
     console.log(this.puzzle.correctAnswer)
   }
 
@@ -100,6 +105,7 @@ class Round {
   solvePuzzle(playerGuess) {
     if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()) {
       this.currentPlayer.score = this.currentPlayer.bank;
+      
       return true;
     } else {
       this.findCurrentPlayer();

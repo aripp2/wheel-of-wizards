@@ -68,6 +68,12 @@ disableConsonants() {
   $('.letter').attr("disabled", true);
 },
 
+disabledUsedConsonants(lettersUsed) {
+  lettersUsed.forEach(letter => {
+  $(`#cons${letter}`).attr("disabled", true);
+  });
+},
+
 enableConsonants() {
   $('.letter').attr("disabled", false);
 },
