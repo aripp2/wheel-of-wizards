@@ -38,7 +38,7 @@ createPuzzle(answer) {
       } else if (letter === ' ') {
         list += `<p class="puzzle-container space"><span class="puzzle-character">${letter}</span></p>`;
       } else {
-        list += `<p class="puzzle-container"><span class="puzzle-character" id="${letter}">${letter}</span></p>`; 
+        list += `<p class="puzzle-container"><span class="puzzle-character ${letter}" id="${letter}">${letter}</span></p>`; 
       } 
     })
     list += "</div>";
@@ -50,7 +50,10 @@ updateCurrentPlayerScore(player) {
 },
 
 appendLetter(guess) {
-  $(`#${guess}`).show();
+  // let puzzle = round.puzzle;
+  // console.log(puzzle)
+
+  $(`.${guess}`).show();
 }, 
 
 disableSpinBtn() {

@@ -2,12 +2,8 @@ import Game from './Game';
 import Player from './Player';
 import Puzzle from './Puzzle';
 import Round from './Round';
-<<<<<<< HEAD
 import Turn from './Turn';
 import data from './data/sample-data';
-=======
-// import data from './data/sample-data';
->>>>>>> bd460003def1d0269bbe0b93b16916c3a0fe60bd
 import domUpdates from './domUpdates';
 
 class Round {
@@ -19,12 +15,7 @@ class Round {
     this.puzzle = this.assignPuzzle();
     this.currentPlayer = this.findCurrentPlayer();
     this.currentSpin = null;
-<<<<<<< HEAD
-    // console.log(this.puzzle.correctAnswer.join(''))
-=======
-    console.log(this.puzzle.correctAnswer)
-    console.log(this.currentPlayer)
->>>>>>> bd460003def1d0269bbe0b93b16916c3a0fe60bd
+    console.log(this.puzzle.correctAnswer.join(''))
   }
 
   assignPuzzle() {
@@ -54,21 +45,6 @@ class Round {
     console.log(this.currentPlayer);
   }
 
-  // findCurrentPlayer() {
-  //   console.log('here', this.currentPlayer)
-  //   this.players.find(player => {
-  //   if (this.currentPlayer === this.players[0]) {
-  //     return this.currentPlayer = this.players[1];
-  //   } else if (this.currentPlayer === this.players[1]) {
-  //     return this.currentPlayer = this.players[2];
-  //   } else {
-  //     return this.currentPlayer = this.players[0]
-  //   }
-  //   console.log(this.currentPlayer);
-  //   })
-  //   domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
-  // }
-
   spinWheel() {
     let wheelIndex = Math.round(Math.random() * this.wheel.length);
     this.currentSpin = this.wheel[wheelIndex];
@@ -89,7 +65,6 @@ class Round {
 
   guessEvents(guess) {
     let numUsed = 0;
-
     this.puzzle.correctAnswer.forEach(letter => {
       if (guess === letter) {
         numUsed++;
@@ -101,6 +76,7 @@ class Round {
         domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       } 
     })
+    console.log(this.puzzle.correctAnswer)
   }
 
   buyVowel(chosenVowel) {
