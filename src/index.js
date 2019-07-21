@@ -61,10 +61,8 @@ $('.solve-puzzle-btn').click((event) => {
   let result = game.round.solvePuzzle(playerGuess);
   console.log(result)
   if (result) {
-    console.log('boom')
     game.makeNewRound();
     domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
-    console.log(game.round)
     domUpdates.appendPuzzle(game.round.puzzle);
   }
 })

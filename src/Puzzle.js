@@ -13,7 +13,6 @@ class Puzzle {
     this.hint = puzzleObj['description'];
     this.correctAnswer = [...puzzleObj.correct_answer.toUpperCase()];
   }
-
 }
 
 export default Puzzle;
