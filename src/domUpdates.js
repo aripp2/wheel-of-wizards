@@ -14,6 +14,10 @@ updateCurrentPlayerName(player) {
     $('.turn-prompt').text(player + ' it is your turn!');
 },
 
+clearSpinValue() {
+  $('.spin-value').text('');
+},
+
 displayCurrentRound(roundNum) {
   $('.display-round').text('Round ' + roundNum);
 },
