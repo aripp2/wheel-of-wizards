@@ -12,18 +12,15 @@ class Round {
     this.players = players;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
-    console.log(this.puzzle)
     this.currentPlayer = currentPlayer;
     this.currentSpin = null;
     this.lettersUsed = [];
-    // this.roundWinner = null;
   }
 
   assignPuzzle() {
     this.makePuzzleBank();
     let randomNumber = Math.floor(Math.random() * this.puzzleBank.length);
     return new Puzzle(this.puzzleBank[randomNumber]);
-    console.log(this.puzzle.correctAnswer.join(''))
   }
 
   makePuzzleBank() {
@@ -43,7 +40,6 @@ class Round {
     } else {
       return this.currentPlayer = this.players[0]
     }
-    console.log(this.currentPlayer);
   }
 
   spinWheel() {
@@ -59,12 +55,10 @@ class Round {
       domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
-      console.log(this.currentPlayer);
     } else if (this.currentSpin === 'LOSE A TURN') {
       domUpdates.disableConsonants();
       this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
-      console.log(this.currentPlayer)
     } else {
       domUpdates.enableConsonants();
       domUpdates.disableUsedConsonants(this.lettersUsed);
@@ -104,7 +98,10 @@ class Round {
       this.puzzle.correctAnswer.forEach(letter => {
       if (chosenVowel === letter) {
         domUpdates.appendLetter(chosenVowel);
-      } 
+      } else {
+        this.findCurrentPlayer();
+        domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+      }
     })
     domUpdates.disableUsedConsonants(this.lettersUsed);
     domUpdates.disableUsedVowels(this.lettersUsed);
@@ -124,10 +121,6 @@ class Round {
       return false;
     }
   }
-
-  // findRoundWinner() {
-  //   this.roundWinner = this.players.find(player => player === this.currentPlayer)
-  // }
 }
 
 export default Round;

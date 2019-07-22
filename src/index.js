@@ -7,10 +7,10 @@ import './images/crystal.png';
 
 import Game from './Game.js';
 import domUpdates from './domUpdates';
-import bonusRound from './BonusRound.js'
 import BonusRound from './BonusRound.js';
 
 let game;
+let bonusRound;
 
 
 $('.start-game').prop('disabled', true);
@@ -43,11 +43,18 @@ function startGame(data, player1, player2, player3 ) {
 }
 
 $('.spin-btn').click((event) => {
-  if(game.roundCounter < 4)
-  event.preventDefault();
-  game.round.spinWheel();
-  $('.spin-value').text(game.round.spinWheel()).fadeIn('slow');
-  game.round.spinOptions();
+  console.log(game.roundCounter)
+  if (game.roundCounter <= 4) {
+    event.preventDefault();
+    game.round.spinWheel();
+    $('.spin-value').text(game.round.spinWheel()).fadeIn('slow');
+    game.round.spinOptions();
+  } else {
+    event.preventDefault();
+    bonusRound.spinWheel();
+    $('.spin-value').text(bonusRound.spinWheel());
+    bonusRound.guessOptions();
+  }
 })
 
 $('.consonants').click((event) => {
@@ -92,7 +99,8 @@ $('.champion').on('click', (event) => {
   if (event.target.className === 'bonus-round-button') {
     event.preventDefault();
     console.log('linked');
-    let bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
+    bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
+    console.log(bonusRound)
     domUpdates.appendBonusPuzzle(bonusRound.puzzle);
   }
 })

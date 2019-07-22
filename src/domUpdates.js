@@ -8,18 +8,22 @@ appendPlayers(players) {
       $(`.player-${player.id}-score`).text(player.score);
       $(`.player-${player.id}-bank`).text(player.bank);
     })
-},
+  },
 
 updateCurrentPlayerName(player) {
-    $('.current-player-name').text(player)
-  },
+    $('.turn-prompt').text(player + ' it is your turn!');
+},
+
+displayCurrentRound(roundNum) {
+  $('.display-round').text('Round ' + roundNum);
+},
 
 updatePlayerScores(players) {
-    players.forEach(player => {
-      $(`.player-${player.id}-score`).text(player.score);
-      $(`.player-${player.id}-bank`).text(player.bank);
+  players.forEach(player => {
+    $(`.player-${player.id}-score`).text(player.score);
+    $(`.player-${player.id}-bank`).text(player.bank);
     })
-  },
+},
 
 appendPuzzle(puzzle) {
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer)
@@ -47,7 +51,6 @@ appendBonusPuzzle(puzzle) {
     $('.category').text(puzzle.category);
     $('.hint').text(puzzle.hint);
     let letters = ['R', 'S', 'T', 'L', 'N', 'C'];
-    console.log(puzzle.correctAnswer.join(''))
     puzzle.correctAnswer.forEach(letter => {
       if (letters.includes(letter)){
         $(`.${letter}`).show();
