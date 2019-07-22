@@ -16,13 +16,17 @@ class BonusRound extends Round {
         this.puzzles = puzzles;
         this.puzzle = this.assignPuzzle()
         this.wheel = this.assignWheel(wheel);
+        // this.display = this.appendPuzzle()
         console.log(this.wheel)
+        console.log(this.puzzle.correctAnswer.join(''))
+        domUpdates.appendBonusPuzzle(this.puzzle);
+
     }
 
     assignPuzzle() {
         this.makePuzzleBank();
         let randomNumber = Math.floor(Math.random() * this.puzzleBank.length);
-        return new Puzzle(this.puzzleBank[randomNumber])
+        return new Puzzle(this.puzzleBank[randomNumber]);
     }
 
     makePuzzleBank() {
@@ -34,9 +38,9 @@ class BonusRound extends Round {
         return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
     }
 
-    appendPuzzle(){
-        domUpdates
-    }
+    // appendPuzzle(){
+    //     domUpdates.appendBonusPuzzle(this.puzzle)
+    // }
 
     assignWheel(wheel){
         let newWheel = [];

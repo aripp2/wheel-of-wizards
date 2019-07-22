@@ -22,13 +22,31 @@ updatePlayerScores(players) {
   },
 
 appendPuzzle(puzzle) {
+    console.log(puzzle)
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer)
     $('.puzzle-input-area').html(`${puzzleAnswer}`);
     $('.puzzle-character').hide();
     $('.symbol').show();
     $('.category').text(puzzle.category);
     $('.hint').text(puzzle.hint);
-  },
+},
+
+appendBonusPuzzle(puzzle){
+    // console.log(puzzle)
+    let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
+    $('.puzzle-input-area').html(`${puzzleAnswer}`);
+    $('.puzzle-character').hide();
+    $('.symbol').show();
+    $('.category').text(puzzle.category);
+    $('.hint').text(puzzle.hint);
+    let letters = ['R', 'S', 'T', 'L', 'N', 'C'];
+    console.log(puzzleAnswer)
+    // puzzle.correctAnswer.forEach(letter => {
+    //   if (letters.includes(letter)){
+    //     $(`.${letter}`).show();
+    //   }
+    // })
+},
 
 createPuzzle(answer) {
     let list = `<div class="current-puzzle">`

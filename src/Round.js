@@ -12,17 +12,18 @@ class Round {
     this.players = players;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
+    console.log(this.puzzle)
     this.currentPlayer = currentPlayer;
     this.currentSpin = null;
     this.lettersUsed = [];
     // this.roundWinner = null;
-    console.log(this.puzzle.correctAnswer.join(''))
   }
 
   assignPuzzle() {
     this.makePuzzleBank();
     let randomNumber = Math.floor(Math.random() * this.puzzleBank.length);
-    return new Puzzle(this.puzzleBank[randomNumber])
+    return new Puzzle(this.puzzleBank[randomNumber]);
+    console.log(this.puzzle.correctAnswer.join(''))
   }
 
   makePuzzleBank() {
