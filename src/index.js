@@ -7,6 +7,8 @@ import './images/crystal.png';
 
 import Game from './Game.js';
 import domUpdates from './domUpdates';
+import bonusRound from './BonusRound.js'
+import BonusRound from './BonusRound.js';
 
 let game;
 
@@ -33,7 +35,7 @@ $('.start-game').click((event) => {
 function startGame(data, player1, player2, player3 ) {
   game = new Game(data);
   game.createPlayers(player1, player2, player3);
-  game.makeNewRound();
+  game.makeNewRound(game.players[0]);
 
   domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   domUpdates.appendPuzzle(game.round.puzzle);
@@ -74,14 +76,22 @@ $('.solve-puzzle-btn').click((event) => {
   let result = game.round.solvePuzzle(playerGuess);
   $('.solve-puzzle-input').val('');
   console.log(result)
+  console.log(game.roundCounter)
   if (result) {
-    game.makeNewRound();
+    let roundWinner = game.round.currentPlayer
+    game.makeNewRound(roundWinner);
     domUpdates.appendPuzzle(game.round.puzzle);
-  } else {
+  } else if (result){
     game.round.findCurrentPlayer();
     domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   }
 })
 
+$('bonus-round-button').click((event) => {
+  event.preventDefault();
+  bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
+  console.log(bonusRound.puzzle)
+  domUpdates.appendBonusPuzzle(bonusRound.puzzle);
+})
 
 

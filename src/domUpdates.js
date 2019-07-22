@@ -22,13 +22,43 @@ updatePlayerScores(players) {
   },
 
 appendPuzzle(puzzle) {
+    console.log(puzzle)
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer)
     $('.puzzle-input-area').html(`${puzzleAnswer}`);
     $('.puzzle-character').hide();
     $('.symbol').show();
     $('.category').text(puzzle.category);
     $('.hint').text(puzzle.hint);
-  },
+},
+
+consolelog(){
+  console.log('hi')
+},
+
+displayChampion(champion) {
+    console.log('domUpdates', champion);
+    let displayChamp = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
+    <button class="bonus-round-button></button>`
+    // return champ;
+    $('.champion').html(`${displayChamp}`)
+},
+
+appendBonusPuzzle(puzzle){
+    // console.log(puzzle)
+    let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
+    $('.puzzle-input-area').html(`${puzzleAnswer}`);
+    $('.puzzle-character').hide();
+    $('.symbol').show();
+    $('.category').text(puzzle.category);
+    $('.hint').text(puzzle.hint);
+    let letters = ['R', 'S', 'T', 'L', 'N', 'C'];
+    console.log(puzzleAnswer)
+    // puzzle.correctAnswer.forEach(letter => {
+    //   if (letters.includes(letter)){
+    //     $(`.${letter}`).show();
+    //   }
+    // })
+},
 
 createPuzzle(answer) {
     let list = `<div class="current-puzzle">`
@@ -44,6 +74,12 @@ createPuzzle(answer) {
     list += "</div>";
     return list;
   },
+
+displayChampion(champion){
+  let champ = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
+  <button class="bonus-round-button></button>`
+  return champ;
+},
 
 updateCurrentPlayerScore(player) {
   $(`.player-${player.id}-score`).text(player.score);
@@ -104,5 +140,7 @@ disableBuyVowel() {
 notEnoughMoney() {
   alert('Sorry Muggle! You are too poor!');
 }
+
+
 
 }

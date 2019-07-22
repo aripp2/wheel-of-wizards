@@ -11,16 +11,22 @@ class BonusRound extends Round {
     constructor (puzzles, wheel, players, champion){
         super(puzzles, wheel, players)
         this.champion = champion;
+        console.log(this.champion)
         this.players = players;
         this.puzzles = puzzles;
         this.puzzle = this.assignPuzzle()
         this.wheel = this.assignWheel(wheel);
+        this.display = this.appendPuzzle()
+        console.log(this.wheel)
+        console.log(this.puzzle.correctAnswer.join(''))
+        domUpdates.appendBonusPuzzle(this.puzzle);
+
     }
 
     assignPuzzle() {
         this.makePuzzleBank();
         let randomNumber = Math.floor(Math.random() * this.puzzleBank.length);
-        return new Puzzle(this.puzzleBank[randomNumber])
+        return new Puzzle(this.puzzleBank[randomNumber]);
     }
 
     makePuzzleBank() {
@@ -33,7 +39,7 @@ class BonusRound extends Round {
     }
 
     appendPuzzle(){
-        domUpdates
+        domUpdates.appendBonusPuzzle(this.puzzle)
     }
 
     assignWheel(wheel){
@@ -48,8 +54,6 @@ class BonusRound extends Round {
         })
         return newWheel;
     }
-
-
 }
 
 
