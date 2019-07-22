@@ -62,6 +62,7 @@ $('.consonants').click((event) => {
   var guess = $(event.target).closest('.letter').text();
   console.log(guess);
   game.round.guessEvents(guess);
+  return guess;
 })
 
 $('.buy-vowel-btn').click((event) => {

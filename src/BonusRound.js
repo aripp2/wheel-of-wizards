@@ -44,7 +44,7 @@ class BonusRound extends Round {
             if (typeof number === 'string'){
                 return
             } else {
-                let newNumber = number*10;
+                let newNumber = number * 1000;
                 newWheel.push(newNumber)
             }
         })
@@ -58,7 +58,11 @@ class BonusRound extends Round {
     }
 
     guessOptions(){
-        console.log('guesssss')
+        let lettersPicked = [];
+        let vowel = [];
+        domUpdates.enableConsonants();
+        //message that says pick three consonants
+        
     }
 }
 
