@@ -8,18 +8,22 @@ appendPlayers(players) {
       $(`.player-${player.id}-score`).text(player.score);
       $(`.player-${player.id}-bank`).text(player.bank);
     })
-},
+  },
 
 updateCurrentPlayerName(player) {
-    $('.current-player-name').text(player)
-  },
+    $('.turn-prompt').text(player + ' it is your turn!');
+},
+
+displayCurrentRound(roundNum) {
+  $('.display-round').text('Round ' + roundNum);
+},
 
 updatePlayerScores(players) {
-    players.forEach(player => {
-      $(`.player-${player.id}-score`).text(player.score);
-      $(`.player-${player.id}-bank`).text(player.bank);
+  players.forEach(player => {
+    $(`.player-${player.id}-score`).text(player.score);
+    $(`.player-${player.id}-bank`).text(player.bank);
     })
-  },
+},
 
 appendPuzzle(puzzle) {
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer)
@@ -39,7 +43,7 @@ displayChampion(champion) {
     $('.champion').html(`${displayChamp}`)
 },
 
-appendBonusPuzzle(puzzle){
+appendBonusPuzzle(puzzle) {
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
     $('.puzzle-input-area').html(`${puzzleAnswer}`);
     $('.puzzle-character').hide();
@@ -70,63 +74,63 @@ createPuzzle(answer) {
   },
 
 updateCurrentPlayerScore(player) {
-  $(`.player-${player.id}-score`).text(player.score);
+    $(`.player-${player.id}-score`).text(player.score);
 },
 
 updateCurrentPlayerBank(player) {
-  $(`.player-${player.id}-score`).text(player.bank);
+    $(`.player-${player.id}-score`).text(player.bank);
 },
 
 appendLetter(guess) {
-  $(`.${guess}`).show();
+    $(`.${guess}`).show();
 }, 
 
 disableSpinBtn() {
-  $('.spin-btn').attr("disabled", true);
+    $('.spin-btn').attr("disabled", true);
 },
 
 enableSpinBtn() {
-  $('.spin-btn').attr("disabled", false);
+    $('.spin-btn').attr("disabled", false);
 },
 
 disableConsonants() {
-  $('.letter').attr("disabled", true);
+    $('.letter').attr("disabled", true);
 },
 
 disableUsedConsonants(lettersUsed) {
-  lettersUsed.forEach(letter => {
-  $(`#cons${letter}`).attr("disabled", true);
-  });
+    lettersUsed.forEach(letter => {
+      $(`#cons${letter}`).attr("disabled", true);
+    });
 },
 
 disableUsedVowels(lettersUsed) {
-  lettersUsed.forEach(letter => {
-  $(`#vowel${letter}`).attr("disabled", true);
-  });
+    lettersUsed.forEach(letter => {
+      $(`#vowel${letter}`).attr("disabled", true);
+    });
 },
 
 enableConsonants() {
-  $('.letter').attr("disabled", false);
+    $('.letter').attr("disabled", false);
 },
 
 disableVowels() {
-  $('.vowel').attr("disabled", true);
+    $('.vowel').attr("disabled", true);
 },
 
 enableVowels() {
-  $('.vowel').attr("disabled", false);
+    $('.vowel').attr("disabled", false);
 },
 
 enableBuyVowel() {
-  $('.buy-vowel-btn').attr("disabled", false);
+    $('.buy-vowel-btn').attr("disabled", false);
 },
 
 disableBuyVowel() {
-  $('.buy-vowel-btn').attr("disabled", true);
+    $('.buy-vowel-btn').attr("disabled", true);
 },
 
 notEnoughMoney() {
-  alert('Sorry Muggle! You are too poor!');
+    alert('Sorry Muggle! You are too poor!');
 }
 
 

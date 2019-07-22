@@ -22,8 +22,8 @@
       <div class="champion">
         
       </div>
-      <h2 class="turn-prompt"><span class="current-player-name"></span> it is your turn!</h2>
-
+      <h3 class="display-round"></h3>
+      <h2 class="turn-prompt"></h2>
       <section class="puzzle-crystal-area">
         <section class="puzzle-area">
           <h3>Category: <span class="category"></span></h3>
@@ -33,7 +33,6 @@
         <section class="crystal-ball">
             <img src="./images/crystal.png" alt="Image of a crystalBall where random output will be shown">
             <p class="spin-value"></p>
-            <button class="spin-btn" disabled="true">Spin Your Future, Muggle</button>
           </section>
       </section>
       
@@ -67,13 +66,17 @@
         <button class="vowel" id="vowelO" disabled="true">O</button>
         <button class="vowel" id="vowelU" disabled="true">U</button>
       </section>
-        <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
+        <!-- <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button> -->
 
 
       <section class="solve-puzzle">
-        <label for="solve-puzzle">Put Your Guess Here! No Cheating!</label>
-        <input id="solve-puzzle" class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
-        <button class="solve-puzzle-btn">Solve The Puzzle You Broomstick!</button>
+        <button class="spin-btn" disabled="true">Spin Your Future, Muggle</button>
+        <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
+        <section class="puzz-input-area">
+          <label for="solve-puzzle"></label>
+          <input id="solve-puzzle" class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
+          <button class="solve-puzzle-btn">Solve The Puzzle You Broomstick!</button>
+        </section>
       </section>
 
       <section class="player-boxes">
