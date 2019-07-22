@@ -51,7 +51,6 @@ appendBonusPuzzle(puzzle) {
     $('.category').text(puzzle.category);
     $('.hint').text(puzzle.hint);
     let letters = ['R', 'S', 'T', 'L', 'N', 'C'];
-    console.log(puzzle.correctAnswer.join(''))
     puzzle.correctAnswer.forEach(letter => {
       if (letters.includes(letter)){
         $(`.${letter}`).show();
