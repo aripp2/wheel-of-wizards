@@ -60,6 +60,22 @@ appendBonusPuzzle(puzzle) {
         $(`.${letter}`).show();
       }
     })
+  },
+
+showPlayersBonusRoundGuess(puzzle, letterArray){
+  let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
+  $('.puzzle-input-area').html(`${puzzleAnswer}`);
+  $('.puzzle-character').hide();
+  $('.symbol').show();
+  $('.category').text(puzzle.category);
+  $('.hint').text(puzzle.hint);
+  let letters = ['R', 'S', 'T', 'L', 'N', 'C'].concat(letterArray);
+  console.log(letters)
+  puzzle.correctAnswer.forEach(letter => {
+    if (letters.includes(letter)){
+      $(`.${letter}`).show();
+    }
+  })
 },
 
 createPuzzle(answer) {
