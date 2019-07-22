@@ -78,7 +78,7 @@ $('.solve-puzzle-btn').click((event) => {
     let roundWinner = game.round.currentPlayer
     game.makeNewRound(roundWinner);
     domUpdates.appendPuzzle(game.round.puzzle);
-  } else if (result && game.roundCounter === 4){
+  } else if (result && game.roundCounter === 4) {
     domUpdates.updatePlayerScores(game.players);
     game.displayChampion();
   } else {
@@ -88,11 +88,12 @@ $('.solve-puzzle-btn').click((event) => {
 })
 
 $('.champion').on('click', (event) => {
-  if (event.target.className=== 'bonus-round-button')
-  event.preventDefault();
-  console.log('linked');
-  let bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
-  domUpdates.appendBonusPuzzle(bonusRound.puzzle);
+  if (event.target.className === 'bonus-round-button') {
+    event.preventDefault();
+    console.log('linked');
+    let bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
+    domUpdates.appendBonusPuzzle(bonusRound.puzzle);
+  }
 })
 
 
