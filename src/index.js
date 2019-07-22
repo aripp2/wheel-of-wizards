@@ -43,6 +43,7 @@ function startGame(data, player1, player2, player3 ) {
 }
 
 $('.spin-btn').click((event) => {
+  if(game.roundCounter < 4)
   event.preventDefault();
   game.round.spinWheel();
   $('.spin-value').text(game.round.spinWheel());
@@ -88,11 +89,12 @@ $('.solve-puzzle-btn').click((event) => {
 })
 
 $('.champion').on('click', (event) => {
-  if (event.target.className=== 'bonus-round-button')
+  if (event.target.className === 'bonus-round-button'){
   event.preventDefault();
   console.log('linked');
   let bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
   domUpdates.appendBonusPuzzle(bonusRound.puzzle);
+  }
 })
 
 
