@@ -37,21 +37,41 @@ body {
   border: none;
   color: $hover-text-color;
   border-radius: 2px;
+  &:hover {
+    margin-left: 20px;
+    transform: scale(1.5) perspective(1px);
+  }
 }
 
 form.splash {
   display: flex;
   flex-direction: column;
   margin: auto;
-  width: 50%;
+  width: 30%;
+    input {
+      margin-bottom: 10px;
+      font-size: 15px;
+      border: none;
+      border-radius: 2px;
+      outline: 0;
+    }
+    label {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
 }
 
 .start-game {
   font-size: 20px;
-    outline: 0;
+  outline: 0;
+  border-radius: 2px;
+  border: none;
+  width: 40%;
+  margin: auto;
     &:hover {
       background: $button-hover-color;
       color: $hover-text-color;
+      transform: scale(1.5) perspective(1px);
     }
     &:active { 
       background-color: $active-background-color;
@@ -164,6 +184,7 @@ h1 {
     &:hover {
       background: $button-hover-color;
       color: $hover-text-color;
+      transform: scale(1.5) perspective(1px);
     }
     &:active { 
       background-color: $active-background-color;
@@ -210,8 +231,10 @@ h1 {
     background: #ccc;
     color: white;
   }
+  &:hover {
+    transform: scale(1.5) perspective(1px);
+  }
 }
-
 
 .solve-puzzle-input {
    border: none;
@@ -237,4 +260,3 @@ h1 {
 .space {
   border: none;
 }
-
