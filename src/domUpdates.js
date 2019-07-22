@@ -28,6 +28,7 @@ appendPuzzle(puzzle) {
     $('.symbol').show();
     $('.category').text(puzzle.category);
     $('.hint').text(puzzle.hint);
+    console.log(puzzle.correctAnswer.join(''))
 },
 
 
@@ -46,12 +47,12 @@ appendBonusPuzzle(puzzle){
     $('.category').text(puzzle.category);
     $('.hint').text(puzzle.hint);
     let letters = ['R', 'S', 'T', 'L', 'N', 'C'];
-    console.log(puzzleAnswer)
-    // puzzle.correctAnswer.forEach(letter => {
-    //   if (letters.includes(letter)){
-    //     $(`.${letter}`).show();
-    //   }
-    // })
+    console.log(puzzle.correctAnswer.join(''))
+    puzzle.correctAnswer.forEach(letter => {
+      if (letters.includes(letter)){
+        $(`.${letter}`).show();
+      }
+    })
 },
 
 createPuzzle(answer) {
