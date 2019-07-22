@@ -15,7 +15,6 @@ let game;
 
 $('.start-game').prop('disabled', true);
 $('.name-inputs').keyup(function() {
-  // if ($('.name-inputs').val() !== '') {
   if ($('.player-1-input').val() !== '' && $('.player-2-input').val() !== '' && $('.player-3-input').val() !== '') {
     $('.start-game').prop('disabled', false);
   }
@@ -75,23 +74,26 @@ $('.solve-puzzle-btn').click((event) => {
   let playerGuess = $('.solve-puzzle-input').val();
   let result = game.round.solvePuzzle(playerGuess);
   $('.solve-puzzle-input').val('');
-  console.log(result)
-  console.log(game.roundCounter)
-  if (result) {
+  if (result && game.roundCounter < 4) {
     let roundWinner = game.round.currentPlayer
     game.makeNewRound(roundWinner);
     domUpdates.appendPuzzle(game.round.puzzle);
-  } else if (result){
+  } else if (result && game.roundCounter === 4){
+    domUpdates.updatePlayerScores(game.players);
+    game.displayChampion();
+  } else {
     game.round.findCurrentPlayer();
     domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   }
 })
 
-$('bonus-round-button').click((event) => {
+$('.champion').on('click', (event) => {
+  if (event.target.className=== 'bonus-round-button')
   event.preventDefault();
-  bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
-  console.log(bonusRound.puzzle)
+  console.log('linked');
+  let bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
   domUpdates.appendBonusPuzzle(bonusRound.puzzle);
 })
+
 
 

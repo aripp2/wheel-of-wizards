@@ -22,7 +22,6 @@ updatePlayerScores(players) {
   },
 
 appendPuzzle(puzzle) {
-    console.log(puzzle)
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer)
     $('.puzzle-input-area').html(`${puzzleAnswer}`);
     $('.puzzle-character').hide();
@@ -33,7 +32,6 @@ appendPuzzle(puzzle) {
 
 
 displayChampion(champion) {
-    console.log('domUpdates', champion);
     let displayChamp = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
     <button class="bonus-round-button">Start Bonus Round</button>
     <p>Spin for great Prizes!</p>`
@@ -41,7 +39,6 @@ displayChampion(champion) {
 },
 
 appendBonusPuzzle(puzzle){
-    // console.log(puzzle)
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
     $('.puzzle-input-area').html(`${puzzleAnswer}`);
     $('.puzzle-character').hide();

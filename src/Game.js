@@ -34,11 +34,12 @@ class Game {
       this.players.forEach(player => player.score = 0);
       domUpdates.updatePlayerScores(this.players);
       this.round = new Round(this.puzzles, this.wheel, this.players, currentPlayer);
-    } else {
-      let champion = this.returnChampion();
-      domUpdates.displayChampion(champion);
-      // this.bonusRound = new BonusRound(this.puzzles, this.wheel, this.players, this.returnChampion())
-    }
+    } 
+  }
+  
+  displayChampion(){
+    let champion = this.returnChampion();
+    domUpdates.displayChampion(champion);
   }
 
   returnChampion() {
