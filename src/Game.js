@@ -14,7 +14,7 @@ class Game {
     this.roundCounter = 0;
     this.players = [];
     this.round;
-    this.champion;
+    // this.champion;
     this.bonusRound = null
   }
 
@@ -36,7 +36,12 @@ class Game {
       this.round = new Round(this.puzzles, this.wheel, this.players, currentPlayer);
     } else {
       // this.returnChampion();
-      this.bonusRound = new BonusRound(this.puzzles, this.wheel, this.players, this.returnChampion())
+      let champion = this.returnChampion();
+      console.log('the champ is', champion);
+      domUpdates.consolelog();
+      domUpdates.displayChampion(champion);
+      console.log('after')
+      // this.bonusRound = new BonusRound(this.puzzles, this.wheel, this.players, this.returnChampion())
     }
   }
 
