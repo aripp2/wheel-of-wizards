@@ -33,7 +33,7 @@ $('.start-game').click((event) => {
 function startGame(data, player1, player2, player3 ) {
   game = new Game(data);
   game.createPlayers(player1, player2, player3);
-  game.makeNewRound();
+  game.makeNewRound(game.players[0]);
 
   domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   domUpdates.appendPuzzle(game.round.puzzle);
@@ -75,7 +75,8 @@ $('.solve-puzzle-btn').click((event) => {
   $('.solve-puzzle-input').val('');
   console.log(result)
   if (result) {
-    game.makeNewRound();
+    let roundWinner = game.round.currentPlayer
+    game.makeNewRound(roundWinner);
     domUpdates.appendPuzzle(game.round.puzzle);
   } else {
     game.round.findCurrentPlayer();

@@ -11,10 +11,12 @@ class BonusRound extends Round {
     constructor (puzzles, wheel, players, champion){
         super(puzzles, wheel, players)
         this.champion = champion;
+        console.log(this.champion)
         this.players = players;
         this.puzzles = puzzles;
         this.puzzle = this.assignPuzzle()
         this.wheel = this.assignWheel(wheel);
+        console.log(this.wheel)
     }
 
     assignPuzzle() {
@@ -48,8 +50,6 @@ class BonusRound extends Round {
         })
         return newWheel;
     }
-
-
 }
 
 

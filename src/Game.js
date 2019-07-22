@@ -27,24 +27,24 @@ class Game {
   }
 
 
-  makeNewRound() {
+  makeNewRound(currentPlayer) {
+    domUpdates.disableConsonants()
     if (this.roundCounter < 4) {
       this.roundCounter++;
       this.players.forEach(player => player.score = 0);
       domUpdates.updatePlayerScores(this.players);
-      this.round = new Round(this.puzzles, this.wheel, this.players);
+      this.round = new Round(this.puzzles, this.wheel, this.players, currentPlayer);
     } else {
-      this.returnChampion();
-      this.bonusRound = new BonusRound(this.puzzles, this.wheel, this.players, this.players[0])
+      // this.returnChampion();
+      this.bonusRound = new BonusRound(this.puzzles, this.wheel, this.players, this.returnChampion())
     }
   }
 
   returnChampion() {
-    // let order = this.players.sort((a, b) =>
-    //   b.bank - a.bank);
-    // this.champion = order[0];
+    let order = this.players.sort((a, b) =>
+      b.bank - a.bank);
+    this.champion = order[0];
     return this.players[0]
-    console.log('chaaaampion')
   }
 
   quitGame() {

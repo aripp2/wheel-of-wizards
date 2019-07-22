@@ -6,13 +6,13 @@ import data from './data/sample-data';
 import domUpdates from './domUpdates';
 
 class Round {
-  constructor(puzzles, wheel, players) {
+  constructor(puzzles, wheel, players, currentPlayer) {
     this.puzzles = puzzles;
     this.wheel = wheel;
     this.players = players;
     this.puzzleBank = [];
     this.puzzle = this.assignPuzzle();
-    this.currentPlayer = this.findCurrentPlayer();
+    this.currentPlayer = currentPlayer;
     this.currentSpin = null;
     this.lettersUsed = [];
     // this.roundWinner = null;
@@ -59,7 +59,7 @@ class Round {
       this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
       console.log(this.currentPlayer);
-    } else if (this.currentSpin === 'LOSE-A-TURN') {
+    } else if (this.currentSpin === 'LOSE A TURN') {
       domUpdates.disableConsonants();
       this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
@@ -73,13 +73,10 @@ class Round {
   guessEvents(guess) {
     let numUsed = 0;
     this.lettersUsed.push(guess);
-    console.log(this.lettersUsed)
     this.puzzle.correctAnswer.forEach(letter => {
       if (guess === letter) {
         numUsed++;
         this.currentPlayer.score += this.currentSpin;
-        console.log('counter', numUsed);
-        console.log('score', this.currentPlayer.score)
         domUpdates.appendLetter(guess);
         console.log(this.currentPlayer)
         domUpdates.updateCurrentPlayerScore(this.currentPlayer);
@@ -87,7 +84,11 @@ class Round {
       } 
     })
     domUpdates.disableUsedConsonants(this.lettersUsed);
-    console.log(this.puzzle.correctAnswer)
+    if (!this.puzzle.correctAnswer.includes(guess)){
+      this.findCurrentPlayer()
+      domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+    }
+    console.log(this.currentPlayer)
   }
 
   buyVowel(chosenVowel) {
@@ -108,8 +109,6 @@ class Round {
     domUpdates.disableUsedVowels(this.lettersUsed);
     domUpdates.disableVowels();
     console.log(this.puzzle.correctAnswer)
-
-
     }
   }
 
@@ -117,11 +116,10 @@ class Round {
     if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()) {
       this.currentPlayer.bank += this.currentPlayer.score;
       domUpdates.updateCurrentPlayerBank(this.currentPlayer);
-      // this.findRoundWinner();
-      console.log('winner', this.roundWinner)
+      this.lettersUsed = [];
+      domUpdates.enableConsonants();
       return true;
     } else {
-      this.findCurrentPlayer();
       return false;
     }
   }
