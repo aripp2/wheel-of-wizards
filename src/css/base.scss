@@ -120,10 +120,21 @@ h1 {
 
 .crystal-ball {
   padding: 10px;
-  img {
-    height: 20em;
+  .crystal-spin {
+    width: 40%;
     margin: auto;
-    display: block;
+    img {
+      height: 20em;
+      margin: auto;
+      display: block;
+     }
+    .spin-value {
+      position: relative;
+      bottom: 190px;
+      // left: -53px;
+      font-size: 2em;
+      text-align: center;
+     }
   }
 }
 
@@ -208,8 +219,7 @@ h1 {
     }
   .box > h3 {
     font-size: 30px;
-  }
-  
+    }
   }
 
 
