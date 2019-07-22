@@ -46,7 +46,7 @@ $('.spin-btn').click((event) => {
   if(game.roundCounter < 4)
   event.preventDefault();
   game.round.spinWheel();
-  $('.spin-value').text(game.round.spinWheel());
+  $('.spin-value').text(game.round.spinWheel()).fadeIn('slow');
   game.round.spinOptions();
 })
 
