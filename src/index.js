@@ -61,11 +61,21 @@ $('.spin-btn').click((event) => {
 
 $('.consonants').click((event) => {
   event.preventDefault();
+  if (game.roundCounter <= 4){
   var guess = $(event.target).closest('.letter').text();
   console.log(guess);
   game.round.guessEvents(guess);
   domUpdates.clearSpinValue();
   domUpdates.disableConsonants();
+  } else {
+  var guess = $(event.target).closest('.letter').text();
+  bonusRound.lettersPicked.push(guess);
+  console.log(bonusRound.lettersPicked)
+    if (bonusRound.lettersPicked.length === 3){
+    domUpdates.disableConsonants();
+    domUpdates.showPlayersBonusRoundGuess(bonusRound.puzzle, bonusRound.lettersPicked)  
+    }
+  }
 })
 
 $('.buy-vowel-btn').click((event) => {
@@ -75,10 +85,18 @@ $('.buy-vowel-btn').click((event) => {
 })
 
 $('.vowels').click((event) => {
+  if (game.roundCounter <= 4){
   event.preventDefault();
   var guess = $(event.target).closest('.vowel').text();
   console.log(guess);
   game.round.buyVowel(guess);
+  } else {
+  var guess = $(event.target).closest('.vowel').text();
+  bonusRound.lettersPicked.push(guess);
+  console.log(bonusRound.lettersPicked)
+  domUpdates.showPlayersBonusRoundGuess(bonusRound.puzzle, bonusRound.lettersPicked)  
+  domUpdates.disableVowels();
+  }
 })
 
 $('.solve-puzzle-btn').click((event) => {
