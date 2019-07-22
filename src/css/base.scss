@@ -128,24 +128,24 @@ h1 {
 }
 
 .spin-btn {
-  position: absolute;
-  bottom: 30px;
-  left: 110px;
+  
 }
 
 .current-puzzle {
   display: flex;
   flex-wrap: wrap;
-  height: 6em;
-  flex-direction: row;
-  justify-content: space-evenly;
+  /* height: 6em; */
+  /* flex-direction: row; */
+  justify-content: center;
+  margin-top: 20px;
   z-index: 10;
 }
 
 .puzzle-container {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   height: 20px;
   width: 20px;
+  margin: 2px;
   padding: 1%;
   text-align: center;
   display: flex;
@@ -178,9 +178,11 @@ h1 {
 
 .solve-puzzle {
   display: flex;
-  flex-direction: column;
-  width: 15%;
-  margin: auto;
+  flex-direction: row;
+    /* width: 15%; */
+    /* margin: auto; */
+  justify-content: space-evenly;
+  height: 2em;
 }
 
 .solve-puzzle-button {
