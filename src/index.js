@@ -102,7 +102,12 @@ $('.champion').on('click', (event) => {
   bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
   console.log(bonusRound)
   domUpdates.appendBonusPuzzle(bonusRound.puzzle);
+  domUpdates.displayBonusRound();
   }
+})
+
+$('.quit-game').click((event) => {
+  location.reload();
 })
 
 
