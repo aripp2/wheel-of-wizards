@@ -18,6 +18,10 @@ displayCurrentRound(roundNum) {
   $('.display-round').text('Round ' + roundNum);
 },
 
+displayBonusRound() {
+  $('.display-round').text('BONUS ROUND!!!')
+},
+
 updatePlayerScores(players) {
   players.forEach(player => {
     $(`.player-${player.id}-score`).text(player.score);
@@ -40,7 +44,7 @@ displayChampion(champion) {
     let displayChamp = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
     <button class="bonus-round-button">Start Bonus Round</button>
     <p>Spin for great Prizes!</p>`
-    $('.champion').html(`${displayChamp}`)
+    $('.turn-prompt').html(`${displayChamp}`)
 },
 
 appendBonusPuzzle(puzzle) {
@@ -131,7 +135,7 @@ disableBuyVowel() {
 
 notEnoughMoney() {
     alert('Sorry Muggle! You are too poor!');
-}
+},
 
 
 

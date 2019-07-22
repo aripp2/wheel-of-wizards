@@ -95,14 +95,19 @@ $('.solve-puzzle-btn').click((event) => {
   }
 })
 
-$('.champion').on('click', (event) => {
-  if (event.target.className === 'bonus-round-button') {
-    event.preventDefault();
-    console.log('linked');
-    bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
-    console.log(bonusRound)
-    domUpdates.appendBonusPuzzle(bonusRound.puzzle);
+$('.turn-prompt').on('click', (event) => {
+  if (event.target.className === 'bonus-round-button'){
+  event.preventDefault();
+  console.log('linked');
+  bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
+  console.log(bonusRound)
+  domUpdates.appendBonusPuzzle(bonusRound.puzzle);
+  domUpdates.displayBonusRound();
   }
+})
+
+$('.quit-game').click((event) => {
+  location.reload();
 })
 
 
