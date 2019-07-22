@@ -43,6 +43,7 @@ function startGame(data, player1, player2, player3 ) {
 }
 
 $('.spin-btn').click((event) => {
+  if(game.roundCounter < 4)
   event.preventDefault();
   game.round.spinWheel();
   $('.spin-value').text(game.round.spinWheel());
