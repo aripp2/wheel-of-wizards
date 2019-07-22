@@ -43,16 +43,18 @@ function startGame(data, player1, player2, player3 ) {
 }
 
 $('.spin-btn').click((event) => {
+  event.preventDefault();
+  domUpdates.enableConsonants();
   console.log(game.roundCounter)
   if (game.roundCounter <= 4) {
-    event.preventDefault();
+  domUpdates.disableUsedConsonants(game.round.lettersUsed);
     game.round.spinWheel();
     $('.spin-value').text(game.round.spinWheel()).fadeIn('slow');
     game.round.spinOptions();
   } else {
-    event.preventDefault();
     bonusRound.spinWheel();
     $('.spin-value').text(bonusRound.spinWheel());
+    domUpdates.enableConsonants();
     bonusRound.guessOptions();
   }
 })
@@ -62,6 +64,8 @@ $('.consonants').click((event) => {
   var guess = $(event.target).closest('.letter').text();
   console.log(guess);
   game.round.guessEvents(guess);
+  domUpdates.clearSpinValue();
+  domUpdates.disableConsonants();
 })
 
 $('.buy-vowel-btn').click((event) => {
@@ -100,6 +104,7 @@ $('.turn-prompt').on('click', (event) => {
   event.preventDefault();
   console.log('linked');
   bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
+  domUpdates.disableConsonants();
   console.log(bonusRound)
   domUpdates.appendBonusPuzzle(bonusRound.puzzle);
   domUpdates.displayBonusRound();
