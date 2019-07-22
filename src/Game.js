@@ -35,12 +35,8 @@ class Game {
       domUpdates.updatePlayerScores(this.players);
       this.round = new Round(this.puzzles, this.wheel, this.players, currentPlayer);
     } else {
-      // this.returnChampion();
       let champion = this.returnChampion();
-      console.log('the champ is', champion);
-      domUpdates.consolelog();
       domUpdates.displayChampion(champion);
-      console.log('after')
       // this.bonusRound = new BonusRound(this.puzzles, this.wheel, this.players, this.returnChampion())
     }
   }

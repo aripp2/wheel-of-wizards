@@ -31,15 +31,12 @@ appendPuzzle(puzzle) {
     $('.hint').text(puzzle.hint);
 },
 
-consolelog(){
-  console.log('hi')
-},
 
 displayChampion(champion) {
     console.log('domUpdates', champion);
     let displayChamp = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
-    <button class="bonus-round-button></button>`
-    // return champ;
+    <button class="bonus-round-button">Start Bonus Round</button>
+    <p>Spin for great Prizes!</p>`
     $('.champion').html(`${displayChamp}`)
 },
 
@@ -74,12 +71,6 @@ createPuzzle(answer) {
     list += "</div>";
     return list;
   },
-
-displayChampion(champion){
-  let champ = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
-  <button class="bonus-round-button></button>`
-  return champ;
-},
 
 updateCurrentPlayerScore(player) {
   $(`.player-${player.id}-score`).text(player.score);
