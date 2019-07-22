@@ -16,6 +16,7 @@ class BonusRound extends Round {
         this.puzzle = this.assignPuzzle()
         this.wheel = this.assignWheel(wheel);
         this.currentSpin = null;
+        this.lettersPicked = [];
         console.log(this.puzzle.correctAnswer.join(''))
     }
 
@@ -44,7 +45,7 @@ class BonusRound extends Round {
             if (typeof number === 'string'){
                 return
             } else {
-                let newNumber = number * 1000;
+                let newNumber = number * 1345678;
                 newWheel.push(newNumber)
             }
         })
@@ -58,11 +59,9 @@ class BonusRound extends Round {
     }
 
     guessOptions(){
-        let lettersPicked = [];
-        let vowel = [];
         domUpdates.enableConsonants();
-        //message that says pick three consonants
-        
+        domUpdates.enableVowels();
+        domUpdates.showPlayersBonusRoundGuess(this.puzzle, this.lettersPicked)  
     }
 }
 
