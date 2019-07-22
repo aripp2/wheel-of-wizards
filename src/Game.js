@@ -38,6 +38,7 @@ class Game {
   }
   
   displayChampion(){
+    this.roundCounter++;
     let champion = this.returnChampion();
     domUpdates.displayChampion(champion);
   }

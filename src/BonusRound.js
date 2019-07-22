@@ -15,6 +15,7 @@ class BonusRound extends Round {
         this.puzzles = puzzles;
         this.puzzle = this.assignPuzzle()
         this.wheel = this.assignWheel(wheel);
+        this.currentSpin = null;
         console.log(this.puzzle.correctAnswer.join(''))
     }
 
@@ -48,6 +49,16 @@ class BonusRound extends Round {
             }
         })
         return newWheel;
+    }
+
+    spinWheel() {
+        let wheelIndex = Math.round(Math.random() * this.wheel.length);
+        this.currentSpin = this.wheel[wheelIndex];
+        return this.currentSpin;
+    }
+
+    guessOptions(){
+        console.log('guesssss')
     }
 }
 
