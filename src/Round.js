@@ -104,7 +104,10 @@ class Round {
       this.puzzle.correctAnswer.forEach(letter => {
       if (chosenVowel === letter) {
         domUpdates.appendLetter(chosenVowel);
-      } 
+      } else {
+        this.findCurrentPlayer();
+        domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+      }
     })
     domUpdates.disableUsedConsonants(this.lettersUsed);
     domUpdates.disableUsedVowels(this.lettersUsed);
