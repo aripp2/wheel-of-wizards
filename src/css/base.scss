@@ -1,4 +1,3 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
 @import 'reset';
 @import 'variables';
 // @import './images/purple-velvet-background.jpg';
@@ -19,17 +18,12 @@ body {
   padding: 20px;
   text-align: center;
   font-size: 3em;
-  // color: $gradient-color;
   background: $gradient-color;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-family: 'Calligraffitti', cursive;
   font-weight: bold;
 }
-
-// .error{
-//   outline: 1px solid $error-border-color;
-// }
 
 .quit-game {
   font-size: 15px;
@@ -82,7 +76,6 @@ form.splash {
     }
   }
 
-
 h1 {
   text-align: center;
   font-size: 4em;
@@ -117,14 +110,11 @@ h1 {
 }
 
 .puzzle-crystal-area {
-  // display: flex;
-  // justify-content: space-evenly;
   margin: 20px;
 }
 
 .puzzle-area {
   padding: 10px;
-  // width: 50%;
 }
 
 .crystal-ball {
@@ -255,7 +245,6 @@ h1 {
     font-size: 30px;
     }
   }
-
 
 .space {
   border: none;
