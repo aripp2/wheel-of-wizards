@@ -67,30 +67,32 @@ h1 {
 }
 
 .puzzle-input-area {
-  display: flex;
-  align-items: center;
-  width: 90%;
-  margin: auto;
-  max-width: 22em;
-  position: relative;
-  padding: 30% 2em;
-  box-sizing: border-box;
+  // display: flex;
+  // align-items: center;
+  // width: 90%;
+  // margin: auto;
+  // max-width: 22em;
+  // position: relative;
+  // padding: 30% 2em;
+  // box-sizing: border-box;
   $border: 5px;
   color: #FFF;
   background: $gradient-color-border;
-  background-clip: padding-box; 
-  border: solid $border transparent;
+  // background-clip: padding-box; 
+  border: solid $border black;
   border-radius: .5em;
+  height: 5em;
+  margin: 10px 0;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 0; right: 0; bottom: 0; left: 0;
-      margin: 7px; 
-      // border-radius:.5em;
-      background: $primary-background;
-      border: 7px solid $border-color;   
-     }
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   top: 0; right: 0; bottom: 0; left: 0;
+    //   margin: 7px; 
+    //   // border-radius:.5em;
+    //   background: $primary-background;
+    //   border: 7px solid $border-color;   
+    //  }
 }
 
 .puzzle-display {
@@ -106,48 +108,44 @@ h1 {
 }
 
 .puzzle-crystal-area {
-  display: flex;
-  justify-content: space-evenly;
+  // display: flex;
+  // justify-content: space-evenly;
   margin: 20px;
 }
 
 .puzzle-area {
   padding: 10px;
-  width: 50%;
+  // width: 50%;
 }
 
 .crystal-ball {
   padding: 10px;
-  width: 50%;
-  position: relative;
-  // background-image: url("./images/crystal.png"); 
-}
-
-.crystal-ball > img {
-  height: 20em;
-  margin: auto;
-  display: block;
+  img {
+    height: 20em;
+    margin: auto;
+    display: block;
+  }
 }
 
 .spin-btn {
-  position: absolute;
-  bottom: 30px;
-  left: 110px;
+  
 }
 
 .current-puzzle {
   display: flex;
   flex-wrap: wrap;
-  height: 6em;
-  flex-direction: row;
-  justify-content: space-evenly;
+  /* height: 6em; */
+  /* flex-direction: row; */
+  justify-content: center;
+  margin-top: 20px;
   z-index: 10;
 }
 
 .puzzle-container {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   height: 20px;
   width: 20px;
+  margin: 2px;
   padding: 1%;
   text-align: center;
   display: flex;
@@ -180,9 +178,11 @@ h1 {
 
 .solve-puzzle {
   display: flex;
-  flex-direction: column;
-  width: 15%;
-  margin: auto;
+  flex-direction: row;
+    /* width: 15%; */
+    /* margin: auto; */
+  justify-content: space-evenly;
+  height: 2em;
 }
 
 .solve-puzzle-button {
