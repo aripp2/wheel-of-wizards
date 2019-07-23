@@ -43,7 +43,7 @@ function startGame(data, player1, player2, player3 ) {
   domUpdates.enableSpinBtn();
   $('.instructions').show();
   $('.quit-game').show();
-  $('.game-header').show(); 
+  $('.game-header').fadeIn(3000); 
 }
 
 $('.spin-btn').click((event) => {
@@ -53,7 +53,10 @@ $('.spin-btn').click((event) => {
   if (game.roundCounter <= 4) {
   domUpdates.disableUsedConsonants(game.round.lettersUsed);
     game.round.spinWheel();
-    $('.spin-value').text(game.round.spinWheel()).fadeIn('slow');
+    // $('.spin-value').text(game.round.spinWheel()).fadeIn('slow');
+    $('.spin-value').fadeIn('slow', () => {
+      $('.spin-value').text(game.round.spinWheel());
+    });
     game.round.spinOptions();
   } else {
     bonusRound.spinWheel();
@@ -92,7 +95,6 @@ $('.vowels').click((event) => {
   if (game.roundCounter <= 4){
   event.preventDefault();
   var guess = $(event.target).closest('.vowel').text();
-  console.log(guess);
   game.round.buyVowel(guess);
   } else {
   var guess = $(event.target).closest('.vowel').text();

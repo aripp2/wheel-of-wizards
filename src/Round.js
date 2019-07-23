@@ -80,8 +80,9 @@ class Round {
     })
     domUpdates.disableUsedConsonants(this.lettersUsed);
     if (!this.puzzle.correctAnswer.includes(guess)){
-      this.findCurrentPlayer()
+      this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+      domUpdates.disableConsonants();
     }
     console.log(this.currentPlayer)
   }
