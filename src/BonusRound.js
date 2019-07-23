@@ -61,7 +61,17 @@ class BonusRound extends Round {
     guessOptions(){
         domUpdates.enableConsonants();
         domUpdates.enableVowels();
+        domUpdates.disableBonus();
         domUpdates.showPlayersBonusRoundGuess(this.puzzle, this.lettersPicked)  
+    }
+
+    solvePuzzle(playerGuess) {
+        if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()) {
+            this.champion.bank += this.currentSpin;
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 
