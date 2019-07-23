@@ -39,8 +39,11 @@ function startGame(data, player1, player2, player3 ) {
 
   domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   domUpdates.appendPuzzle(game.round.puzzle);
-  $('.welcome-section').hide();
+  $('.welcome-section').slideUp('slow');
   domUpdates.enableSpinBtn();
+  $('.instructions').show();
+  $('.quit-game').show();
+  $('.game-header').show(); 
 }
 
 $('.spin-btn').click((event) => {
@@ -148,9 +151,11 @@ $('.instructions').click(() => {
 })
 
 $('.btn').click(() => {
-  $('.inst').hide();
-  $('.crystal-spin').show();
+  $('.inst').fadeOut('slow');
+  $('.crystal-spin').fadeIn('slow');
 })
 
 $('.inst').hide()
-
+$('.instructions').hide()
+$('.quit-game').hide()
+$('.game-header').hide()
