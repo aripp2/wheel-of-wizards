@@ -1,7 +1,5 @@
 @import 'reset';
 @import 'variables';
-// @import './images/purple-velvet-background.jpg';
-
 
 body {
   // background-image: url('./images/purple-velvet-background.jpg');
@@ -235,14 +233,28 @@ h1 {
 .player-boxes {
   display: flex;
   justify-content: space-around;
-  padding: 20px;
-  margin-top: 15px;
-  border: 7px solid $border-color;
-  .box > h3, h4{
-      padding: 20px;
-    }
-  .box > h3 {
-    font-size: 30px;
+  padding: 10px;
+  margin-top: 35px;
+  .box {
+      padding: 10px;
+      img {
+        height: 311px;
+      }
+      .player-info {
+        position: relative;
+        bottom: 10em;
+        left: 3em;
+        color: $border-color;
+        h3 {
+          position: relative;
+          bottom: 125px;
+          font-size: 30px;
+        }
+        h4 {
+          position: relative;
+          bottom: 50px;
+        }
+      }
     }
   }
 
