@@ -6,6 +6,7 @@ import './css/base.scss';
 import './images/crystal.png';
 import './images/scroll.svg';
 
+
 import Game from './Game.js';
 import domUpdates from './domUpdates';
 import BonusRound from './BonusRound.js';

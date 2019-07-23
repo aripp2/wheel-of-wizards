@@ -1,11 +1,19 @@
 @import 'reset';
 @import 'variables';
 
-body {
-  // background-image: url('./images/purple-velvet-background.jpg');
-  background-color: $primary-background;
+* {
+  box-sizing: border-box;
   color: $hover-text-color;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+body {
+  background-image: url('https://lh3.googleusercontent.com/_VrCNitDRy45PSKqLXKkpZu-8VGmlAV08ESfxX8lT4t4GxdGKhNIAEs4h5MBo-SwozsLa7RoVmgvXCYPeB4XvMm2af9A1_NDhIE6DUXVQJqo1P0TjWmHSNqOFBA-7uGN-XFz0ukwMfw=w2400');
+  background-repeat: no-repeat;
+  background-size: cover;
+ /* color: $hover-text-color;
+  font-family: Arial, Helvetica, sans-serif;*/
 }
 
 .welcome-section {
