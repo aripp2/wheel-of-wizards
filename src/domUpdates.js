@@ -51,6 +51,12 @@ displayChampion(champion) {
     $('.turn-prompt').html(`${displayChamp}`)
 },
 
+bonusRoundChampion(champion) {
+  console.log('champ', champion)
+  let displayChamp = `<p>${champion.name} is the has won ${champion.bank} dollars!</p>`
+  $('.turn-prompt').html(`${displayChamp}`)
+},
+
 appendBonusPuzzle(puzzle) {
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
     $('.puzzle-input-area').html(`${puzzleAnswer}`);
@@ -62,6 +68,7 @@ appendBonusPuzzle(puzzle) {
     puzzle.correctAnswer.forEach(letter => {
       if (letters.includes(letter)){
         $(`.${letter}`).show();
+        // $(`.cons${letter}`).attr('disabled', true);
       }
     })
   },
@@ -155,6 +162,13 @@ disableBuyVowel() {
 
 notEnoughMoney() {
     alert('Sorry Muggle! You are too poor!');
+},
+
+disableBonus() {
+  var letters = ['R', 'S', 'T', 'L', 'N', 'C'];
+  letters.forEach(letter => {
+  $(`.cons${letter}`).attr('disabled', true)
+  })
 },
 
 

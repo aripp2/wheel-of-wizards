@@ -14,7 +14,6 @@ import BonusRound from './BonusRound.js';
 let game;
 let bonusRound;
 
-
 $('.start-game').prop('disabled', true);
 $('.name-inputs').keyup(function() {
   if ($('.player-1-input').val() !== '' && $('.player-2-input').val() !== '' && $('.player-3-input').val() !== '') {
@@ -113,6 +112,12 @@ $('.solve-puzzle-btn').click((event) => {
   } else if (result && game.roundCounter === 4) {
     domUpdates.updatePlayerScores(game.players);
     game.displayChampion();
+  } else if (game.roundCounter === 5) {
+    console.log(bonusRound.champion)
+    let money = $('.spin-value').text('');
+    console.log(money)
+    bonusRound.solvePuzzle(playerGuess, money);
+    domUpdates.bonusRoundChampion(bonusRound.champion);
   } else {
     game.round.findCurrentPlayer();
     domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
