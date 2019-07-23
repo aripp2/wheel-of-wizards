@@ -263,3 +263,12 @@ h1 {
 .space {
   border: none;
 }
+
+.inst {
+  height: 300px;
+  width: 300px;
+  z-index: 900;
+  margin: 0 auto;
+  /*position: absolute;*/
+  background-color: green;
+}

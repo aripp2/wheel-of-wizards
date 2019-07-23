@@ -141,5 +141,16 @@ $('.quit-game').click((event) => {
   location.reload();
 })
 
+$('.instructions').click(() => {
+  $('.inst').delay(1300).fadeIn('slow');
+  $('.inst-text').delay(1700).fadeIn('slow');
+  $('.crystal-spin').fadeOut(1250);
+})
 
+$('.btn').click(() => {
+  $('.inst').hide();
+  $('.crystal-spin').show();
+})
+
+$('.inst').hide()
 
