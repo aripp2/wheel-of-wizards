@@ -1,176 +1,173 @@
-import $ from 'jquery';
+import $ from "jquery";
 
 export default {
-
-appendPlayers(players) {
+  appendPlayers(players) {
     players.forEach(player => {
       $(`.player-${player.id}-name`).text(player.name);
       $(`.player-${player.id}-score`).text(player.score);
       $(`.player-${player.id}-bank`).text(player.bank);
-    })
+    });
   },
 
-updateCurrentPlayerName(player) {
-    $('.turn-prompt').text(player + ' it is your turn!');
-},
+  updateCurrentPlayerName(player) {
+    $(".turn-prompt").text(player + " it is your turn!");
+  },
 
-clearSpinValue() {
-  $('.spin-value').text('');
-},
+  clearSpinValue() {
+    $(".spin-value").text("");
+  },
 
-displayCurrentRound(roundNum) {
-  $('.display-round').text('Round ' + roundNum);
-},
+  displayCurrentRound(roundNum) {
+    $(".display-round").text("Round " + roundNum);
+  },
 
-displayBonusRound() {
-  $('.display-round').text('BONUS ROUND!!!')
-},
+  displayBonusRound() {
+    $(".display-round").text("BONUS ROUND!!!");
+  },
 
-updatePlayerScores(players) {
-  players.forEach(player => {
-    $(`.player-${player.id}-score`).text(player.score);
-    $(`.player-${player.id}-bank`).text(player.bank);
-    })
-},
+  updatePlayerScores(players) {
+    players.forEach(player => {
+      $(`.player-${player.id}-score`).text(player.score);
+      $(`.player-${player.id}-bank`).text(player.bank);
+    });
+  },
 
-appendPuzzle(puzzle) {
-    let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer)
-    $('.puzzle-input-area').html(`${puzzleAnswer}`);
-    $('.puzzle-character').hide();
-    $('.symbol').show();
-    $('.category').text(puzzle.category);
-    $('.hint').text(puzzle.hint);
-    console.log(puzzle.correctAnswer.join(''))
-},
-
-
-displayChampion(champion) {
-    let displayChamp = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
-    <button class="bonus-round-button">Start Bonus Round</button>
-    <p>Spin for great Prizes!</p>`
-    $('.turn-prompt').html(`${displayChamp}`)
-},
-
-bonusRoundChampion(champion) {
-  console.log('champ', champion)
-  let displayChamp = `<p>${champion.name} is the has won ${champion.bank} dollars!</p>`
-  $('.turn-prompt').html(`${displayChamp}`)
-},
-
-appendBonusPuzzle(puzzle) {
+  appendPuzzle(puzzle) {
     let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
-    $('.puzzle-input-area').html(`${puzzleAnswer}`);
-    $('.puzzle-character').hide();
-    $('.symbol').show();
-    $('.category').text(puzzle.category);
-    $('.hint').text(puzzle.hint);
-    let letters = ['R', 'S', 'T', 'L', 'N', 'C'];
-    puzzle.correctAnswer.forEach(letter => {
-      if (letters.includes(letter)){
-        $(`.${letter}`).show();
-        // $(`.cons${letter}`).attr('disabled', true);
-      }
-    })
+    $(".puzzle-input-area").html(`${puzzleAnswer}`);
+    $(".puzzle-character").hide();
+    $(".symbol").show();
+    $(".category").text(puzzle.category);
+    $(".hint").text(puzzle.hint);
+    console.log(puzzle.correctAnswer.join(""));
   },
 
-showPlayersBonusRoundGuess(puzzle, letterArray){
-  let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
-  $('.puzzle-input-area').html(`${puzzleAnswer}`);
-  $('.puzzle-character').hide();
-  $('.symbol').show();
-  $('.category').text(puzzle.category);
-  $('.hint').text(puzzle.hint);
-  let letters = ['R', 'S', 'T', 'L', 'N', 'C'].concat(letterArray);
-  console.log(letters)
-  puzzle.correctAnswer.forEach(letter => {
-    if (letters.includes(letter)){
-      $(`.${letter}`).show();
-    }
-  })
-},
+  displayChampion(champion) {
+    let displayChamp = `<p>${
+      champion.name
+    } is the Winner! Click to enter the Bonus Round!</p>
+    <button class="bonus-round-button">Start Bonus Round</button>
+    <p>Spin for great Prizes!</p>`;
+    $(".turn-prompt").html(`${displayChamp}`);
+  },
 
-createPuzzle(answer) {
-    let list = `<div class="current-puzzle">`
+  bonusRoundChampion(champion) {
+    console.log("champ", champion);
+    let displayChamp = `<p>${champion.name} is the has won ${
+      champion.bank
+    } dollars!</p>`;
+    $(".turn-prompt").html(`${displayChamp}`);
+  },
+
+  appendBonusPuzzle(puzzle) {
+    let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
+    $(".puzzle-input-area").html(`${puzzleAnswer}`);
+    $(".puzzle-character").hide();
+    $(".symbol").show();
+    $(".category").text(puzzle.category);
+    $(".hint").text(puzzle.hint);
+    let letters = ["R", "S", "T", "L", "N", "E"];
+    puzzle.correctAnswer.forEach(letter => {
+      if (letters.includes(letter)) {
+        $(`.${letter}`).show();
+      }
+    });
+  },
+
+  showPlayersBonusRoundGuess(puzzle, letterArray) {
+    let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
+    $(".puzzle-input-area").html(`${puzzleAnswer}`);
+    $(".puzzle-character").hide();
+    $(".symbol").show();
+    $(".category").text(puzzle.category);
+    $(".hint").text(puzzle.hint);
+    let letters = ["R", "S", "T", "L", "N", "E"].concat(letterArray);
+    puzzle.correctAnswer.forEach(letter => {
+      if (letters.includes(letter)) {
+        $(`.${letter}`).show();
+      }
+    });
+  },
+
+  createPuzzle(answer) {
+    let list = `<div class="current-puzzle">`;
     let currentPuzzle = answer.forEach(letter => {
-      if (letter === '&' || letter === '-' || letter === '\'') {
-        list += `<p class="puzzle-container"><span class="puzzle-character symbol">${letter}</span></p>`; 
-      } else if (letter === ' ') {
+      if (letter === "&" || letter === "-" || letter === "'") {
+        list += `<p class="puzzle-container"><span class="puzzle-character symbol">${letter}</span></p>`;
+      } else if (letter === " ") {
         list += `<p class="puzzle-container space"><span class="puzzle-character">${letter}</span></p>`;
       } else {
-        list += `<p class="puzzle-container"><span class="puzzle-character ${letter}" id="${letter}">${letter}</span></p>`; 
-      } 
-    })
+        list += `<p class="puzzle-container"><span class="puzzle-character ${letter}" id="${letter}">${letter}</span></p>`;
+      }
+    });
     list += "</div>";
     return list;
   },
 
-updateCurrentPlayerScore(player) {
+  updateCurrentPlayerScore(player) {
     $(`.player-${player.id}-score`).text(player.score);
-},
+  },
 
-updateCurrentPlayerBank(player) {
+  updateCurrentPlayerBank(player) {
     $(`.player-${player.id}-score`).text(player.bank);
-},
+  },
 
-appendLetter(guess) {
+  appendLetter(guess) {
     $(`.${guess}`).show();
-}, 
+  },
 
-disableSpinBtn() {
-    $('.spin-btn').attr("disabled", true);
-},
+  disableSpinBtn() {
+    $(".spin-btn").attr("disabled", true);
+  },
 
-enableSpinBtn() {
-    $('.spin-btn').attr("disabled", false);
-},
+  enableSpinBtn() {
+    $(".spin-btn").attr("disabled", false);
+  },
 
-disableConsonants() {
-    $('.letter').attr("disabled", true);
-},
+  disableConsonants() {
+    $(".letter").attr("disabled", true);
+  },
 
-disableUsedConsonants(lettersUsed) {
+  disableUsedConsonants(lettersUsed) {
     lettersUsed.forEach(letter => {
       $(`#cons${letter}`).attr("disabled", true);
     });
-},
+  },
 
-disableUsedVowels(lettersUsed) {
+  disableUsedVowels(lettersUsed) {
     lettersUsed.forEach(letter => {
       $(`#vowel${letter}`).attr("disabled", true);
     });
-},
+  },
 
-enableConsonants() {
-    $('.letter').attr("disabled", false);
-},
+  enableConsonants() {
+    $(".letter").attr("disabled", false);
+  },
 
-disableVowels() {
-    $('.vowel').attr("disabled", true);
-},
+  disableVowels() {
+    $(".vowel").attr("disabled", true);
+  },
 
-enableVowels() {
-    $('.vowel').attr("disabled", false);
-},
+  enableVowels() {
+    $(".vowel").attr("disabled", false);
+  },
 
-enableBuyVowel() {
-    $('.buy-vowel-btn').attr("disabled", false);
-},
+  enableBuyVowel() {
+    $(".buy-vowel-btn").attr("disabled", false);
+  },
 
-disableBuyVowel() {
-    $('.buy-vowel-btn').attr("disabled", true);
-},
+  disableBuyVowel() {
+    $(".buy-vowel-btn").attr("disabled", true);
+  },
 
-notEnoughMoney() {
-    alert('Sorry Muggle! You are too poor!');
-},
+  notEnoughMoney() {
+    alert("Sorry Muggle! You are too poor!");
+  },
 
-disableBonus() {
-  var letters = ['R', 'S', 'T', 'L', 'N', 'C'];
-  letters.forEach(letter => {
-  $(`.cons${letter}`).attr('disabled', true)
-  })
-},
-
-
-
-}
+  disableBonus() {
+    var letters = ["R", "S", "T", "L", "N", "C"];
+    letters.forEach(letter => {
+      $(`.cons${letter}`).attr("disabled", true);
+    });
+  }
+};
