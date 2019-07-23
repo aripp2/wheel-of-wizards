@@ -23,7 +23,8 @@ displayCurrentRound(roundNum) {
 },
 
 displayBonusRound() {
-  $('.display-round').text('BONUS ROUND!!!')
+  $('.display-round').text('BONUS ROUND!!!');
+  //show and hide at end of round 4
 },
 
 updatePlayerScores(players) {
@@ -34,27 +35,28 @@ updatePlayerScores(players) {
 },
 
 appendPuzzle(puzzle) {
-    let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer)
+    let puzzleAnswer = this.createPuzzle(puzzle.correctAnswer);
     $('.puzzle-input-area').html(`${puzzleAnswer}`);
     $('.puzzle-character').hide();
     $('.symbol').show();
     $('.category').text(puzzle.category);
     $('.hint').text(puzzle.hint);
-    console.log(puzzle.correctAnswer.join(''))
+    console.log(puzzle.correctAnswer.join(''));
 },
 
 
 displayChampion(champion) {
-    let displayChamp = `<p>${champion.name} is the Winner! Click to enter the Bonus Round!</p>
-    <button class="bonus-round-button">Start Bonus Round</button>
-    <p>Spin for great Prizes!</p>`
-    $('.turn-prompt').html(`${displayChamp}`)
+    let displayChamp = `<p>${champion.name} is the Winner! Click to enter the Bonus Round and a chance to win big money!</p>
+    <button class="bonus-round-button">Start Bonus Round</button>`
+    // <p>Spin for great Prizes!</p>`
+    $('.turn-prompt').html(`${displayChamp}`);
 },
 
 bonusRoundChampion(champion) {
   console.log('champ', champion)
-  let displayChamp = `<p>${champion.name} is the has won ${champion.bank} dollars!</p>`
-  $('.turn-prompt').html(`${displayChamp}`)
+  let displayChamp = `<p>${champion.name} has won $${champion.bank}!</p>`
+  $('.turn-prompt').html(`${displayChamp}`);
+  // $('.start-new-game')
 },
 
 appendBonusPuzzle(puzzle) {
@@ -163,6 +165,19 @@ disableBuyVowel() {
 notEnoughMoney() {
     alert('Sorry Muggle! You are too poor!');
 },
+
+appendBonusPrompts() {
+  $('.bonus-prompt-1').text('Click Spin to see the magical amount you can try to win!');
+  $('.bonus-prompt-2').text('Choose 3 consonants and 1 vowel, then enter your final guess!')
+  $('.buy-vowel-btn').hide();
+},
+
+appentPlayPrompts() {
+  $('.play-prompt-1').text('');
+  $('.play-prompt-2').text('');
+  // us hide/show for some more things???
+},
+
 
 disableBonus() {
   var letters = ['R', 'S', 'T', 'L', 'N', 'C'];

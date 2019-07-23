@@ -125,14 +125,15 @@ $('.solve-puzzle-btn').click((event) => {
 })
 
 $('.turn-prompt').on('click', (event) => {
-  if (event.target.className === 'bonus-round-button'){
   event.preventDefault();
+  if (event.target.className === 'bonus-round-button'){
   console.log('linked');
   bonusRound = new BonusRound(game.puzzles, game.wheel, game.players, game.returnChampion());
   domUpdates.disableConsonants();
   console.log(bonusRound)
   domUpdates.appendBonusPuzzle(bonusRound.puzzle);
   domUpdates.displayBonusRound();
+  domUpdates.appendBonusPrompts();
   }
 })
 
