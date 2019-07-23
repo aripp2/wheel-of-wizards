@@ -158,6 +158,7 @@ $(".turn-prompt").on("click", event => {
     console.log(bonusRound);
     domUpdates.appendBonusPuzzle(bonusRound.puzzle);
     domUpdates.displayBonusRound();
+    domUpdates.appendBonusPrompts();
   }
 });
 
