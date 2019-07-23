@@ -1,9 +1,9 @@
-import Game from './Game';
-import Player from './Player';
-import Puzzle from './Puzzle';
-import Round from './Round';
-import data from './data/sample-data';
-import domUpdates from './domUpdates';
+import Game from "./Game";
+import Player from "./Player";
+import Puzzle from "./Puzzle";
+import Round from "./Round";
+import data from "./data/sample-data";
+import domUpdates from "./domUpdates";
 
 class Round {
   constructor(puzzles, wheel, players, currentPlayer) {
@@ -28,17 +28,21 @@ class Round {
     let twoWordPuzzles = this.puzzles.two_word_answers.puzzle_bank;
     let threeWordPuzzles = this.puzzles.three_word_answers.puzzle_bank;
     let fourWordPuzzles = this.puzzles.four_word_answers.puzzle_bank;
-    let allPuzzles = oneWordPuzzles.concat(...twoWordPuzzles, ...threeWordPuzzles, ...fourWordPuzzles);
-    return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle))
+    let allPuzzles = oneWordPuzzles.concat(
+      ...twoWordPuzzles,
+      ...threeWordPuzzles,
+      ...fourWordPuzzles
+    );
+    return allPuzzles.forEach(puzzle => this.puzzleBank.push(puzzle));
   }
-  
-  findCurrentPlayer() { 
+
+  findCurrentPlayer() {
     if (this.currentPlayer === this.players[0]) {
-      return this.currentPlayer = this.players[1];
+      return (this.currentPlayer = this.players[1]);
     } else if (this.currentPlayer === this.players[1]) {
-      return this.currentPlayer = this.players[2];
+      return (this.currentPlayer = this.players[2]);
     } else {
-      return this.currentPlayer = this.players[0]
+      return (this.currentPlayer = this.players[0]);
     }
   }
 
@@ -49,16 +53,16 @@ class Round {
   }
 
   spinOptions() {
-    if (this.currentSpin === 'BANKRUPT') {
+    if (this.currentSpin === "BANKRUPT") {
       this.currentPlayer.score = 0;
       domUpdates.disableConsonants();
       domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       this.findCurrentPlayer();
-      domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
-    } else if (this.currentSpin === 'LOSE A TURN') {
+      domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+    } else if (this.currentSpin === "LOSE A TURN") {
       domUpdates.disableConsonants();
       this.findCurrentPlayer();
-      domUpdates.updateCurrentPlayerName(this.currentPlayer.name) 
+      domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
     } else {
       domUpdates.enableConsonants();
       domUpdates.disableUsedConsonants(this.lettersUsed);
@@ -73,17 +77,15 @@ class Round {
         numUsed++;
         this.currentPlayer.score += this.currentSpin;
         domUpdates.appendLetter(guess);
-        console.log(this.currentPlayer)
         domUpdates.updateCurrentPlayerScore(this.currentPlayer);
         domUpdates.enableBuyVowel();
-      } 
-    })
+      }
+    });
     domUpdates.disableUsedConsonants(this.lettersUsed);
-    if (!this.puzzle.correctAnswer.includes(guess)){
-      this.findCurrentPlayer()
+    if (!this.puzzle.correctAnswer.includes(guess)) {
+      this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
     }
-    console.log(this.currentPlayer)
   }
 
   buyVowel(chosenVowel) {
@@ -96,22 +98,21 @@ class Round {
       domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       this.lettersUsed.push(chosenVowel);
       this.puzzle.correctAnswer.forEach(letter => {
-      if (chosenVowel === letter) {
-        domUpdates.appendLetter(chosenVowel);
-      } else {
-        this.findCurrentPlayer();
-        domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
-      }
-    })
-    domUpdates.disableUsedConsonants(this.lettersUsed);
-    domUpdates.disableUsedVowels(this.lettersUsed);
-    domUpdates.disableVowels();
-    console.log(this.puzzle.correctAnswer)
+        if (chosenVowel === letter) {
+          domUpdates.appendLetter(chosenVowel);
+        } else {
+          this.findCurrentPlayer();
+          domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+        }
+      });
+      domUpdates.disableUsedConsonants(this.lettersUsed);
+      domUpdates.disableUsedVowels(this.lettersUsed);
+      domUpdates.disableVowels();
     }
   }
 
   solvePuzzle(playerGuess) {
-    if (this.puzzle.correctAnswer.join('') === playerGuess.toUpperCase()) {
+    if (this.puzzle.correctAnswer.join("") === playerGuess.toUpperCase()) {
       this.currentPlayer.bank += this.currentPlayer.score;
       domUpdates.updateCurrentPlayerBank(this.currentPlayer);
       this.lettersUsed = [];

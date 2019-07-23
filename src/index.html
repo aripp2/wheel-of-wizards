@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-    <title> Wheel of Wizards </title>
-    <link href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap" rel="stylesheet">  </head>
+
+    <title>Wheel of Wizards</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap"
+      rel="stylesheet"
+    />
+  </head>
   <body>
-    <section class='welcome-section'>
-      <h2 class='welcome-message'>Welcome to Wheel of Wizards</h2>
+    <section class="welcome-section">
+      <h2 class="welcome-message">Welcome to Wheel of Wizards</h2>
       <form class="splash" action="">
-        <!-- <label for="player-1">Player 1</label> -->
-        <input id="player-1-input" class="name-inputs" name="player-1" type="text" placeholder="Whats your name, Muggle?">
-        <!-- <label for="player-2">Player 2</label> -->
-        <input id="player-2-input" class="name-inputs" name="player-2" type="text" placeholder="Whats your name, Muggle?">
-        <!-- <label for="player-3">Player 3</label> -->
-        <input id="player-3-input" class="name-inputs" name="player-3" type="text" placeholder="Whats your name, Muggle?">
+        <label for="player-1">Player 1</label>
+        <input
+          id="player-1-input"
+          class="name-inputs"
+          name="player-1"
+          type="text"
+          placeholder="Enter Your Name, Muggle"
+        />
+        <label for="player-2">Player 2</label>
+        <input
+          id="player-2-input"
+          class="name-inputs"
+          name="player-2"
+          type="text"
+          placeholder="Enter Your Name, Muggle"
+        />
+        <label for="player-3">Player 3</label>
+        <input
+          id="player-3-input"
+          class="name-inputs"
+          name="player-3"
+          type="text"
+          placeholder="Enter Your Name, Muggle"
+        />
         <button class="start-game" disabled="true">Start Game</button>
       </form>
     </section>
     <main>
       <header>
-      <button class="quit-game">Quit Game</button>
-      <h1>Wheel of Wizards</h1>
-      <h3 class="display-round"></h3>
-      <h2 class="turn-prompt"></h2>
+        <button class="quit-game">Quit Game</button>
+        <h1>Wheel of Wizards</h1>
+        <h3 class="display-round"></h3>
+        <h2 class="turn-prompt"></h2>
       </header>
 
       <section class="puzzle-crystal-area">
       <article class="play-prompt-1 bonus bonus-prompt-1"></article>
         <section class="crystal-ball">
           <section class="crystal-spin">
-            <img src="./images/crystal.png" alt="Image of a crystalBall where random output will be shown">
+            <img
+              src="./images/crystal.png"
+              alt="Image of a crystalBall where random output will be shown"
+            />
             <p class="spin-value"></p>
           </section>
         </section>
@@ -48,7 +74,6 @@
         </section>
       <article class="play-prompt-2 bonus bonus-prompt-2"></article>
       </section>
-      
       <section class="consonants">
         <button class="letter" id="consB" disabled="true">B</button>
         <button class="letter" id="consC" disabled="true">C</button>
@@ -79,47 +104,39 @@
         <button class="vowel" id="vowelO" disabled="true">O</button>
         <button class="vowel" id="vowelU" disabled="true">U</button>
       </section>
-        <!-- <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button> -->
-
-
-      <!-- <section class="solve-puzzle">
-        <button class="spin-btn" disabled="true">Spin Your Future, Muggle</button>
-        <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
-        <section class="puzz-input-area">
-          <label for="solve-puzzle"></label>
-          <input id="solve-puzzle" class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
-          <button class="solve-puzzle-btn">Solve The Puzzle You Broomstick!</button>
-        </section>
-      </section> -->
-
       <section class="player-boxes">
         <article class="box player-1-box">
-          <img src="./images/scroll.svg" alt="blank scroll">
+          <img src="./images/scroll.svg" alt="blank scroll" />
           <article class="player-info">
             <h3 class="box-name player-1-name">Harry</h3>
-            <h4 class="score">Round Score: $<span class="player-1-score"></span></h4>
+            <h4 class="score">
+              Round Score: $<span class="player-1-score"></span>
+            </h4>
             <h4 class="bank">Bank: $<span class="player-1-bank"></span></h4>
           </article>
         </article>
         <article class="box player-2-box">
-          <img src="./images/scroll.svg" alt="blank scroll">
+          <img src="./images/scroll.svg" alt="blank scroll" />
           <article class="player-info">
             <h3 class="box-name player-2-name">Gandalf</h3>
-            <h4 class="score">Round Score: $<span class="player-2-score"></span></h4>
+            <h4 class="score">
+              Round Score: $<span class="player-2-score"></span>
+            </h4>
             <h4 class="bank">Bank: $<span class="player-2-bank"></span></h4>
           </article>
         </article>
         <article class="box player-3-box">
-          <img src="./images/scroll.svg" alt="blank scroll">
+          <img src="./images/scroll.svg" alt="blank scroll" />
           <article class="player-info">
             <h3 class="box-name player-3-name">Gryffindor</h3>
-            <h4 class="score">Round Score: $<span class="player-3-score"></span></h4>
+            <h4 class="score">
+              Round Score: $<span class="player-3-score"></span>
+            </h4>
             <h4 class="bank">Bank: $<span class="player-3-bank"></span></h4>
           </article>
         </article>
       </section>
     </main>
-   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
