@@ -4,6 +4,7 @@ import $ from 'jquery';
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 import './images/crystal.png';
+import './images/scroll.svg';
 
 import Game from './Game.js';
 import domUpdates from './domUpdates';
@@ -11,7 +12,6 @@ import BonusRound from './BonusRound.js';
 
 let game;
 let bonusRound;
-
 
 $('.start-game').prop('disabled', true);
 $('.name-inputs').keyup(function() {
