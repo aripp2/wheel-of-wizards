@@ -6,7 +6,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: $hover-text-color;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Henny Penny', cursive;
 }
 
 .welcome-section {
@@ -17,19 +17,23 @@ body {
   padding: 20px;
   text-align: center;
   font-size: 3em;
-  background: $gradient-color;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Calligraffitti', cursive;
+  // background: $gradient-color;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  color: $h-font-color;
+  font-family: 'Henny Penny', cursive;
   font-weight: bold;
+  text-shadow: 2px 2px black;
 }
 
 .quit-game {
   font-size: 15px;
   background-color:$quit-color;
+  outline: 0;
   border: none;
   color: $hover-text-color;
   border-radius: 2px;
+  font-family: 'Henny Penny', cursive;
   &:hover {
     margin-left: 20px;
     transform: scale(1.5) perspective(1px);
@@ -47,6 +51,7 @@ form.splash {
       border: none;
       border-radius: 2px;
       outline: 0;
+      font-family: 'Henny Penny', cursive;
     }
     label {
       font-size: 20px;
@@ -61,6 +66,7 @@ form.splash {
   border: none;
   width: 40%;
   margin: auto;
+  font-family: 'Henny Penny', cursive;
     &:hover {
       background: $button-hover-color;
       color: $hover-text-color;
@@ -76,21 +82,16 @@ form.splash {
   }
 
 h1 {
-  text-align: center;
-  font-size: 3em;
-  background: $gradient-color;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: 'Calligraffitti', cursive;
-  padding: 20px;
-  font-weight: bold;
+  @extend .welcome-message;
+  font-size: 5em;
+  margin-bottom: -25px;
 }
 
 .puzzle-input-area {
   $border: 5px;
   color: #FFF;
   background: $gradient-color-border;
-  border: solid $border black;
+  border: solid $border $text-color;
   border-radius: .5em;
   height: 5em;
   margin: 10px 0;
@@ -106,6 +107,8 @@ h1 {
 .turn-prompt {
   text-align: center;
   font-size: 2em;
+  margin-bottom: -30px;
+  margin-top: 15px;
 }
 
 .puzzle-crystal-area {
@@ -114,6 +117,12 @@ h1 {
 
 .puzzle-area {
   padding: 10px;
+  margin-bottom: -25px;
+  h3 {
+    color: $text-color;
+    font-weight: bold;
+    font-size: 20px;
+  }
 }
 
 .crystal-ball {
@@ -122,13 +131,13 @@ h1 {
     width: 40%;
     margin: auto;
     img {
-      height: 20em;
+      height: 15em;
       margin: auto;
       display: block;
      }
     .spin-value {
       position: relative;
-      bottom: 190px;
+      bottom: 142px;
       // left: -53px;
       font-size: 2em;
       text-align: center;
@@ -140,6 +149,9 @@ h1 {
   font-size: 2em;
   text-align: center;
   padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 20px;
 }
 
 .current-puzzle {
@@ -159,20 +171,22 @@ h1 {
   padding: 1%;
   text-align: center;
   display: flex;
+  font-size: 30px;
 }
 
 .consonants {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  // margin: 20px;
   button {
     font-size: 2em;
     outline: 0;
     border: none;
     margin: 2px;
-    border-radius: 2px;
+    border-radius: 50%;
+    font-family: 'Henny Penny', cursive;
     &:hover {
-      background: $button-hover-color;
+      background: $text-color;
       color: $hover-text-color;
       transform: scale(1.5) perspective(1px);
     }
@@ -181,7 +195,7 @@ h1 {
     }
     &:disabled {
       background: #ccc;
-      color: white;
+      color: $text-color;
     }
   }
 }
@@ -193,18 +207,20 @@ h1 {
 .solve-puzzle {
   display: flex;
   flex-direction: row;
-    /* width: 15%; */
-    /* margin: auto; */
   justify-content: space-evenly;
-  height: 2em;
+  height: 3em;
+  margin-top: 1em;
 }
 
 .solve-puzzle-btn {
   margin-left: -4.5px;
   border: none;
   height: 32px;
+  outline: 0;
   vertical-align: middle;
   border-radius: 0 2px 2px 0;
+  font-family: 'Henny Penny', cursive;
+  font-size: 20px;
     &:hover {
       background: $button-hover-color;
       color: $hover-text-color;
@@ -219,7 +235,7 @@ h1 {
   @extend .solve-puzzle-btn;
   &:disabled {
     background: #ccc;
-    color: white;
+    color: $text-color;
   }
   &:hover {
     transform: scale(1.5) perspective(1px);
@@ -230,6 +246,7 @@ h1 {
    border: none;
    height: 30px;
    border-radius: 2px 0 0 2px;
+   font-family: 'Henny Penny', cursive;
 }
 
 .player-boxes {
@@ -239,6 +256,7 @@ h1 {
   margin-top: 35px;
   .box {
       padding: 10px;
+      animation: float 9s linear infinite;
       img {
         height: 311px;
       }
@@ -251,14 +269,31 @@ h1 {
           position: relative;
           bottom: 125px;
           font-size: 30px;
+          color: $text-color;
         }
         h4 {
           position: relative;
           bottom: 50px;
+          color: $text-color;
         }
       }
     }
   }
+
+  @keyframes float {
+    20% {
+     transform : translate(100px, 10px);
+   }
+   50% {
+      transform : translate(200px, 50px);
+   }
+    70% {
+     transform : translate(250px, 20px);
+   }
+   100% {
+      transform : translate(0px, 0px);
+   }
+ }
 
 .space {
   border: none;

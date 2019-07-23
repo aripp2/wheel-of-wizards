@@ -2,18 +2,17 @@
 <html lang="en-US">
   <head>
     <title> Wheel of Wizards </title>
-    <link href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap" rel="stylesheet">
-  </head>
+    <link href="https://fonts.googleapis.com/css?family=Henny+Penny&display=swap" rel="stylesheet">  </head>
   <body>
     <section class='welcome-section'>
       <h2 class='welcome-message'>Welcome to Wheel of Wizards</h2>
       <form class="splash" action="">
         <!-- <label for="player-1">Player 1</label> -->
-        <input id="player-1-input" class="name-inputs" name="player-1" type="text" placeholder="Enter Your Name, Muggle 1">
+        <input id="player-1-input" class="name-inputs" name="player-1" type="text" placeholder="Whats your name, Muggle?">
         <!-- <label for="player-2">Player 2</label> -->
-        <input id="player-2-input" class="name-inputs" name="player-2" type="text" placeholder="Enter Your Name, Muggle 2">
+        <input id="player-2-input" class="name-inputs" name="player-2" type="text" placeholder="Whats your name, Muggle?">
         <!-- <label for="player-3">Player 3</label> -->
-        <input id="player-3-input" class="name-inputs" name="player-3" type="text" placeholder="Enter Your Name, Muggle 3">
+        <input id="player-3-input" class="name-inputs" name="player-3" type="text" placeholder="Whats your name, Muggle?">
         <button class="start-game" disabled="true">Start Game</button>
       </form>
     </section>
@@ -27,17 +26,26 @@
 
       <section class="puzzle-crystal-area">
       <article class="play-prompt-1 bonus bonus-prompt-1"></article>
-        <section class="puzzle-area">
-          <h3>Category: <span class="category"></span></h3>
-          <section class="puzzle-input-area"></section>
-          <h3>Hint: <span class="hint"></span></h3>
-        </section>
         <section class="crystal-ball">
           <section class="crystal-spin">
             <img src="./images/crystal.png" alt="Image of a crystalBall where random output will be shown">
             <p class="spin-value"></p>
           </section>
-          </section>
+        </section>
+        <section class="solve-puzzle">
+            <button class="spin-btn" disabled="true">Spin Your Future, Muggle</button>
+            <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
+            <section class="puzz-input-area">
+              <label for="solve-puzzle"></label>
+              <input id="solve-puzzle" class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
+              <button class="solve-puzzle-btn">Solve The Puzzle You Broomstick!</button>
+            </section>
+        </section>
+        <section class="puzzle-area">
+          <h3>Category: <span class="category"></span></h3>
+          <section class="puzzle-input-area"></section>
+          <h3>Hint: <span class="hint"></span></h3>
+        </section>
       <article class="play-prompt-2 bonus bonus-prompt-2"></article>
       </section>
       
@@ -74,7 +82,7 @@
         <!-- <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button> -->
 
 
-      <section class="solve-puzzle">
+      <!-- <section class="solve-puzzle">
         <button class="spin-btn" disabled="true">Spin Your Future, Muggle</button>
         <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
         <section class="puzz-input-area">
@@ -82,7 +90,7 @@
           <input id="solve-puzzle" class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
           <button class="solve-puzzle-btn">Solve The Puzzle You Broomstick!</button>
         </section>
-      </section>
+      </section> -->
 
       <section class="player-boxes">
         <article class="box player-1-box">
