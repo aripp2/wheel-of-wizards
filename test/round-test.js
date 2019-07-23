@@ -1,52 +1,53 @@
-import chai from 'chai';
-import Round from '../src/Round';
-import spies from 'chai-spies';
-import data from '../src/data/sample-data'
-import Game from '../src/Game';
-import domUpdates from '../src/domUpdates.js';
+import chai from "chai";
+import Game from "../src/Game";
+import Round from "../src/Round";
+import spies from "chai-spies";
+import data from "../src/data/sample-data";
+import domUpdates from "../src/domUpdates.js";
 
 const expect = chai.expect;
 
-chai.spy.on(Round, [
-  'assignPuzzle'
-], () => {}
-);
-
 chai.use(spies);
 
-describe('Round', function() {
+describe("Round", function() {
   let game;
   let round;
-  
-  beforeEach(function () {
-    game = new Game(data, 'Amy', 'Amanda', 'Greg')
-    game.createPlayers();
-    game.makeNewRound();
+
+  beforeEach(function() {
+    game = new Game(data, "Amy", "Amanda", "Greg");
+    game.createPlayers("Amy", "Amanda", "Greg");
+    game.makeNewRound(game.players[0]);
   });
 
   it("should be a function", () => {
     expect(Round).to.be.a("function");
   });
 
-  it('should be an instance of round', function() {
+  it("should be an instance of round", function() {
     expect(game.round).to.be.an.instanceOf(Round);
   });
 
-  it('should make a new round if a round has ended', function() {
-    // round.endRound();
-    // chai.spy.on(game, ['makeNewRound']); //spying on whatever is called within that function
-    // game.makeNewRound()
-    // expect(game.makeNewRound).to.be.called(1);
+  it("should allow the winner of a round to bank their money", () => {
+    game.makeNewRound();
+    expect(domUpdates.updatePlayerScores).to.have.been.called(8);
   });
 
-  it('should make a puzzle bank of all puzzles', function() {
-    // game.round.makePuzzleBank();
-    expect(game.round.puzzleBank.length).to.equal(96)
+  it("should make a puzzle bank of all puzzles", function() {
+    expect(game.round.puzzleBank.length).to.equal(96);
   });
 
-  it('make a new Puzzle', function() {
-    // chai.spy.on(Round, ['assignPuzzle']);
-    console.log(game.round)
-    expect(game.round.assignPuzzle()).to.have.been.called(1)
+  it("should have some options for a spin result", () => {
+    game.round.spinOptions();
+    expect(domUpdates.enableConsonants).to.have.been.called(1);
+  });
+
+  it("should have some options for a guess", () => {
+    game.round.guessEvents();
+    expect(domUpdates.disableUsedConsonants).to.have.been.called(2);
+  });
+
+  it("should have events for when you buy a vowel", () => {
+    game.round.buyVowel();
+    expect(domUpdates.disableVowels).to.have.been.called(1);
   });
 });
