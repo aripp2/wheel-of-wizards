@@ -156,6 +156,23 @@ export default {
     $(".buy-vowel-btn").attr("disabled", false);
   },
 
+  appendBonusPrompts() {
+    $(".bonus-prompt-1").text(
+      "Click Spin to see the magical amount you can try to win!"
+    );
+    $(".bonus-prompt-2").text(
+      "Choose 3 consonants and 1 vowel, then enter your final guess!"
+    );
+    $(".buy-vowel-btn").hide();
+  },
+
+  disableBonus() {
+    var letters = ["R", "S", "T", "L", "N", "C"];
+    letters.forEach(letter => {
+      $(`.cons${letter}`).attr("disabled", true);
+    });
+  },
+
   disableBuyVowel() {
     $(".buy-vowel-btn").attr("disabled", true);
   },

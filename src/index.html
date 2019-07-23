@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
+
     <title>Wheel of Wizards</title>
     <link
       href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap"
@@ -47,11 +48,7 @@
       </header>
 
       <section class="puzzle-crystal-area">
-        <section class="puzzle-area">
-          <h3>Category: <span class="category"></span></h3>
-          <section class="puzzle-input-area"></section>
-          <h3>Hint: <span class="hint"></span></h3>
-        </section>
+      <article class="play-prompt-1 bonus bonus-prompt-1"></article>
         <section class="crystal-ball">
           <section class="crystal-spin">
             <img
@@ -61,8 +58,22 @@
             <p class="spin-value"></p>
           </section>
         </section>
+        <section class="solve-puzzle">
+            <button class="spin-btn" disabled="true">Spin Your Future, Muggle</button>
+            <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
+            <section class="puzz-input-area">
+              <label for="solve-puzzle"></label>
+              <input id="solve-puzzle" class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
+              <button class="solve-puzzle-btn">Solve The Puzzle You Broomstick!</button>
+            </section>
+        </section>
+        <section class="puzzle-area">
+          <h3>Category: <span class="category"></span></h3>
+          <section class="puzzle-input-area"></section>
+          <h3>Hint: <span class="hint"></span></h3>
+        </section>
+      <article class="play-prompt-2 bonus bonus-prompt-2"></article>
       </section>
-
       <section class="consonants">
         <button class="letter" id="consB" disabled="true">B</button>
         <button class="letter" id="consC" disabled="true">C</button>
@@ -93,27 +104,6 @@
         <button class="vowel" id="vowelO" disabled="true">O</button>
         <button class="vowel" id="vowelU" disabled="true">U</button>
       </section>
-      <!-- <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button> -->
-
-      <section class="solve-puzzle">
-        <button class="spin-btn" disabled="true">
-          Spin Your Future, Muggle
-        </button>
-        <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
-        <section class="puzz-input-area">
-          <label for="solve-puzzle"></label>
-          <input
-            id="solve-puzzle"
-            class="solve-puzzle-input"
-            type="text"
-            placeholder="Enter your destiny"
-          />
-          <button class="solve-puzzle-btn">
-            Solve The Puzzle You Broomstick!
-          </button>
-        </section>
-      </section>
-
       <section class="player-boxes">
         <article class="box player-1-box">
           <img src="./images/scroll.svg" alt="blank scroll" />
@@ -147,7 +137,6 @@
         </article>
       </section>
     </main>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
