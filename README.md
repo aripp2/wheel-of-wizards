@@ -15,11 +15,11 @@ As Module 2 students of the Front End Engingeering Program at Turing School of S
 
 ## How to Play:
 
-![wizard 2 image](./src/images/Wizard2.png)
+![wizard 2 image](./src/images/wizard2.png)
 
 ![wizard 1 image](./src/images/Wizard1.png)
 
-![wizard 3 image](./src/images/Wizard3.png)
+![wizard 3 image](./src/images/wizard3.png)
 
 ## Opportunities for Improvement:
 
