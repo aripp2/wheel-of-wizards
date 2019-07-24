@@ -1,11 +1,9 @@
+const expect = chai.expect;
+
 import chai from "chai";
 import Puzzle from "../src/Puzzle.js";
-import spies from "chai-spies";
 import data from "../src/data/sample-data";
 
-// chai.use(spies);
-
-const expect = chai.expect;
 
 describe("Puzzle", function() {
   let puzzle;

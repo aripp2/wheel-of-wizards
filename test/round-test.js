@@ -1,11 +1,11 @@
 import chai from "chai";
 import Game from "../src/Game";
 import Round from "../src/Round";
+const expect = chai.expect;
+
 import spies from "chai-spies";
 import data from "../src/data/sample-data";
 import domUpdates from "../src/domUpdates.js";
-
-const expect = chai.expect;
 
 chai.use(spies);
 

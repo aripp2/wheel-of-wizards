@@ -1,9 +1,8 @@
+const expect = chai.expect;
+
 import chai from "chai";
 import Player from "../src/Player.js";
-import spies from "chai-spies";
-import data from "../src/data/sample-data";
 
-const expect = chai.expect;
 
 describe("Player", function() {
   let player;
