@@ -17,7 +17,7 @@ chai.spy.on(
     "updatePlayerScores",
     "appendPuzzle",
     "createPuzzle",
-    "displayChampion",
+    "displayChampionBanner",
     "clearSpinValue",
     "displayCurrentRound",
     "bonusRoundChampion",
@@ -78,10 +78,10 @@ describe("Game", () => {
   });
 
   it("should declare a winner after four rounds", () => {
-    game.makeNewRound();
-    game.makeNewRound();
-    game.makeNewRound();
+    game.makeNewRound(game.players[0]);
+    game.makeNewRound(game.players[0]);
+    game.makeNewRound(game.players[0]);
     game.displayChampion();
-    expect(domUpdates.displayChampion).to.have.been.called(1);
+    expect(domUpdates.displayChampionBanner).to.have.been.called(1);
   });
 });
