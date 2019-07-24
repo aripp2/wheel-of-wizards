@@ -31,7 +31,7 @@ body {
   border: none;
   color: $hover-text-color;
   border-radius: 2px;
-  font-family: 'Henny Penny', cursive;
+  font-family: 'Ubuntu', sans-serif;
   &:hover {
     margin-left: 20px;
     transform: scale(1.5) perspective(1px);
@@ -142,7 +142,8 @@ h1 {
   font-size: 2em;
   margin-bottom: -30px;
   margin-top: 15px;
-
+  line-height: 30px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .puzzle-crystal-area {
@@ -153,12 +154,13 @@ h1 {
   padding: 10px;
   margin-bottom: -25px;
   h3 {
-    color: $text-color;
+    color: $dark-bg-text-color;
     font-weight: bold;
     font-size: 20px;
     font-family: 'Ubuntu', sans-serif;
-    background-color: #00000026;
+    background-color: #00000085;
     width: 50%;
+    line-height: 22px;
   }
 }
 
@@ -364,5 +366,6 @@ h1 {
   p {
     padding: 20px;
     font-family: 'Ubuntu', sans-serif;
+    line-height: 20px;
   }
 }
