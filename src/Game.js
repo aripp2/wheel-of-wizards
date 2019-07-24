@@ -2,9 +2,9 @@ import Game from "./Game.js";
 import Player from "./Player.js";
 import Puzzle from "./Puzzle.js";
 import Round from "./Round.js";
-import data from "./data/sample-data";
 import BonusRound from "./BonusRound.js";
 import domUpdates from "./domUpdates";
+// import data from "./data/sample-data";
 
 class Game {
   constructor(data) {
@@ -43,7 +43,8 @@ class Game {
   displayChampion() {
     this.roundCounter++;
     let champion = this.returnChampion();
-    domUpdates.displayChampion(champion);
+    domUpdates.displayChampionBanner(champion);
+    domUpdates.disableSpinBtn();
   }
 
   returnChampion() {

@@ -17,9 +17,6 @@ body {
   padding: 20px;
   text-align: center;
   font-size: 3em;
-  // background: $gradient-color;
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
   color: $welcome-banner-color;
   font-family: 'Henny Penny', cursive;
   font-weight: bold;
@@ -27,7 +24,8 @@ body {
 }
 
 .quit-game {
-  font-size: 15px;
+  margin: 20px 0 0 20px;
+  font-size: 20px;
   background-color:$quit-color;
   outline: 0;
   border: none;
@@ -67,6 +65,8 @@ form.splash {
   width: 40%;
   margin: auto;
   font-family: 'Henny Penny', cursive;
+  background-color: $instruction-btn-color;
+  color:$dark-bg-text-color;
     &:hover {
       background: $button-hover-color;
       color: $hover-text-color;
@@ -87,6 +87,37 @@ h1 {
   margin-bottom: -25px;
 }
 
+.play-bonus-prompt {
+  position: relative;
+}
+
+.play-prompt-1 {
+  width: 50px;
+  position: absolute;
+  left: 55px;
+  top: 130px;
+  font-family: 'Ubuntu', sans-serif;
+  color: $player-name-top-color;
+  font-size: 20px;
+}
+
+
+.play-prompt-2 {
+  width: 50px;
+  position: absolute;
+  top: 120px;
+  left: 43em;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  color: $player-name-top-color;
+}
+
+.bonus-round-button {
+   @extend .start-game;
+   width: 15%;
+   margin-top: 15px;
+}
+
 .puzzle-input-area {
   $border: 5px;
   color: #FFF;
@@ -105,10 +136,13 @@ h1 {
 }
 
 .turn-prompt {
-  text-align: center;
+  @extend .welcome-message;
+  color: $player-name-top-color;
+  text-shadow: 1px 1px black;
   font-size: 2em;
   margin-bottom: -30px;
   margin-top: 15px;
+
 }
 
 .puzzle-crystal-area {
@@ -122,6 +156,9 @@ h1 {
     color: $text-color;
     font-weight: bold;
     font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #00000026;
+    width: 50%;
   }
 }
 
@@ -146,12 +183,14 @@ h1 {
 }
 
 .display-round {
-  font-size: 2em;
+  font-size: 2.5em;
+  margin: 20px 20px 0 0;
   text-align: center;
   padding: 10px;
   position: absolute;
   top: 0;
   right: 20px;
+  color: #6D3D14;
 }
 
 .current-puzzle {
@@ -164,7 +203,7 @@ h1 {
 }
 
 .puzzle-container {
-  border-bottom: 1px solid $border-color;
+  border-bottom: 3px solid $border-color;
   height: 20px;
   width: 20px;
   margin: 5px;
@@ -177,7 +216,6 @@ h1 {
 .consonants {
   display: flex;
   justify-content: center;
-  // margin: 20px;
   button {
     font-size: 2em;
     outline: 0;
@@ -185,6 +223,8 @@ h1 {
     margin: 2px;
     border-radius: 50%;
     font-family: 'Henny Penny', cursive;
+    background-color: $instruction-btn-color;
+    color: $dark-bg-text-color;
     &:hover {
       background: $text-color;
       color: $hover-text-color;
@@ -221,6 +261,8 @@ h1 {
   border-radius: 0 2px 2px 0;
   font-family: 'Henny Penny', cursive;
   font-size: 20px;
+  background-color: $instruction-btn-color;
+  color: $dark-bg-text-color;
     &:hover {
       background: $button-hover-color;
       color: $hover-text-color;
@@ -243,10 +285,12 @@ h1 {
 }
 
 .solve-puzzle-input {
-   border: none;
-   height: 30px;
-   border-radius: 2px 0 0 2px;
-   font-family: 'Henny Penny', cursive;
+  padding-left: 10px;
+  border: none;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 2px 0 0 2px;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .player-boxes {
@@ -275,6 +319,8 @@ h1 {
           position: relative;
           bottom: 50px;
           color: $text-color;
+          margin-bottom: 20px;
+          font-size: 17px;
         }
       }
     }
@@ -297,4 +343,26 @@ h1 {
 
 .space {
   border: none;
+}
+
+.instructions {
+  @extend .quit-game;
+  background-color: $instruction-btn-color;
+}
+
+.inst {
+  height: 100%;
+  width: 60%;
+  z-index: 10;
+  margin: 0 auto;
+  background-color: $instructions-background;
+  border-radius: 3px;
+  button {
+    @extend .solve-puzzle-btn;
+    margin: 0 0 10px 0;
+  }
+  p {
+    padding: 20px;
+    font-family: 'Ubuntu', sans-serif;
+  }
 }

@@ -65,15 +65,18 @@ class BonusRound extends Round {
   guessOptions() {
     domUpdates.enableConsonants();
     domUpdates.enableVowels();
-    domUpdates.disableBonus();
     domUpdates.showPlayersBonusRoundGuess(this.puzzle, this.lettersPicked);
+    domUpdates.disableBonus();
   }
 
   solvePuzzle(playerGuess) {
     if (this.puzzle.correctAnswer.join("") === playerGuess.toUpperCase()) {
       this.champion.bank += this.currentSpin;
+      domUpdates.bonusRoundChampion(this.champion);
+      // domUpdates.showBonusRoundSolution(this.puzzle.correctAnswer);
       return true;
     } else {
+      domUpdates.lostBonusRound(this.champion.name, this.champion.bank);
       return false;
     }
   }

@@ -42,20 +42,18 @@ export default {
     console.log(puzzle.correctAnswer.join(""));
   },
 
-  displayChampion(champion) {
+  displayChampionBanner(champion) {
     let displayChamp = `<p>${
       champion.name
-    } is the Winner! Click to enter the Bonus Round!</p>
-    <button class="bonus-round-button">Start Bonus Round</button>
-    <p>Spin for great Prizes!</p>`;
+    } is the Winner!</p>
+    <button class="bonus-round-button">Click to start the Bonus Round!</button>`;
     $(".turn-prompt").html(`${displayChamp}`);
   },
 
   bonusRoundChampion(champion) {
     console.log("champ", champion);
-    let displayChamp = `<p>${champion.name} is the has won ${
-      champion.bank
-    } dollars!</p>`;
+    let displayChamp = `<p>Congrats ${champion.name} you won $${champion.bank}</p>
+    <p>Click Quit Game in the top left corner to play again!</p>`;
     $(".turn-prompt").html(`${displayChamp}`);
   },
 
@@ -88,6 +86,12 @@ export default {
       }
     });
   },
+
+  // showBonusRoundSolution(puzzleAnswer) {
+  //   puzzleAnswer.forEach(letter => {
+  //     $(`.${letter}`).show();
+  //   })
+  // },
 
   createPuzzle(answer) {
     let list = `<div class="current-puzzle">`;
@@ -157,20 +161,22 @@ export default {
   },
 
   appendBonusPrompts() {
-    $(".bonus-prompt-1").text(
-      "Click Spin to see the magical amount you can try to win!"
-    );
-    $(".bonus-prompt-2").text(
-      "Choose 3 consonants and 1 vowel, then enter your final guess!"
-    );
+    $('.turn-prompt').text('Click Spin to see the magical amount you can try to win! Choose 3 consonants and 1 vowel, then enter your final guess!');
     $(".buy-vowel-btn").hide();
   },
 
   disableBonus() {
-    var letters = ["R", "S", "T", "L", "N", "C"];
+    let letters = ["R", "S", "T", "L", "N"];
     letters.forEach(letter => {
-      $(`.cons${letter}`).attr("disabled", true);
+      $(`#cons${letter}`).attr("disabled", true);
     });
+    $('#vowelE').attr("disabled", true);
+
+  },
+
+  lostBonusRound(name, bank) {
+    $('.turn-prompt').html(`<p>Sorry ${name} that is not the correct answer. You still win $${bank}!</p>
+      <p>Click on Quit Game in the top left corner to start a new game.</p>`)
   },
 
   disableBuyVowel() {
@@ -181,10 +187,4 @@ export default {
     alert("Sorry Muggle! You are too poor!");
   },
 
-  disableBonus() {
-    var letters = ["R", "S", "T", "L", "N", "C"];
-    letters.forEach(letter => {
-      $(`.cons${letter}`).attr("disabled", true);
-    });
-  }
 };

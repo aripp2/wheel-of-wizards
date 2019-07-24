@@ -1,12 +1,12 @@
+const expect = chai.expect;
+
 import Game from "../src/Game.js";
-import data from "../src/data/sample-data";
 import Round from "../src/Round.js";
 import chai from "chai";
-import spies from "chai-spies";
+import data from "../src/data/sample-data";
 import domUpdates from "../src/domUpdates.js";
-// import Round from './Round.js';
+import spies from "chai-spies";
 
-const expect = chai.expect;
 chai.use(spies);
 
 chai.spy.on(

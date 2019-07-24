@@ -1,18 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
-
-    <title>Wheel of Wizards</title>
-    <link
-      href="https://fonts.googleapis.com/css?family=Calligraffitti&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <section class="welcome-section">
-      <h2 class="welcome-message">Welcome to Wheel of Wizards</h2>
+    <title> Wheel of Wizards </title>
+    <link href="https://fonts.googleapis.com/css?family=Henny+Penny|Ubuntu&display=swap" rel="stylesheet">  <body>
+    <section class='welcome-section'>
+      <h2 class='welcome-message'>Welcome to Wheel of Wizards</h2>
       <form class="splash" action="">
-        <label for="player-1">Player 1</label>
         <input
           id="player-1-input"
           class="name-inputs"
@@ -20,7 +13,6 @@
           type="text"
           placeholder="Enter Your Name, Muggle"
         />
-        <label for="player-2">Player 2</label>
         <input
           id="player-2-input"
           class="name-inputs"
@@ -28,7 +20,6 @@
           type="text"
           placeholder="Enter Your Name, Muggle"
         />
-        <label for="player-3">Player 3</label>
         <input
           id="player-3-input"
           class="name-inputs"
@@ -41,15 +32,27 @@
     </section>
     <main>
       <header>
-        <button class="quit-game">Quit Game</button>
-        <h1>Wheel of Wizards</h1>
-        <h3 class="display-round"></h3>
-        <h2 class="turn-prompt"></h2>
+      <button class="quit-game">Quit Game</button>
+      <button class="instructions">Instructions</button>
+      <h1 class="game-header">Wheel of Wizards</h1>
+      <h3 class="display-round"></h3>
+      <h2 class="turn-prompt"></h2>
       </header>
-
       <section class="puzzle-crystal-area">
-      <article class="play-prompt-1 bonus bonus-prompt-1"></article>
         <section class="crystal-ball">
+           <section class="inst">
+             <button class="btn">X</button>
+             <article>
+                <p class="inst-text">1) Start by clicking the "Spin Your Future, Muggle" button.</p>
+                <p class="inst-text">2) If the crystal displays numbers, choose a consonant and win that ammount for each time the letter appears.</p>
+                <p class="inst-text">3) If guess is in the puzzle, player gets another turn. If guess is not in the puzzle, it will be the next player's turn.</p>
+                <p class="inst-text">4) If player spins bankrupt or loose a turn, next player plays.</p>
+                <p class="inst-text">5) If player would like to Buy A Vowel, they should do so before spinning and must have at least $100 in there round score. Once vowel is selected $100 will be subtracted from their score regardless if the vowel is in the puzzle.</p>
+                <p class="inst-text">6) If player knows the answer, solve the puzzle by typing in the input. Be sure to include spaces and special charaters such as (&, ', ').</p>
+                <p class="inst-text">7) The first player to solve the puzzle will win that round and be the only one to bank their money. All players start each round score at $0.</p>
+                <p class="inst-text">8) After 4 Rounds, the player with the most money in their bank will have the opportunity to play in a Bonus Round to win a large amount of money!</p>
+             </article>
+           </section>
           <section class="crystal-spin">
             <img
               src="./images/crystal.png"
@@ -62,8 +65,7 @@
             <button class="spin-btn" disabled="true">Spin Your Future, Muggle</button>
             <button class="buy-vowel-btn" disabled="true">Buy A Vowel</button>
             <section class="puzz-input-area">
-              <label for="solve-puzzle"></label>
-              <input id="solve-puzzle" class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
+              <input class="solve-puzzle-input" type="text" placeholder="Enter your destiny">
               <button class="solve-puzzle-btn">Solve The Puzzle You Broomstick!</button>
             </section>
         </section>
@@ -72,7 +74,6 @@
           <section class="puzzle-input-area"></section>
           <h3>Hint: <span class="hint"></span></h3>
         </section>
-      <article class="play-prompt-2 bonus bonus-prompt-2"></article>
       </section>
       <section class="consonants">
         <button class="letter" id="consB" disabled="true">B</button>
@@ -138,6 +139,5 @@
       </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>
