@@ -1,13 +1,12 @@
 import $ from "jquery";
 
-// An example of how you tell webpack to use a CSS (SCSS) file
 import "./css/base.scss";
 import "./images/crystal.png";
 import "./images/scroll.svg";
 
 import Game from "./Game.js";
-import domUpdates from "./domUpdates";
 import BonusRound from "./BonusRound.js";
+import domUpdates from "./domUpdates";
 
 let game;
 let bonusRound;
@@ -40,7 +39,6 @@ function startGame(data, player1, player2, player3) {
   game = new Game(data);
   game.createPlayers(player1, player2, player3);
   game.makeNewRound(game.players[0]);
-
   domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
   domUpdates.appendPuzzle(game.round.puzzle);
   $('.welcome-section').slideUp('slow');
@@ -52,8 +50,8 @@ function startGame(data, player1, player2, player3) {
 
 $(".spin-btn").click(event => {
   event.preventDefault();
+  domUpdates.disableSpinBtn();
   domUpdates.enableConsonants();
-  console.log(game.roundCounter);
   if (game.roundCounter <= 4) {
     domUpdates.disableUsedConsonants(game.round.lettersUsed);
     game.round.spinWheel();
@@ -70,6 +68,7 @@ $(".spin-btn").click(event => {
 $(".consonants").click(event => {
   event.preventDefault();
   if (game.roundCounter <= 4) {
+    domUpdates.enableSpinBtn();
     var guess = $(event.target)
       .closest(".letter")
       .text();
@@ -78,10 +77,12 @@ $(".consonants").click(event => {
     domUpdates.clearSpinValue();
     domUpdates.disableConsonants();
   } else {
-    var guess = $(event.target)
+    let guess = $(event.target)
       .closest(".letter")
       .text();
+    domUpdates.appendLetter(guess);
     bonusRound.lettersPicked.push(guess);
+    domUpdates.disableUsedConsonants(bonusRound.lettersPicked);
     console.log(bonusRound.lettersPicked);
     if (bonusRound.lettersPicked.length === 3) {
       domUpdates.disableConsonants();
@@ -122,6 +123,8 @@ $(".vowels").click(event => {
 
 $(".solve-puzzle-btn").click(event => {
   event.preventDefault();
+  domUpdates.enableSpinBtn();
+  domUpdates.clearSpinValue();
   let playerGuess = $(".solve-puzzle-input").val();
   let result = game.round.solvePuzzle(playerGuess);
   $(".solve-puzzle-input").val("");
@@ -130,14 +133,11 @@ $(".solve-puzzle-btn").click(event => {
     game.makeNewRound(roundWinner);
     domUpdates.appendPuzzle(game.round.puzzle);
   } else if (result && game.roundCounter === 4) {
+    game.players.forEach(player => (player.score = 0));
     domUpdates.updatePlayerScores(game.players);
     game.displayChampion();
   } else if (game.roundCounter === 5) {
-    console.log(bonusRound.champion);
-    let money = $(".spin-value").text("");
-    console.log(money);
-    bonusRound.solvePuzzle(playerGuess, money);
-    domUpdates.bonusRoundChampion(bonusRound.champion);
+    bonusRound.solvePuzzle(playerGuess);
   } else {
     game.round.findCurrentPlayer();
     domUpdates.updateCurrentPlayerName(game.round.currentPlayer.name);
@@ -147,7 +147,6 @@ $(".solve-puzzle-btn").click(event => {
 $(".turn-prompt").on("click", event => {
   if (event.target.className === "bonus-round-button") {
     event.preventDefault();
-    console.log("linked");
     bonusRound = new BonusRound(
       game.puzzles,
       game.wheel,
@@ -155,10 +154,10 @@ $(".turn-prompt").on("click", event => {
       game.returnChampion()
     );
     domUpdates.disableConsonants();
-    console.log(bonusRound);
     domUpdates.appendBonusPuzzle(bonusRound.puzzle);
     domUpdates.displayBonusRound();
     domUpdates.appendBonusPrompts();
+    domUpdates.enableSpinBtn();
   }
 });
 

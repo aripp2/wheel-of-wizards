@@ -59,10 +59,12 @@ class Round {
       domUpdates.updateCurrentPlayerScore(this.currentPlayer);
       this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+      domUpdates.enableSpinBtn();
     } else if (this.currentSpin === "LOSE A TURN") {
       domUpdates.disableConsonants();
       this.findCurrentPlayer();
       domUpdates.updateCurrentPlayerName(this.currentPlayer.name);
+      domUpdates.enableSpinBtn();
     } else {
       domUpdates.enableConsonants();
       domUpdates.disableUsedConsonants(this.lettersUsed);
@@ -117,7 +119,6 @@ class Round {
       this.currentPlayer.bank += this.currentPlayer.score;
       domUpdates.updateCurrentPlayerBank(this.currentPlayer);
       this.lettersUsed = [];
-      domUpdates.enableConsonants();
       return true;
     } else {
       return false;

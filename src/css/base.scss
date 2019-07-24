@@ -24,7 +24,8 @@ body {
 }
 
 .quit-game {
-  font-size: 15px;
+  margin: 20px 0 0 20px;
+  font-size: 20px;
   background-color:$quit-color;
   outline: 0;
   border: none;
@@ -182,7 +183,8 @@ h1 {
 }
 
 .display-round {
-  font-size: 2em;
+  font-size: 2.5em;
+  margin: 20px 20px 0 0;
   text-align: center;
   padding: 10px;
   position: absolute;
@@ -283,11 +285,12 @@ h1 {
 }
 
 .solve-puzzle-input {
+  padding-left: 10px;
   border: none;
   height: 30px;
   font-size: 20px;
   border-radius: 2px 0 0 2px;
-  font-family: 'Henny Penny', cursive;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .player-boxes {
@@ -348,8 +351,8 @@ h1 {
 }
 
 .inst {
-  height: 300px;
-  width: 40%;
+  height: 100%;
+  width: 60%;
   z-index: 10;
   margin: 0 auto;
   background-color: $instructions-background;
