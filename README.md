@@ -11,15 +11,15 @@ As Module 2 students of the Front End Engingeering Program at Turing School of S
 1. Clone down this repo.
 2. In your terminal run ```npm install```
 3. Next run ```npm start```
-4. Now you can go to [in your browser](http://localhost:8080/) to play Wheel of Wizards! 
+4. Now you can go to `http://localhost:8080/` to play Wheel of Wizards! 
 
 ## How to Play:
 
-![Instructions](./images/wizard2.png)
+![](images/wizard2.png)
 
-![Game Play](./images/wizard1.png)
+![](images/wizard1.png)
 
-![Game Play](./images/wizard3.png)
+![](images/wizard3.png)
 
 
 ## Opportunities for Improvement:
