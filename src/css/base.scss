@@ -86,6 +86,37 @@ h1 {
   margin-bottom: -25px;
 }
 
+.play-bonus-prompt {
+  position: relative;
+}
+
+.play-prompt-1 {
+  width: 50px;
+  position: absolute;
+  left: 55px;
+  top: 130px;
+  font-family: 'Ubuntu', sans-serif;
+  color: $player-name-top-color;
+  font-size: 20px;
+}
+
+
+.play-prompt-2 {
+  width: 50px;
+  position: absolute;
+  top: 120px;
+  left: 43em;
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;
+  color: $player-name-top-color;
+}
+
+.bonus-round-button {
+   @extend .start-game;
+   width: 15%;
+   margin-top: 15px;
+}
+
 .puzzle-input-area {
   $border: 5px;
   color: #FFF;
@@ -157,6 +188,7 @@ h1 {
   position: absolute;
   top: 0;
   right: 20px;
+  color: #6D3D14;
 }
 
 .current-puzzle {
